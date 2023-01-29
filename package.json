@@ -2,13 +2,8 @@
   "name": "social-network-obsidian",
   "version": "1.0.0",
   "description": "Social network on Typescript/React/Redux",
-  "main": "index.ts",
-  "scripts": {
-    "start": "set PORT=3001 && react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
+  "main": "index.tsx",
+  "private": "true",
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.1",
     "@testing-library/jest-dom": "^5.16.5",
@@ -32,10 +27,15 @@
     "web-vitals": "^2.1.4",
     "yup": "^0.32.11"
   },
+  "scripts": {
+    "start": "set PORT=3001 && react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
   "eslintConfig": {
     "extends": [
-      "react-app",
-      "react-app/jest"
+      "react-app"
     ]
   },
   "browserslist": {

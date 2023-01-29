@@ -1,12 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import {App} from './app/ui/App';
+import reportWebVitals from './reportWebVitals';
 
-import {App} from './App';
+const rootHTMLElement: HTMLElement | null = document.getElementById('root');
 
-const root = ReactDOM.createRoot(document.getElementById('root') as HTMLDivElement);
-
-root.render(
-    <App/>
-);
+if (rootHTMLElement) {
+    ReactDOM.createRoot(rootHTMLElement).render(<App />);
+}
 
 reportWebVitals();
+
+
