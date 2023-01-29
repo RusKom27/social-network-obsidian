@@ -1,0 +1,9 @@
+@import "src/shared/lib/style-variables/variables.scss";
+@import "src/shared/lib/css-reset/css-reset.scss";
+
+.container {
+  display: flex;
+  flex-direction: column;
+  min-width: 100px;
+  min-height: 100vh;
+}

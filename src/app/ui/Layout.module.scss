@@ -1,0 +1,21 @@
+@import "src/shared/lib/style-variables/variables.scss";
+@import "src/shared/lib/css-reset/css-reset.scss";
+
+body {
+  background-color: $primary-color;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  width: 900px;
+  margin-inline: auto;
+  min-height: 100vh;
+  background-color: transparentize($secondary-color, 0.95);
+  color: $tertiary-color;
+
+  .content {
+    min-height: 100vh;
+    width: 100%;
+  }
+}

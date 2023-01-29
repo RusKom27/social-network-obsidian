@@ -1,11 +1,15 @@
 import React from "react"
+import Layout from "./Layout";
 
-export const App = () => {
+const App = () => {
     return (
-        <div>Main</div>
+        <Layout>
+            Main
+        </Layout>
     );
 }
 
+export default App
 
 
 
