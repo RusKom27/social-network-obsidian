@@ -1,0 +1,25 @@
+
+@font-face {
+  font-family: "Sen Regular";
+  src: url('Sen-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: "Sen Bold";
+  src: url('Sen-Bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: "Sen ExtraBold";
+  src: url('Sen-ExtraBold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: "Sora";
+  src: url('Sora.ttf') format('truetype');
+}
+
+$sen-regular-font: "Sen Regular", sans-serif;
+$sen-bold-font: "Sen Bold", sans-serif;
+$sen-extra-bold-font: "Sen ExtraBold", sans-serif;
+$sora-font: "Sora", sans-serif;

@@ -1,0 +1,27 @@
+@import "src/shared/lib/style-variables/variables";
+@import "src/shared/fonts/fonts";
+
+
+.container {
+  $logo-size: 40px;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  max-height: 50px;
+  gap: 12px;
+
+  > svg {
+    height: $logo-size;
+    width: $logo-size;
+    min-width: $logo-size;
+    min-height: $logo-size;
+    fill: $tertiary-color
+  }
+
+  > span {
+    font-size: 30px;
+    font-family: $sen-regular-font;
+    text-align: center;
+  }
+}

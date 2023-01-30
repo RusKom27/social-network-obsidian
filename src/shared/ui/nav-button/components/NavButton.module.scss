@@ -1,0 +1,21 @@
+@import "../../../lib/style-variables/variables";
+
+.container {
+  display: inline;
+  flex-direction: row;
+  margin-top: 8px;
+  text-decoration: none;
+  color: $tertiary-color;
+  font-size: 18px;
+  padding: 16px;
+  border-radius: 50px;
+  transition: 0.1s;
+
+  &:hover {
+    background-color: transparentize($tertiary-color, 0.9);
+  }
+}
+
+.active {
+  font-weight: 700;
+}

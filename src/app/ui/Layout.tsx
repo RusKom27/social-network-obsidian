@@ -1,7 +1,8 @@
 import React, {FC, ReactNode} from 'react';
 
 import styles from "./Layout.module.scss"
-import {Navbar} from "../../widgets/navbar";
+import {Navbar} from "../../widgets";
+import {BrowserRouter} from "react-router-dom";
 
 interface PropsType {
     children: ReactNode
@@ -9,12 +10,14 @@ interface PropsType {
 
 const Layout: FC<PropsType> = ({children}) => {
     return (
-        <div className={styles.container}>
-            <Navbar />
-            <div className={styles.content}>
-                {children}
+        <BrowserRouter>
+            <div className={[styles.container, ".light_theme"].join(' ')}>
+                <Navbar />
+                <div className={styles.content}>
+                    {children}
+                </div>
             </div>
-        </div>
+        </BrowserRouter>
     );
 }
 
