@@ -42,7 +42,9 @@ const NavButton: FC<PropsType> = (
             data-size={size}
             data-border={border}
         >
-            <FillableIcon filled={activeLink} type={icon_type}/>
+            {icon_type && <div>
+                <FillableIcon filled={activeLink} type={icon_type} size={2}/>
+            </div>}
             <div>{children}</div>
         </NavLink>
     )

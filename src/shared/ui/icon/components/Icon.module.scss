@@ -6,10 +6,8 @@
   $logo-size: 40px;
 
   display: flex;
-  flex-direction: row;
+  justify-items: center;
   align-items: center;
-  max-height: 50px;
-  gap: 12px;
 
   > svg {
     height: $logo-size;
@@ -19,9 +17,22 @@
     fill: $tertiary-color
   }
 
-  > span {
-    font-size: 30px;
-    font-family: $sen-regular-font;
-    text-align: center;
+  &[data-size='0'] {
+    $logo-size: 10px;
+  }
+  &[data-size='1'] {
+    $logo-size: 20px;
+  }
+  &[data-size='2'] {
+    $logo-size: 30px;
+  }
+  &[data-size='3'] {
+    $logo-size: 40px;
+  }
+  &[data-size='4'] {
+    $logo-size: 50px;
+  }
+  &[data-size='5'] {
+    $logo-size: 60px;
   }
 }

@@ -12,10 +12,10 @@ interface PropsType {
 const Navbar: FC<PropsType> = () => {
     return (
         <nav className={styles.container}>
-            <NavButton to={"/"}><Icon type={"Logo"}/></NavButton>
+            <NavButton to={"/"}><Icon type={"Logo"} size={3}/></NavButton>
             <NavButton to={"/"} icon_type={"Home"}>Main</NavButton>
-            <NavButton to={"/messages"} icon_type={"Home"}>Messages</NavButton>
-            <NavButton to={"/notifications"} icon_type={"Home"}>Notifications</NavButton>
+            <NavButton to={"/messages"} icon_type={"Messages"}>Messages</NavButton>
+            <NavButton to={"/notifications"} icon_type={"Notifications"}>Notifications</NavButton>
         </nav>
     );
 }

@@ -9,16 +9,21 @@ export type FillableIconType = "Home" | "Profile" | "Search" | "Bookmark" | "Not
 interface PropsType {
     filled: boolean
     type?: FillableIconType
+    size: 0 | 1 | 2 | 3 | 4 | 5
 }
 
-const FillableIcon: FC<PropsType> = ({filled, type}) => {
+const FillableIcon: FC<PropsType> = ({filled, type, size}) => {
     if (!type) return null
 
     const icon_key = `${type}${filled ? "Filled" : ''}SVG`
 
     const IconComponent =  FillableIcons[icon_key as keyof typeof FillableIcons]
 
-    return <IconComponent />
+    return (
+        <div className={styles.container} data-size={size}>
+            <IconComponent />
+        </div>
+    )
 }
 
 export default FillableIcon;
