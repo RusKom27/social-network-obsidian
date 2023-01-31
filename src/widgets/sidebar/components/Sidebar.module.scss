@@ -1,0 +1,10 @@
+@import "../../../shared/lib/style-variables/variables";
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  margin-inline: 12px;
+  min-width: 250px;
+  min-height: 100vh;
+}
