@@ -1,8 +1,9 @@
 @import "../../../lib/style-variables/variables";
 
 .container {
-  display: inline;
+  display: flex;
   flex-direction: row;
+  justify-content: center;
   margin-top: 8px;
   text-decoration: none;
   color: $tertiary-color;
@@ -14,6 +15,13 @@
   &:hover {
     background-color: transparentize($tertiary-color, 0.9);
   }
+
+  svg {
+    width: 32px;
+    height: 32px;
+    fill: $tertiary-color;
+  }
+
 }
 
 .active {

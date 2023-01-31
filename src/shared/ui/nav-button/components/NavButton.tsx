@@ -1,9 +1,10 @@
-import React, {FC, ReactNode, useRef} from 'react';
+import React, {ComponentProps, FC, ReactNode, useState} from 'react';
 
 import {NavLink} from "react-router-dom";
+import {FillableIcon, FillableIconType} from "../../fillable-icon";
 
 import styles from "./NavButton.module.scss"
-import * as fs from "fs";
+
 
 interface PropsType {
     children: ReactNode | string
@@ -11,6 +12,7 @@ interface PropsType {
     type?: "submit" | "reset" | "button"
     size?: 0 | 1 | 2 | 3 | 4 | 5
     border?: boolean
+    icon_type?: FillableIconType
     classNames?: string[]
 }
 
@@ -21,13 +23,17 @@ const NavButton: FC<PropsType> = (
         type,
         size,
         border,
+        icon_type,
         classNames = []
     }
     ) => {
     const classList = [styles.container, ...classNames]
+    const [activeLink, switchActiveLink] = useState(false)
     const activeClassName = (({isActive}) => {
+        switchActiveLink(isActive)
         return isActive ? [styles.active, ...classList].join(' ') : classList.join(' ')
     }) as (isActive: any) => any
+
     return (
         <NavLink
             to={to}
@@ -36,7 +42,8 @@ const NavButton: FC<PropsType> = (
             data-size={size}
             data-border={border}
         >
-            {children}
+            <FillableIcon filled={activeLink} type={icon_type}/>
+            <div>{children}</div>
         </NavLink>
     )
 }
