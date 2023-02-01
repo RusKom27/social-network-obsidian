@@ -11,7 +11,14 @@ interface PropsType {
 const Layout: FC<PropsType> = ({children}) => {
     return (
         <div className={ styles.container }>
-            { children }
+            <div>
+                <div className={styles.header}>
+                    <div>
+                        Home
+                    </div>
+                </div>
+                { children }
+            </div>
             <Sidebar/>
         </div>
     )

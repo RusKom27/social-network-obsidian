@@ -3,36 +3,36 @@
 
 
 .container {
-  $logo-size: 40px;
+  --logo-size: 40px;
 
   display: flex;
   justify-items: center;
   align-items: center;
 
   > svg {
-    height: $logo-size;
-    width: $logo-size;
-    min-width: $logo-size;
-    min-height: $logo-size;
+    max-height: var(--logo-size);
+    max-width: var(--logo-size);
+    min-width: var(--logo-size);
+    min-height: var(--logo-size);
     fill: $tertiary-color
   }
 
   &[data-size='0'] {
-    $logo-size: 10px;
+    --logo-size: 10px;
   }
   &[data-size='1'] {
-    $logo-size: 20px;
+    --logo-size: 20px;
   }
   &[data-size='2'] {
-    $logo-size: 30px;
+    --logo-size: 30px;
   }
   &[data-size='3'] {
-    $logo-size: 40px;
+    --logo-size: 40px;
   }
   &[data-size='4'] {
-    $logo-size: 50px;
+    --logo-size: 50px;
   }
   &[data-size='5'] {
-    $logo-size: 60px;
+    --logo-size: 60px;
   }
 }

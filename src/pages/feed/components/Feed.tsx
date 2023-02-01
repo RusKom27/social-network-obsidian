@@ -1,6 +1,7 @@
 import React, {FC} from "react";
 
 import Layout from "./Layout";
+import {PostCardList} from "../../../widgets";
 
 interface PropsType {
 
@@ -9,7 +10,7 @@ interface PropsType {
 const Feed: FC<PropsType> = () => {
     return (
         <Layout>
-            <div> FEED </div>
+            <PostCardList/>
         </Layout>
     )
 }

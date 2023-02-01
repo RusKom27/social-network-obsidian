@@ -6,6 +6,31 @@
   flex-direction: column;
   align-items: start;
   margin-inline: 12px;
-  min-width: 250px;
-  min-height: 100vh;
+  max-width: $navbar-full-width;
 }
+
+
+@media (max-width: 768px) {
+  .container {
+    margin-inline: 4px;
+  }
+}
+
+@media (min-width: 768px) {}
+
+@media (max-width: 992px) {
+  .container {
+    max-width: $navbar-minimized-width;
+    a {
+      font-size: 0;
+      div {
+        display: none;
+      }
+      div:has(svg) {
+        display: flex;
+      }
+    }
+  }
+}
+
+@media (min-width: 1200px) {}

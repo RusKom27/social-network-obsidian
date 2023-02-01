@@ -2,7 +2,7 @@ import React, {FC, ReactNode} from 'react';
 
 import styles from "./Button.module.scss"
 
-interface PropsType {
+export interface ButtonPropsType {
     children: ReactNode | string
     type?: "submit" | "reset" | "button"
     size?: 0 | 1 | 2 | 3 | 4 | 5
@@ -10,7 +10,7 @@ interface PropsType {
     classNames?: string[]
 }
 
-const Button: FC<PropsType> = (
+const Button: FC<ButtonPropsType> = (
     {
         children,
         type,

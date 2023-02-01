@@ -3,4 +3,27 @@
 .container {
   display: flex;
   flex-direction: row;
+  height: 1200px;
+  overflow-x: clip;
+
+  > div:first-child {
+    flex: 9;
+  }
+
+  > div:last-child {
+    flex: 3;
+  }
+}
+
+.header {
+  top: -0.5px;
+  position: sticky;
+  backface-visibility: hidden;
+  box-sizing: border-box;
+  height: 40px;
+  background-color: transparentize($tertiary-color, 0.9);
+  border-bottom: 1px solid transparentize($tertiary-color, 0.9);
+  > div {
+
+  }
 }
