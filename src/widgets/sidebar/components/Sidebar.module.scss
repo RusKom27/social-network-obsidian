@@ -1,6 +1,7 @@
-@import "../../../shared/lib/style-variables/variables";
+@import "../../../shared/themes/style-variables/variables";
 
 .container {
+  flex: 3;
   display: flex;
   flex-direction: column;
   align-items: start;

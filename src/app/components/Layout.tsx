@@ -18,14 +18,11 @@ const Layout: FC<PropsType> = ({children}) => {
                 <div className={styles.header}>
                     <div>
                         <Navbar />
-                        {isAuth && <HeaderUserButton/>}
-                        {!isAuth &&
-                            <div>
-                                <LinkButton to={"/registration"}>Registration</LinkButton>
-                                <LinkButton to={"/login"}>Login</LinkButton>
-                            </div>
-                        }
-
+                        <div className={styles.auth}>
+                            {isAuth && <HeaderUserButton/>}
+                            {!isAuth && <LinkButton to={"/registration"}>Registration</LinkButton>}
+                            {!isAuth && <LinkButton to={"/login"}>Login</LinkButton>}
+                        </div>
                     </div>
                 </div>
                 <div className={styles.content}>

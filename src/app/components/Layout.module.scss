@@ -1,6 +1,6 @@
-@import "src/shared/lib/style-variables/variables";
+@import "src/shared/themes/style-variables/variables";
 @import "src/shared/fonts/fonts";
-@import "src/shared/lib/css-reset/css-reset.scss";
+@import "src/shared/themes/css-reset/css-reset.scss";
 
 body {
   background-color: $primary-color;
@@ -13,12 +13,13 @@ body {
   margin-inline: auto;
   min-height: 100vh;
   color: $tertiary-color;
-  background-color: transparentize($tertiary-color, 0.9);
   max-width: 80%;
 
   .content {
     min-height: 100vh;
     flex: 11;
+    display: flex;
+    flex-direction: row;
     width: 100%;
     border-left: 1px solid transparentize($tertiary-color, 0.9);
   }
@@ -33,6 +34,10 @@ body {
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+
+      .auth {
+        padding: 20px;
+      }
     }
   }
 }

@@ -7,15 +7,15 @@ interface PropsType {
 
 }
 
-const Feed: FC<PropsType> = () => {
+const Profile: FC<PropsType> = () => {
     return (
         <>
-            <PageDefaultLayout header={"Home"}>
-                <PostCardList/>
+            <PageDefaultLayout header={"Profile"}>
+                <div>Profile</div>
             </PageDefaultLayout>
             <Sidebar/>
         </>
     )
 }
 
-export default Feed;
+export default Profile;

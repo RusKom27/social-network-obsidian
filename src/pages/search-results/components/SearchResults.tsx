@@ -1,21 +1,21 @@
 import React, {FC} from "react";
 
-import {PostCardList, Sidebar} from "../../../widgets";
+import {Sidebar} from "../../../widgets";
 import {PageDefaultLayout} from "../../../shared/ui";
 
 interface PropsType {
 
 }
 
-const Feed: FC<PropsType> = () => {
+const SearchResults: FC<PropsType> = () => {
     return (
         <>
-            <PageDefaultLayout header={"Home"}>
-                <PostCardList/>
+            <PageDefaultLayout header={"Results"}>
+                <div>Search Results</div>
             </PageDefaultLayout>
             <Sidebar/>
         </>
     )
 }
 
-export default Feed;
+export default SearchResults;

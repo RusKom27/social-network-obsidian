@@ -1,0 +1,8 @@
+@import "../../../themes/style-variables/variables";
+
+.container {
+  display: flex;
+  flex: 9;
+  flex-direction: column;
+  height: 1200px;
+}
