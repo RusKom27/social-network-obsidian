@@ -1,0 +1,25 @@
+@import "../../../themes/style-variables/variables";
+
+.background {
+  display: flex;
+  position: fixed;
+  justify-content: center;
+  align-items: center;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: transparentize($primary-color, 0.3);
+  z-index: 999;
+  align-content: center;
+}
+
+.container {
+  width: clamp(50%, 700px, 90%);
+  color: $tertiary-color;
+  max-height: 80%;
+  padding: 20px;
+  border-radius: 25px;
+  background-color: $primary-color;
+  border: 1px solid $secondary-color;
+}

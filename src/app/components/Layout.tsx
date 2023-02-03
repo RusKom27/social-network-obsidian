@@ -3,7 +3,7 @@ import React, {FC, ReactNode, useState} from 'react';
 import styles from "./Layout.module.scss"
 import {HeaderUserButton, Navbar} from "../../widgets";
 import {BrowserRouter} from "react-router-dom";
-import {LinkButton} from "../../shared/ui";
+import {OpenLoginModalWindow, OpenRegistrationModalWindow} from "../../features";
 
 interface PropsType {
     children: ReactNode
@@ -20,8 +20,8 @@ const Layout: FC<PropsType> = ({children}) => {
                         <Navbar />
                         <div className={styles.auth}>
                             {isAuth && <HeaderUserButton/>}
-                            {!isAuth && <LinkButton to={"/registration"}>Registration</LinkButton>}
-                            {!isAuth && <LinkButton to={"/login"}>Login</LinkButton>}
+                            {!isAuth && <OpenRegistrationModalWindow/>}
+                            {!isAuth && <OpenLoginModalWindow/>}
                         </div>
                     </div>
                 </div>
