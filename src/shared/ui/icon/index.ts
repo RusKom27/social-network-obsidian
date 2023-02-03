@@ -1,8 +1,10 @@
 import Icon from "./components/Icon"
-import {IconType} from "./components/Icon";
+import FillableIcon from "./components/FillableIcon"
+import {IconType, FillableIconType} from "./types";
 
 export {
     Icon,
+    FillableIcon
 }
 
-export type {IconType}
+export type {IconType, FillableIconType}

@@ -1,19 +1,17 @@
 import React from "react"
 import Layout from "./Layout";
-import RoutesComponent from "./RoutesComponent";
-import {ModalWindowProvider} from "../../shared/lib/contexts";
+import RoutesComponent from "../../routes";
+import {withProviders} from "../providers";
 
 const App = () => {
     return (
-        <ModalWindowProvider>
-            <Layout>
-                <RoutesComponent/>
-            </Layout>
-        </ModalWindowProvider>
+        <Layout>
+            <RoutesComponent/>
+        </Layout>
     );
 }
 
-export default App
+export default withProviders(App)
 
 
 

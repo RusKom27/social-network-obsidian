@@ -1,7 +1,7 @@
 import React, {FC} from 'react';
 
 import {Link} from "react-router-dom";
-import {FillableIconType} from "../../fillable-icon";
+import {FillableIconType} from "../../icon";
 
 import styles from "./LinkButton.module.scss"
 import {Button, ButtonPropsType} from "../../button";

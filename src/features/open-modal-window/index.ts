@@ -1,0 +1,1 @@
+export {OpenModalWindow} from "./components/OpenModalWindow"

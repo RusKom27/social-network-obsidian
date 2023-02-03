@@ -3,9 +3,7 @@ import React, {FC} from 'react';
 import {Icons} from "../../../images/svg"
 
 import styles from "./Icon.module.scss"
-import {FillableIconType} from "../../fillable-icon";
-
-export type IconType = "Logo" | "More" | "Settings"
+import {FillableIconType, IconType} from "../types";
 
 interface PropsType {
     type: IconType | FillableIconType

@@ -2,9 +2,8 @@ import React, {FC} from 'react';
 
 import {FillableIcons} from "../../../images/svg"
 
-import styles from "./FillableIcon.module.scss"
-
-export type FillableIconType = "Home" | "Profile" | "Search" | "Bookmark" | "Notifications" | "Messages"
+import styles from "./Icon.module.scss"
+import {FillableIconType} from "../types";
 
 interface PropsType {
     filled: boolean

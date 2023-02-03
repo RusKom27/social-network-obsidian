@@ -1,1 +1,0 @@
-export {OpenRegistrationModalWindow} from "./components/OpenRegistrationModalWindow"

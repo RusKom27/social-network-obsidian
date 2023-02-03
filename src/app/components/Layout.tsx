@@ -1,35 +1,25 @@
-import React, {FC, ReactNode, useState} from 'react';
+import React, {FC, ReactNode} from 'react';
 
 import styles from "./Layout.module.scss"
-import {HeaderUserButton, Navbar} from "../../widgets";
-import {BrowserRouter} from "react-router-dom";
-import {OpenLoginModalWindow, OpenRegistrationModalWindow} from "../../features";
+import {AuthBar, Navbar} from "../../widgets";
 
 interface PropsType {
     children: ReactNode
 }
 
 const Layout: FC<PropsType> = ({children}) => {
-    const [isAuth, setAuth] = useState(false)
-
     return (
-        <BrowserRouter>
-            <div className={styles.container}>
-                <div className={styles.header}>
-                    <div>
-                        <Navbar />
-                        <div className={styles.auth}>
-                            {isAuth && <HeaderUserButton/>}
-                            {!isAuth && <OpenRegistrationModalWindow/>}
-                            {!isAuth && <OpenLoginModalWindow/>}
-                        </div>
-                    </div>
-                </div>
-                <div className={styles.content}>
-                    {children}
+        <div className={styles.container}>
+            <div className={styles.header}>
+                <div>
+                    <Navbar />
+                    <AuthBar />
                 </div>
             </div>
-        </BrowserRouter>
+            <div className={styles.content}>
+                {children}
+            </div>
+        </div>
     );
 }
 

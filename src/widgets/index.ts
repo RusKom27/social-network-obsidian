@@ -1,4 +1,5 @@
 export * from "./navbar"
+export * from "./auth-bar"
 export * from "./sidebar"
 export * from "./post-card"
 export * from "./header-user-button"
