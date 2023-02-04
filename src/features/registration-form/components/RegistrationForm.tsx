@@ -3,11 +3,11 @@ import {ErrorMessage, Field, Form, Formik} from "formik";
 import {authApi} from "../../../shared/api";
 import {useNavigate} from "react-router-dom";
 import * as Yup from "yup"
-import {Button} from "../../../shared/ui";
+import {Button, DefaultField} from "../../../shared/ui";
 
 export const RegistrationForm = () => {
     const navigate = useNavigate()
-    // const [registration, {isSuccess}] = authApi.useRegistrationMutation()
+    const [registration, {isSuccess}] = authApi.useRegistrationMutation()
 
     return (
         <Formik
@@ -27,45 +27,44 @@ export const RegistrationForm = () => {
                     .required('Required'),
             })}
             onSubmit={(values, { setSubmitting }) => {
-                // registration({
-                //     name: values.name,
-                //     login: values.login,
-                //     email: values.email,
-                //     password: values.password
-                // })
-                // if (isSuccess) {
-                //     setSubmitting(false)
-                //     navigate(`/`)
-                // }
+                registration({
+                    name: values.name,
+                    login: values.login,
+                    email: values.email,
+                    password: values.password
+                })
+                if (isSuccess) {
+                    setSubmitting(false)
+                    navigate(`/`)
+                }
             }}
         >
-            <Form>
-                <div>
-                    <div>
-                        <label htmlFor="name">Name</label>
-                        <label htmlFor="login">Login</label>
-                        <label htmlFor="email">Email</label>
-                        <label htmlFor="password">Password</label>
+            {props => {
+                const {
+                    values,
+                    dirty,
+                    isSubmitting,
+                    handleChange,
+                    handleBlur,
+                    handleSubmit,
+                    handleReset
+                } = props;
+                return (
+                    <form onSubmit={handleSubmit}>
+                        <div>
+                            <Field name={"name"} type={"text"} component={DefaultField}>Name</Field>
+                            <Field name={"login"} type={"text"} component={DefaultField}>Login</Field>
+                            <Field name={"email"} type={"email"} component={DefaultField}>Email</Field>
+                            <Field name={"password"} type={"password"} component={DefaultField}>Password</Field>
+                        </div>
+                        <div>
+                            <Button type="submit">Registration</Button>
+                        </div>
+                    </form>
+                )
+            }
+            }
 
-                    </div>
-                    <div>
-                        <Field name="name" type="text" />
-                        <Field name="login" type="text" />
-                        <Field name="email" type="email" />
-                        <Field name="password" type="password" />
-
-                    </div>
-                    <div>
-                        <div><ErrorMessage name="name" /></div>
-                        <div><ErrorMessage name="login" /></div>
-                        <div><ErrorMessage name="email" /></div>
-                        <div><ErrorMessage name="password" /></div>
-                    </div>
-                </div>
-                <div>
-                    <Button type="submit">Registration</Button>
-                </div>
-            </Form>
         </Formik>
     );
 };

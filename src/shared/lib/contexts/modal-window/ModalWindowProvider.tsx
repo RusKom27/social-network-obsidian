@@ -22,12 +22,12 @@ export const ModalWindowProvider: FC<PropsType> = ({children}) => {
 
     return (
         <ModalWindowContext.Provider value={{openModalWindow, closeModalWindow}}>
+            {children}
             {isModalWindowOpened &&
                 <ModalWindow title={modalWindowContent?.title}>
                     {modalWindowContent?.children}
                 </ModalWindow>
             }
-            {children}
         </ModalWindowContext.Provider>
     )
 }

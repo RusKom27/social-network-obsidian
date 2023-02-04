@@ -1,0 +1,33 @@
+@import "../../../themes/style-variables/variables";
+
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 8px;
+  gap: 8px;
+  width: 100%;
+
+  > label {
+    display: flex;
+    width: 140px;
+    align-items: center;
+  }
+
+  > .error_message {
+    display: flex;
+    align-items: center;
+    width: 140px;
+  }
+  input {
+    font-size: 16px;
+    border-radius: 25px;
+    border: 1px solid $secondary-color;
+    background-color: $primary-color;
+    color: $tertiary-color;
+    padding: 8px;
+  }
+  input:focus {
+    outline: 2px solid $secondary-color;
+  }
+}
