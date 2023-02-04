@@ -1,6 +1,6 @@
-import React, {FC, useState} from 'react';
+import React, {FC} from 'react';
 
-import {NavLink} from "react-router-dom";
+import {NavLink, useLocation} from "react-router-dom";
 import {FillableIcon, FillableIconType} from "../../icon";
 
 import styles from "./NavButton.module.scss"
@@ -20,23 +20,24 @@ const NavButton: FC<PropsType & ButtonPropsType> = (
         ...props
     }
     ) => {
-    const [isActiveLink, switchActiveLink] = useState(false)
-    const activeClassName: ((props: {isActive: boolean}) => string) = ({isActive}) => {
-        switchActiveLink(isActive)
-        return isActive ? [styles.active, styles.container].join(' ') : styles.container
-    }
+    const activeClassName: ((props: {isActive: boolean}) => string) = ({isActive}) =>
+        isActive ? [styles.active, styles.container].join(' ') : styles.container
 
     return (
         <NavLink
             to={to}
             className={activeClassName}
         >
-            <Button {...props}>
-                {icon_type && <div>
-                    <FillableIcon filled={isActiveLink} type={icon_type} size={2}/>
-                </div>}
-                <div>{children}</div>
-            </Button>
+            {({isActive}) =>
+                <Button {...props}>
+                    {icon_type &&
+                        <div>
+                            <FillableIcon filled={isActive} type={icon_type} size={2}/>
+                        </div>
+                    }
+                    <div>{children}</div>
+                </Button>
+            }
         </NavLink>
     )
 }

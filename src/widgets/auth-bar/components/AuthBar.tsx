@@ -1,6 +1,6 @@
 import styles from "../../../app/components/Layout.module.scss";
 import {HeaderUserButton} from "../../header-user-button";
-import {OpenModalWindow, RegistrationForm} from "../../../features";
+import {LoginForm, OpenModalWindow, RegistrationForm} from "../../../features";
 import React, {useState} from "react";
 
 
@@ -17,7 +17,7 @@ export const AuthBar = () => {
             }
             {!isAuth &&
                 <OpenModalWindow title={"Login"} name={"Login"}>
-                    <RegistrationForm/>
+                    <LoginForm/>
                 </OpenModalWindow>
             }
         </div>

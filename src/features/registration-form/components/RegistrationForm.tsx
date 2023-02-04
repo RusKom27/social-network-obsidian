@@ -5,6 +5,9 @@ import {useNavigate} from "react-router-dom";
 import * as Yup from "yup"
 import {Button, DefaultField} from "../../../shared/ui";
 
+import styles from "./RegistrationForm.module.scss"
+
+
 export const RegistrationForm = () => {
     const navigate = useNavigate()
     const [registration, {isSuccess}] = authApi.useRegistrationMutation()
@@ -39,18 +42,9 @@ export const RegistrationForm = () => {
                 }
             }}
         >
-            {props => {
-                const {
-                    values,
-                    dirty,
-                    isSubmitting,
-                    handleChange,
-                    handleBlur,
-                    handleSubmit,
-                    handleReset
-                } = props;
+            {({handleSubmit}) => {
                 return (
-                    <form onSubmit={handleSubmit}>
+                    <form className={styles.container} onSubmit={handleSubmit}>
                         <div>
                             <Field name={"name"} type={"text"} component={DefaultField}>Name</Field>
                             <Field name={"login"} type={"text"} component={DefaultField}>Login</Field>

@@ -26,7 +26,9 @@ const ModalWindow: FC<PropsType> = ({title, children}) => {
             closeModalWindow()
         }}>
             <div className={styles.container} onClick={(event) => event.stopPropagation()}>
-                <h3>{title}</h3>
+                <div>
+                    <h3>{title}</h3>
+                </div>
                 <div>
                     {children}
                 </div>

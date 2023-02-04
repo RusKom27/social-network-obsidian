@@ -9,6 +9,7 @@ interface PropsType {
 }
 
 const PostCardList: FC<PropsType> = () => {
+
     return (
         <div className={styles.container}>
             <PostCard/>

@@ -1,0 +1,13 @@
+@import "src/shared/themes/style-variables/variables";
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+
+  > div:has(button) {
+    display: flex;
+    justify-content: center;
+  }
+}
