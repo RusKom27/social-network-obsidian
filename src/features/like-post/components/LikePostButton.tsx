@@ -1,7 +1,7 @@
 import React, {FC} from 'react';
 
 import styles from "./LikePostButton.module.scss"
-import {Button} from "../../../shared/ui";
+import {Button, Icon} from "../../../shared/ui";
 import {postApi} from "../../../shared/api";
 
 interface PropsType {
@@ -16,8 +16,8 @@ export const LikePostButton: FC<PropsType> = ({post_id}) => {
     }
 
     return (
-        <Button onClick={clickEventHandler}>
-            Like
+        <Button onClick={clickEventHandler} hover_highlight={"icon"}>
+            <Icon type={"More"} size={2}/>Like
         </Button>
     )
 }

@@ -3,9 +3,10 @@ import React, {FC, ReactNode} from 'react';
 import styles from "./Button.module.scss"
 
 export interface ButtonPropsType {
-    children: ReactNode | string
+    children: ReactNode | ReactNode[] | string
     onClick?: (event: React.MouseEvent) => void
     type?: "submit" | "reset" | "button"
+    hover_highlight?: "all" | "icon"
     size?: 0 | 1 | 2 | 3 | 4 | 5
     border?: boolean
     classNames?: string[]
@@ -17,6 +18,7 @@ const Button: FC<ButtonPropsType> = (
         onClick,
         type,
         size,
+        hover_highlight= "all",
         border,
         classNames = []
     }
@@ -26,6 +28,7 @@ const Button: FC<ButtonPropsType> = (
             className={[styles.container, ...classNames].join(" ")}
             onClick={onClick}
             type={type}
+            data-hover-highlight={hover_highlight}
             data-size={size}
             data-border={border}
         >

@@ -1,2 +1,5 @@
 export {authApi} from "./services/authApi"
 export {postApi} from "./services/postApi"
+export {userApi} from "./services/userApi"
+export {imageApi} from "./services/imageApi"
+export {searchApi} from "./services/searchApi"

@@ -1,0 +1,1 @@
+export {FetchImage} from "./components/FetchImage"

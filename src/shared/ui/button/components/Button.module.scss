@@ -17,8 +17,23 @@
   border-radius: 50px;
   transition: 0.1s;
 
+  &[data-hover-highlight="icon"] {
+    div:has(svg) {
+      padding: 8px;
+      border-radius: 25px;
+    }
+  }
+
   &:hover {
-    background-color: transparentize($tertiary-color, 0.9);
     cursor: pointer;
+
+    &[data-hover-highlight="all"] {
+      background-color: transparentize($tertiary-color, 0.9);
+    }
+    &[data-hover-highlight="icon"] {
+      div:has(svg) {
+        background-color: transparentize($tertiary-color, 0.9);
+      }
+    }
   }
 }

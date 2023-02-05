@@ -1,20 +1,15 @@
-import React, {FC, useState} from 'react';
+import React, {FC, ReactNode, useState} from 'react';
 
 import styles from "./AvatarImage.module.scss"
 
 interface PropsType {
-    src: string
+    children: ReactNode
 }
 
-const AvatarImage: FC<PropsType> = (
-    {
-        src
-    }
-    ) => {
-
+const AvatarImage: FC<PropsType> = ({children}) => {
     return (
-        <div>
-
+        <div className={styles.container}>
+            {children}
         </div>
     )
 }
