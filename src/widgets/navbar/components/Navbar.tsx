@@ -4,7 +4,6 @@ import styles from "./Navbar.module.scss"
 import {NavButton} from "../../../shared/ui";
 import {Icon} from "../../../shared/ui/icon";
 
-
 interface PropsType {
 
 }

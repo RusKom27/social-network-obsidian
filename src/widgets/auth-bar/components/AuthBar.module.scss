@@ -1,0 +1,32 @@
+@import "../../../shared/themes/style-variables/variables";
+@import "../../../shared/themes/css-reset/css-reset.scss";
+
+.container {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+
+@media (max-width: 768px) {
+
+}
+
+@media (min-width: 768px) {
+}
+
+@media (max-width: 992px) {
+  .container {
+    .auth_buttons {
+      display: flex;
+      width: 100%;
+      padding: 10px;
+      background-color: $secondary-color;
+      position: fixed;
+      left: 0;
+      bottom: 0;
+    }
+  }
+}
+
+@media (min-width: 1200px) {}

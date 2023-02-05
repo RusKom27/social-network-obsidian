@@ -1,6 +1,7 @@
 import {createApi} from "@reduxjs/toolkit/dist/query/react";
 import {baseQuery} from "../interceptors";
 import Storage from "../../lib/storage";
+import {removeAuthData, setAuthData} from "../../slices/auth";
 
 export const authApi = createApi({
     reducerPath: "authAPI",
@@ -18,10 +19,13 @@ export const authApi = createApi({
                     password
                 }
             }),
-            async onCacheEntryAdded(arg, {cacheDataLoaded}) {
+            async onCacheEntryAdded(arg, {cacheDataLoaded, dispatch}) {
                 const cacheData = await cacheDataLoaded
-                Storage.setLocalVariable('token', cacheData.data.access_token)
-                Storage.setLocalVariable('user_id', cacheData.data.user_id)
+                const {data:{access_token, user_id}} = cacheData
+                Storage.setLocalVariable('token', access_token)
+                Storage.setLocalVariable('user_id', user_id)
+                dispatch(setAuthData({access_token, user_id}))
+
             }
         }),
         registration: build.mutation<
@@ -40,8 +44,10 @@ export const authApi = createApi({
             }),
             async onCacheEntryAdded(arg, {cacheDataLoaded, dispatch}) {
                 const cacheData = await cacheDataLoaded
-                Storage.setLocalVariable('token', cacheData.data.access_token)
-                Storage.setLocalVariable('user_id', cacheData.data.user_id)
+                const {data:{access_token, user_id}} = cacheData
+                Storage.setLocalVariable('token', access_token)
+                Storage.setLocalVariable('user_id', user_id)
+                dispatch(setAuthData({access_token, user_id}))
             }
         }),
         logout: build.mutation({
@@ -49,9 +55,10 @@ export const authApi = createApi({
                 url: `/auth/logout`,
                 method: 'POST'
             }),
-            async onCacheEntryAdded() {
+            async onCacheEntryAdded({dispatch}) {
                 Storage.removeLocalVariable('token')
                 Storage.removeLocalVariable('user_id')
+                dispatch(removeAuthData())
             }
         }),
     })

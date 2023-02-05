@@ -6,7 +6,7 @@ export const baseQuery = fetchBaseQuery({
     baseUrl: `${config.server_url}/api`,
     credentials: 'include',
     prepareHeaders: headers => {
-        headers.append('authorization', `${ Storage.getLocalVariable("token") }`)
+        headers.append('authorization', `Bearer ${ Storage.getLocalVariable("token") }`)
         headers.append('Access-Control-Allow-Origin', 'http://localhost:3000')
     }
 })

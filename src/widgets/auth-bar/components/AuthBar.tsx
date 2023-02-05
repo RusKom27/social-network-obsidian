@@ -1,24 +1,26 @@
-import styles from "../../../app/components/Layout.module.scss";
 import {HeaderUserButton} from "../../header-user-button";
-import {LoginForm, OpenModalWindow, RegistrationForm} from "../../../features";
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
+import {LinkButton} from "../../../shared/ui";
+
+import styles from "./AuthBar.module.scss"
+import {useAuth} from "../../../shared/hooks";
 
 
 export const AuthBar = () => {
-    const [isAuth, setAuth] = useState(false)
+    const {isAuth} = useAuth()
+
+    useEffect(() => {
+
+    }, [isAuth])
 
     return (
-        <div className={styles.auth}>
+        <div className={styles.container}>
             {isAuth && <HeaderUserButton/>}
             { !isAuth &&
-                <OpenModalWindow title={ "Registration" } name={ "Registration" }>
-                    <RegistrationForm/>
-                </OpenModalWindow>
-            }
-            {!isAuth &&
-                <OpenModalWindow title={"Login"} name={"Login"}>
-                    <LoginForm/>
-                </OpenModalWindow>
+                <div className={ styles.auth_buttons }>
+                    <div><LinkButton to={ "/registration" }>Registration</LinkButton></div>
+                    <div><LinkButton to={ "/login" }>Login</LinkButton></div>
+                </div>
             }
         </div>
     )

@@ -1,8 +1,11 @@
 import {combineReducers, configureStore} from "@reduxjs/toolkit";
-import {authApi} from "../../shared/api";
+import {authApi, postApi} from "../../shared/api";
+import slices from "../../shared/slices"
 
 const rootReducer = combineReducers({
-    [authApi.reducerPath]: authApi.reducer
+    [authApi.reducerPath]: authApi.reducer,
+    [postApi.reducerPath]: postApi.reducer,
+    ...slices
 })
 
 export const setupStore = () => {
@@ -10,7 +13,8 @@ export const setupStore = () => {
         reducer: rootReducer,
         middleware: (getDefaultMiddleware) =>
             getDefaultMiddleware().concat(
-                authApi.middleware
+                authApi.middleware,
+                postApi.middleware
             )
     })
 }
