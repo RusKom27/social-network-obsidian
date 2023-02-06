@@ -1,0 +1,12 @@
+@import "../../../shared/themes/style-variables/variables";
+
+.user_name {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.user_login {
+  font-size: 15px;
+  font-weight: 300;
+  color: transparentize($tertiary-color, 0.3)
+}

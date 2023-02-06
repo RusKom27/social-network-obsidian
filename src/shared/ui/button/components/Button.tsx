@@ -7,6 +7,7 @@ export interface ButtonPropsType {
     onClick?: (event: React.MouseEvent) => void
     type?: "submit" | "reset" | "button"
     hover_highlight?: "all" | "icon"
+    hover_color?: "default" | "red" | "blue" | "orange"
     size?: 0 | 1 | 2 | 3 | 4 | 5
     border?: boolean
     classNames?: string[]
@@ -17,8 +18,9 @@ const Button: FC<ButtonPropsType> = (
         children,
         onClick,
         type,
-        size,
+        size= 4,
         hover_highlight= "all",
+        hover_color= "default",
         border,
         classNames = []
     }
@@ -29,6 +31,7 @@ const Button: FC<ButtonPropsType> = (
             onClick={onClick}
             type={type}
             data-hover-highlight={hover_highlight}
+            data-hover-color={hover_color}
             data-size={size}
             data-border={border}
         >
