@@ -3,6 +3,8 @@
 .container {
   display: flex;
   flex-direction: column;
+  border-bottom: 1px solid transparentize($tertiary-color, 0.9);
+
 
   .user_profile_image {
     width: 100%;
@@ -21,6 +23,10 @@
     > div:first-child {
       margin-left: 12px;
       margin-top: -12%;
+
+      > div {
+        border: 8px solid $primary-color;
+      }
     }
 
     > div:last-child {

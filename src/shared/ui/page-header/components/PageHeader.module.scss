@@ -6,15 +6,16 @@
   backface-visibility: hidden;
   display: flex;
   box-sizing: border-box;
-  height: 40px;
+  height: 60px;
   padding: 8px;
-  background-color: transparentize($tertiary-color, 0.9);
+  background-color: transparentize($primary-color, 0.2);
   border-bottom: 1px solid transparentize($tertiary-color, 0.9);
-  backdrop-filter: blur(2px);
+  backdrop-filter: blur(6px);
 
   > div {
     display: flex;
     font-weight: 800;
     align-items: center;
+    font-size: 18px;
   }
 }

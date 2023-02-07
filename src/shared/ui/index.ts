@@ -1,6 +1,7 @@
 export * from "./button"
 export * from "./nav-button"
 export * from "./link-button"
+export * from "./nav-tab"
 export * from "./icon"
 export * from "./loader"
 export * from "./default-field"

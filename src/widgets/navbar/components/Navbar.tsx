@@ -18,9 +18,9 @@ const Navbar: FC<PropsType> = () => {
         <nav className={styles.container}>
             <NavButton to={"/"}><Icon type={"Logo"} size={2}/></NavButton>
             <NavButton to={"/"} icon_type={"Home"}>Main</NavButton>
-            {user && <NavButton to={`/profile/${user.login}`} icon_type={"Profile"}>Profile</NavButton>}
-            <NavButton to={"/messages"} icon_type={"Messages"}>Messages</NavButton>
-            <NavButton to={"/notifications"} icon_type={"Notifications"}>Notifications</NavButton>
+            {user && <NavButton to={`/profile/${user.login}/`} icon_type={"Profile"}>Profile</NavButton>}
+            <NavButton to={"/messages/"} icon_type={"Messages"}>Messages</NavButton>
+            <NavButton to={"/notifications/"} icon_type={"Notifications"}>Notifications</NavButton>
         </nav>
     );
 }

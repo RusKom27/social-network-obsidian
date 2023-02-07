@@ -6,11 +6,13 @@ import {postApi} from "../../../shared/api";
 
 
 interface PropsType {
-
+    query?: string
 }
 
-const PostCardList: FC<PropsType> = () => {
-    const {data: postList, isLoading} = postApi.useFetchAllPostListQuery("")
+const PostCardList: FC<PropsType> = ({query}) => {
+    const {data: postList, isLoading} = !query ?
+        postApi.useFetchAllPostListQuery("") :
+        postApi.useFetchPostListByUserLoginQuery(query)
 
     if (isLoading || !postList) return <div>Loading</div>
 

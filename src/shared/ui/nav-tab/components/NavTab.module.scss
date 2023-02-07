@@ -1,0 +1,37 @@
+@import "../../../themes/style-variables/variables";
+
+.container {
+  display: flex;
+  text-decoration: none;
+  color: transparentize($tertiary-color, 0.3);
+  justify-content: center;
+  width: 100%;
+  text-align: center;
+
+  padding: 12px 12px 0 12px;
+  font-size: 18px;
+  font-weight: 500;
+  transition: 0.1s;
+
+  > div {
+    display: flex;
+    justify-items: center;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  &:hover {
+    background-color: transparentize($tertiary-color, 0.9)
+  }
+
+}
+
+.active {
+  color: $tertiary-color;
+  font-weight: 700;
+  .highlight_line {
+    height: 5px;
+    border-radius: 50px;
+    background-color: $blue;
+  }
+}
