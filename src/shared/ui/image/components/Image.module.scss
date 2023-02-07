@@ -2,6 +2,7 @@
 
 .container {
   overflow: clip;
+  width: 100%;
 
   &[data-image-type="avatar"] {
     border-radius: 50%;
@@ -9,6 +10,7 @@
 
   img {
     width: 100%;
+    height: 100%;
   }
 
   &[data-size="0"] {

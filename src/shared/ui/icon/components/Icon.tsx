@@ -4,10 +4,11 @@ import {Icons} from "../../../images/svg"
 
 import styles from "./Icon.module.scss"
 import {FillableIconType, IconType} from "../types";
+import {Size} from "../../../lib/types";
 
 interface PropsType {
     type: IconType | FillableIconType
-    size: 0 | 1 | 2 | 3 | 4 | 5
+    size: Size
 }
 
 const Icon: FC<PropsType> = ({type, size}) => {

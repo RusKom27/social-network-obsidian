@@ -2,14 +2,15 @@ import React, {FC, ReactNode} from 'react';
 
 import styles from "./Image.module.scss"
 import {ImageType} from "../types";
+import {Size} from "../../../lib/types";
 
 interface PropsType {
     children: ReactNode,
     type?: ImageType,
-    size?: 0 | 1 | 2 | 3 | 4 | 5
+    size?: Size
 }
 
-const Image: FC<PropsType> = ({children, type= "default", size= 2}) => {
+const Image: FC<PropsType> = ({children, type= "default", size}) => {
     return (
         <div
             className={styles.container}

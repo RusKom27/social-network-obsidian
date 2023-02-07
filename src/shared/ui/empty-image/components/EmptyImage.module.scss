@@ -1,0 +1,7 @@
+@import "../../../themes/style-variables/variables";
+
+.image {
+  width: 100%;
+  min-height: 50px;
+  background-color: transparentize($tertiary-color, 0.5);
+}

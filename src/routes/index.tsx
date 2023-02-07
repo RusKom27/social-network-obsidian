@@ -13,7 +13,7 @@ const RoutesComponents = () => {
             <Route path={"/"} element={<Feed/>}/>
             <Route path={"/messages"} element={<Messages/>}/>
             <Route path={"/notifications"} element={<Notifications/>}/>
-            <Route path={"/profile"} element={<Profile/>}/>
+            <Route path={"/profile/:login"} element={<Profile/>}/>
             <Route path={"/login"} element={<Login/>}/>
             <Route path={"/registration"} element={<Registration/>}/>
             <Route path={"*"} element={<NotFoundPage/>}/>

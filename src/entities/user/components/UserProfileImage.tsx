@@ -1,5 +1,4 @@
 import {userApi} from "../../../shared/api";
-import {useAppSelector} from "../../../shared/hooks";
 import {Image, Loader} from "../../../shared/ui";
 import {FetchImage} from "../../image";
 import {FC} from "react";
@@ -11,14 +10,14 @@ interface PropsType {
     user_id: string
 }
 
-export const UserAvatar: FC<PropsType> = ({size, user_id}) => {
+export const UserProfileImage: FC<PropsType> = ({size, user_id}) => {
     const {data: user} = userApi.useFetchUserByIdQuery(user_id)
 
     if (!user) return <Loader />
 
     return (
-        <Image size={size} type={"avatar"}>
-            <FetchImage src={user.images.avatar_image.small}/>
+        <Image size={size} type={"default"}>
+            <FetchImage src={user.images.profile_image.small}/>
         </Image>
     )
 }

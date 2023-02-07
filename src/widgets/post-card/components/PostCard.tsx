@@ -14,7 +14,7 @@ const PostCard: FC<PropsType> = ({post}) => {
     return (
         <div className={styles.container}>
             <div className={styles.side}>
-                <UserAvatar size={1}/>
+                <UserAvatar size={1} user_id={post.author_id}/>
             </div>
             <div className={styles.main}>
                 <div className={styles.header}>

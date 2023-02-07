@@ -10,3 +10,24 @@
   font-weight: 300;
   color: transparentize($tertiary-color, 0.3)
 }
+
+.user_name {
+  &[data-size="0"] {
+    font-size: 12px;
+  }
+  &[data-size="1"] {
+    font-size: 13px;
+  }
+  &[data-size="2"] {
+    font-size: 14px;
+  }
+  &[data-size="3"] {
+    font-size: 15px;
+  }
+  &[data-size="4"] {
+    font-size: 18px;
+  }
+  &[data-size="5"] {
+    font-size: 20px;
+  }
+}
