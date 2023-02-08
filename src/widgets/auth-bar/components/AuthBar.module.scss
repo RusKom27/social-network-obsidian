@@ -3,7 +3,7 @@
 .container {
   display: flex;
   flex-direction: column;
-  padding: 20px;
+  padding: 8px;
 }
 
 
@@ -19,7 +19,7 @@
     .auth_buttons {
       display: flex;
       width: 100%;
-      padding: 10px;
+      padding: 5px;
       background-color: $secondary-color;
       position: fixed;
       left: 0;

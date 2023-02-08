@@ -10,15 +10,15 @@
 
 
 @media (max-width: 768px) {
-  .container {
-    margin-inline: 4px;
-  }
 }
 
-@media (min-width: 768px) {}
+@media (min-width: 768px) {
+
+}
 
 @media (max-width: 992px) {
   .container {
+    margin-inline: 4px;
     max-width: $navbar-minimized-width;
     a {
       font-size: 0;
@@ -30,6 +30,7 @@
       }
     }
   }
+
 }
 
 @media (min-width: 1200px) {}

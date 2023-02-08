@@ -1,8 +1,12 @@
-@import "../../../shared/themes/style-variables/variables";
+@import "src/shared/themes/style-variables/variables";
 
 .container {
   display: flex;
   flex-direction: column;
+
+  > * {
+    border-bottom: 1px solid transparentize($tertiary-color, 0.9);
+  }
 }
 
 

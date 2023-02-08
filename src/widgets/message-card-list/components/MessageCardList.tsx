@@ -9,7 +9,7 @@ interface PropsType {
     query?: string
 }
 
-const PostCardList: FC<PropsType> = ({query}) => {
+const MessageCardList: FC<PropsType> = ({query}) => {
     const {data: postList, isLoading} = !query ?
         postApi.useFetchAllPostListQuery("") :
         postApi.useFetchPostListByUserLoginQuery(query)
@@ -25,5 +25,5 @@ const PostCardList: FC<PropsType> = ({query}) => {
     );
 }
 
-export default PostCardList;
+export default MessageCardList;
 

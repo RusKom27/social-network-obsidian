@@ -4,7 +4,7 @@ import {LinkButton} from "../../../shared/ui";
 
 import styles from "./UserInfo.module.scss"
 import {useAuth} from "../../../shared/hooks";
-import {UserAvatar, UserLogin, UserName, UserProfileImage} from "../../../entities/user";
+import {UserAvatar, UserFollowInfo, UserLogin, UserName, UserProfileImage} from "../../../entities/user";
 import {ProfileNavbar} from "../../profile_navbar";
 
 
@@ -30,8 +30,13 @@ export const UserInfo: FC<PropsType> = ({children, user_id}) => {
                 </div>
             </div>
             <div className={styles.main}>
-                <UserName size={5} user_id={user_id}/>
-                <UserLogin user_id={user_id}/>
+                <div>
+                    <UserName size={5} user_id={user_id}/>
+                    <UserLogin user_id={user_id}/>
+                </div>
+                <div>
+                    <UserFollowInfo user_id={user_id}/>
+                </div>
             </div>
             <ProfileNavbar/>
         </div>

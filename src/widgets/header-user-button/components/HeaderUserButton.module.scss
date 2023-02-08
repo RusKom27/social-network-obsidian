@@ -2,7 +2,23 @@
 
 .container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row!important;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+
+  > div {
+    padding-block: 4px;
+    display: flex;
+    flex-direction: column;
+  }
+  >div:has(img) {
+    padding: 0;
+  }
+  div:last-child {
+    flex: 1;
+  }
+
 }
 
 
@@ -13,7 +29,14 @@
 @media (min-width: 768px) {}
 
 @media (max-width: 992px) {
-
+  .container {
+    > div {
+      display: none;
+    }
+    > div:has(img) {
+      display: flex;
+    }
+  }
 }
 
 @media (min-width: 1200px) {}

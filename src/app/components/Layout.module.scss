@@ -32,6 +32,7 @@ body {
     > div {
       position: fixed;
       height: 100vh;
+      width: $navbar-full-width;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -41,7 +42,7 @@ body {
 
 @media (max-width: 768px) {
   .container {
-    margin-inline: 4px;
+    max-width: none;
   }
 }
 
@@ -49,11 +50,14 @@ body {
 
 @media (max-width: 992px) {
   .container {
-    max-width: none;
-    margin-inline: 0;
     .header {
       flex: 1;
       min-width: $navbar-minimized-width;
+
+      > div {
+        width: $navbar-minimized-width;
+
+      }
     }
   }
 }

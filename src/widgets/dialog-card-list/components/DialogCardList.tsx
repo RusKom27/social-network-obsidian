@@ -9,10 +9,8 @@ interface PropsType {
     query?: string
 }
 
-const PostCardList: FC<PropsType> = ({query}) => {
-    const {data: postList, isLoading} = !query ?
-        postApi.useFetchAllPostListQuery("") :
-        postApi.useFetchPostListByUserLoginQuery(query)
+const DialogCardList: FC<PropsType> = ({query}) => {
+    const {data: postList, isLoading} =
 
     if (isLoading || !postList) return <div>Loading</div>
 
@@ -25,5 +23,5 @@ const PostCardList: FC<PropsType> = ({query}) => {
     );
 }
 
-export default PostCardList;
+export default DialogCardList;
 
