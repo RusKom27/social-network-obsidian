@@ -1,9 +1,9 @@
 import React, {FC} from 'react';
 
 import styles from "./PostCard.module.scss"
-import {IPost} from "../../../shared/api/models";
-import {LikePostButton} from "../../../features";
-import {UserAvatar, UserLogin, UserName} from "../../../entities/user";
+import {IPost} from "../../../../../shared/api/models";
+import {LikePostButton} from "../../../../../features";
+import {UserAvatar, UserLogin, UserName} from "../../../../user";
 
 
 interface PropsType {

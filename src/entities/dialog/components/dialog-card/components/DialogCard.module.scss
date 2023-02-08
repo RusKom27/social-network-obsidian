@@ -1,10 +1,12 @@
-@import "../../../shared/themes/style-variables/variables";
+@import "../../../../../shared/themes/style-variables/variables";
 
 .container {
   display: flex;
   padding: 12px;
   gap: 12px;
   flex-direction: row;
+  color: $tertiary-color;
+  text-decoration: none;
 
   .main {
     flex: 10;
@@ -29,12 +31,11 @@
     .content {
       display: flex;
     }
+  }
 
-    .footer {
-      margin-top: 8px;
-      height: 30px;
-      display: flex;
-    }
+  &:hover {
+    cursor: pointer;
+    background-color: transparentize($tertiary-color, 0.9);
   }
 }
 

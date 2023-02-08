@@ -1,6 +1,6 @@
 import React, {FC} from 'react';
 
-import {PostCard} from "../../post-card";
+import {PostCard} from "../../../entities/post";
 import {postApi} from "../../../shared/api";
 import {ComponentList} from "../../../shared/ui";
 

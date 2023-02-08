@@ -1,36 +1,32 @@
 import React, {FC} from 'react';
 
 import styles from "./MessageCard.module.scss"
-import {IPost} from "../../../shared/api/models";
-import {LikePostButton} from "../../../features";
-import {UserAvatar, UserLogin, UserName} from "../../../entities/user";
+import {IMessage} from "../../../../../shared/api/models";
+import {UserAvatar, UserLogin, UserName} from "../../../../user";
 
 
 interface PropsType {
-    post: IPost
+    message: IMessage
 }
 
-const MessageCard: FC<PropsType> = ({post}) => {
+const MessageCard: FC<PropsType> = ({message}) => {
     return (
         <div className={styles.container}>
             <div className={styles.side}>
-                <UserAvatar size={1} user_id={post.author_id}/>
+                <UserAvatar size={1} user_id={message.sender_id}/>
             </div>
             <div className={styles.main}>
                 <div className={styles.header}>
                     <div>
-                        <UserName user_id={post.author_id}/>
-                        <UserLogin user_id={post.author_id}/>
+                        <UserName user_id={message.sender_id}/>
+                        <UserLogin user_id={message.sender_id}/>
                     </div>
                     <div>
                         Options
                     </div>
                 </div>
                 <div className={styles.content}>
-                    {post.text}
-                </div>
-                <div className={styles.footer}>
-                    <LikePostButton post_id={post._id}/>
+                    {message.text}
                 </div>
             </div>
         </div>

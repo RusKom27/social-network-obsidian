@@ -1,25 +1,25 @@
 import React, {FC} from 'react';
 
-import {PostCard} from "../../post-card";
-import {postApi} from "../../../shared/api";
-import {ComponentList} from "../../../shared/ui";
+import {messageApi} from "../../../shared/api";
+import {ComponentList, Loader} from "../../../shared/ui";
+import {useParams} from "react-router-dom";
+import {MessageCard} from "../../../entities/message";
 
 
 interface PropsType {
-    query?: string
 }
 
-const MessageCardList: FC<PropsType> = ({query}) => {
-    const {data: postList, isLoading} = !query ?
-        postApi.useFetchAllPostListQuery("") :
-        postApi.useFetchPostListByUserLoginQuery(query)
+const MessageCardList: FC<PropsType> = () => {
+    const {dialog_id} = useParams()
+    if (!dialog_id) return <Loader/>
+    const {data: messagesList, isLoading} = messageApi.useFetchMessagesQuery(dialog_id)
 
-    if (isLoading || !postList) return <div>Loading</div>
+    if (!messagesList) return <div>Loading</div>
 
     return (
         <ComponentList>
-            {postList.map(post =>
-                <PostCard post={post} key={post._id}/>
+            {messagesList.map(message =>
+                <MessageCard message={message} key={message._id}/>
             )}
         </ComponentList>
     );

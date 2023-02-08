@@ -1,8 +1,8 @@
 import React, {FC} from 'react';
 
-import {PostCard} from "../../post-card";
-import {postApi} from "../../../shared/api";
+import {dialogApi} from "../../../shared/api";
 import {ComponentList} from "../../../shared/ui";
+import {DialogCard} from "../../../entities/dialog";
 
 
 interface PropsType {
@@ -10,14 +10,14 @@ interface PropsType {
 }
 
 const DialogCardList: FC<PropsType> = ({query}) => {
-    const {data: postList, isLoading} =
+    const {data: dialogsList, isLoading} = dialogApi.useFetchDialogsQuery("")
 
-    if (isLoading || !postList) return <div>Loading</div>
+    if (isLoading || !dialogsList) return <div>Loading</div>
 
     return (
         <ComponentList>
-            {postList.map(post =>
-                <PostCard post={post} key={post._id}/>
+            {dialogsList.map(dialog =>
+                <DialogCard dialog={dialog} key={dialog._id}/>
             )}
         </ComponentList>
     );
