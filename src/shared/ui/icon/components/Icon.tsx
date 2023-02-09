@@ -1,6 +1,6 @@
 import React, {FC} from 'react';
 
-import {Icons} from "../../../images/svg"
+import {Icons, FillableIcons} from "../../../images/svg"
 
 import styles from "./Icon.module.scss"
 import {FillableIconType, IconType} from "../types";
@@ -14,7 +14,7 @@ interface PropsType {
 const Icon: FC<PropsType> = ({type, size}) => {
     const icon_key = `${type}SVG`
 
-    const IconComponent = Icons[icon_key as keyof typeof Icons]
+    const IconComponent = {...Icons, ...FillableIcons}[icon_key as keyof typeof Icons || FillableIcons]
     return (
         <div className={styles.container} data-size={size}>
             <IconComponent />

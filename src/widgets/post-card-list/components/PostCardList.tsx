@@ -2,7 +2,7 @@ import React, {FC} from 'react';
 
 import {PostCard} from "../../../entities/post";
 import {postApi} from "../../../shared/api";
-import {ComponentList} from "../../../shared/ui";
+import {ComponentList, Loader} from "../../../shared/ui";
 
 
 interface PropsType {
@@ -14,7 +14,7 @@ const PostCardList: FC<PropsType> = ({query}) => {
         postApi.useFetchAllPostListQuery("") :
         postApi.useFetchPostListByUserLoginQuery(query)
 
-    if (isLoading || !postList) return <div>Loading</div>
+    if (isLoading || !postList) return <Loader/>
 
     return (
         <ComponentList>

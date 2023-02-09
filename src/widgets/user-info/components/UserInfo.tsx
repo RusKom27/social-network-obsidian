@@ -3,9 +3,10 @@ import React, {FC, ReactNode, useEffect, useState} from "react";
 import {LinkButton} from "../../../shared/ui";
 
 import styles from "./UserInfo.module.scss"
-import {useAuth} from "../../../shared/hooks";
+import {useAppSelector, useAuth} from "../../../shared/hooks";
 import {UserAvatar, UserFollowInfo, UserLogin, UserName, UserProfileImage} from "../../../entities/user";
 import {ProfileNavbar} from "../../profile_navbar";
+import {OpenDialogButton} from "../../../features";
 
 
 interface PropsType {
@@ -14,6 +15,7 @@ interface PropsType {
 }
 
 export const UserInfo: FC<PropsType> = ({children, user_id}) => {
+    const auth_user_id = useAppSelector(state => state.auth.user_id)
     const {isAuth} = useAuth()
 
     return (
@@ -26,7 +28,10 @@ export const UserInfo: FC<PropsType> = ({children, user_id}) => {
                     <UserAvatar size={5} user_id={user_id}/>
                 </div>
                 <div>
-                    Options
+                    {auth_user_id === user_id ?
+                        "" :
+                        <OpenDialogButton user_id={user_id}/>
+                    }
                 </div>
             </div>
             <div className={styles.main}>

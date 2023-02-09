@@ -29,6 +29,9 @@
     }
   }
 
+  &[data-border="true"] {
+    border: 1px solid transparentize($tertiary-color, 0.5);
+  }
 
 
   &:hover {

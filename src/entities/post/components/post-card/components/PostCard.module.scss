@@ -18,6 +18,11 @@
       flex-direction: row;
       justify-content: space-between;
 
+      a {
+        color: $tertiary-color;
+        text-decoration: none;
+      }
+
       > div {
         display: flex;
         flex-direction: row;

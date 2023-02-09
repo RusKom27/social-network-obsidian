@@ -1,5 +1,5 @@
 export * from "./open-modal-window"
 export * from "./like-post"
-
+export * from "./open-dialog"
 export * from "./registration-form"
 export * from "./login-form"

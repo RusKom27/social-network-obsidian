@@ -1,6 +1,6 @@
 import {createApi} from "@reduxjs/toolkit/dist/query/react";
 import {queryWithAuth} from "../interceptors";
-import {IDialog} from "../models";
+import {IDialog, IUser} from "../models";
 
 export const dialogApi = createApi({
     reducerPath: "dialogAPI",
@@ -13,5 +13,15 @@ export const dialogApi = createApi({
             }),
             providesTags: (result) => ['Dialog']
         }),
+        openDialog: build.mutation<IDialog, string[]>({
+            query: (props) => ({
+                url: `/dialog/create`,
+                method: 'POST',
+                body: {
+                    members_id: props
+                }
+            }),
+            invalidatesTags: ['Dialog']
+        })
     })
 })
