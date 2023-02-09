@@ -50,12 +50,12 @@ export const authApi = createApi({
                 dispatch(setAuthData({access_token, user_id}))
             }
         }),
-        logout: build.mutation({
+        logout: build.mutation<string, string>({
             query: () => ({
                 url: `/auth/logout`,
                 method: 'POST'
             }),
-            async onCacheEntryAdded({dispatch}) {
+            async onCacheEntryAdded(arg, {dispatch}) {
                 Storage.removeLocalVariable('token')
                 Storage.removeLocalVariable('user_id')
                 dispatch(removeAuthData())

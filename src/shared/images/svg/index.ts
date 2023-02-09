@@ -18,6 +18,7 @@ import {ReactComponent as MoreSVG} from "./more.svg"
 import {ReactComponent as SettingsSVG} from "./settings.svg"
 import {ReactComponent as LoaderSVG} from "./loader.svg"
 import {ReactComponent as BackArrowSVG} from "./back-arrow.svg"
+import {ReactComponent as ThreeDotsSVG} from "./three-dots.svg"
 
 export const FillableIcons = {
     HomeFilledSVG,
@@ -41,5 +42,6 @@ export const Icons = {
     MoreSVG,
     SettingsSVG,
     LoaderSVG,
-    BackArrowSVG
+    BackArrowSVG,
+    ThreeDotsSVG,
 }

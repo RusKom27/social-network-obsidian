@@ -4,6 +4,7 @@ import styles from "./PostCard.module.scss"
 import {IPost} from "../../../../../shared/api/models";
 import {LikePostButton} from "../../../../../features";
 import {UserAvatar, UserLink, UserLogin, UserName} from "../../../../user";
+import {Icon} from "../../../../../shared/ui";
 
 interface PropsType {
     post: IPost
@@ -26,7 +27,7 @@ const PostCard: FC<PropsType> = ({post}) => {
                         </UserLink>
                     </div>
                     <div>
-                        Options
+                        <Icon type={"ThreeDots"} size={1}/>
                     </div>
                 </div>
                 <div className={styles.content}>

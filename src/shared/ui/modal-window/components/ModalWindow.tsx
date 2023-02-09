@@ -12,7 +12,6 @@ const ModalWindow: FC<PropsType> = ({title, children}) => {
     const {closeModalWindow} = useContext(ModalWindowContext);
 
     const preventScroll = (prevent: boolean) => {
-        console.log(prevent)
         document.documentElement.style.overflow = prevent ? 'clip' : 'visible'
     }
 

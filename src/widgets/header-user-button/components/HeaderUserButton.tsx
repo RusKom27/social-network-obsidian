@@ -1,11 +1,13 @@
-import React, {FC} from 'react';
+import React, {FC, useContext} from 'react';
 
 import styles from "./HeaderUserButton.module.scss"
-import {Button, LinkButton, Loader} from "../../../shared/ui";
+import {Button, Icon, LinkButton, Loader} from "../../../shared/ui";
 import {UserAvatar, UserLogin, UserName} from "../../../entities/user";
 import {useAppSelector} from "../../../shared/hooks";
 import {useNavigate} from "react-router-dom";
 import {userApi} from "../../../shared/api";
+import {HoverCardContext} from "../../../shared/lib/contexts";
+import {LogoutButton} from "../../../features";
 
 interface PropsType {
 
@@ -13,11 +15,18 @@ interface PropsType {
 
 const HeaderUserButton: FC<PropsType> = () => {
     const user_id = useAppSelector(state => state.auth.user_id)
+    const {openHoverCard} = useContext(HoverCardContext)
+
+    const onClickHandler = () => {
+        openHoverCard({ children: [
+            <LogoutButton />
+        ]})
+    }
 
     if (!user_id) return <Loader/>
 
     return (
-        <Button size={0}>
+        <Button onClick={onClickHandler} size={0}>
             <div className={styles.container}>
                 <div>
                     <UserAvatar size={0} user_id={user_id}/>
@@ -27,7 +36,7 @@ const HeaderUserButton: FC<PropsType> = () => {
                     <UserLogin user_id={user_id}/>
                 </div>
                 <div>
-                    Opt
+                    <Icon type={"ThreeDots"} size={1}/>
                 </div>
             </div>
         </Button>
