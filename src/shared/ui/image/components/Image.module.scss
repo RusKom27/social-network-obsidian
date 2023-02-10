@@ -3,6 +3,10 @@
 .container {
   overflow: clip;
   width: 100%;
+  background-color: #7a7a85;
+  align-items: center;
+  display: flex;
+  justify-content: center;
 
   &[data-image-type="avatar"] {
     border-radius: 50%;

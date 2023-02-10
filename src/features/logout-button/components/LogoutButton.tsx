@@ -21,7 +21,7 @@ export const LogoutButton: FC<ButtonPropsType> = ({onClick, ...props}) => {
     }, [isSuccess, navigate, onClick])
 
     return (
-        <Button disabled={isLoading} {...props} border={true} onClick={clickEventHandler} size={2}>
+        <Button disabled={isLoading} {...props} onClick={clickEventHandler} size={2}>
             Logout
         </Button>
     )

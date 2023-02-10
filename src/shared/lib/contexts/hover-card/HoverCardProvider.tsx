@@ -23,7 +23,7 @@ export const HoverCardProvider: FC<PropsType> = ({children}) => {
         <HoverCardContext.Provider value={{openHoverCard, closeHoverCard}}>
             {children}
             {isHoverCardOpened &&
-                <HoverCard>
+                <HoverCard {...hoverCardContent}>
                     {hoverCardContent?.children}
                 </HoverCard>
             }
