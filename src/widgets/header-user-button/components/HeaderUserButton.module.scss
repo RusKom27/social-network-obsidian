@@ -7,12 +7,12 @@
   gap: 12px;
   width: 100%;
 
-  > div {
-    padding-block: 4px;
+  div {
     display: flex;
     flex-direction: column;
   }
-  >div:has(img) {
+  > div:has(img) {
+    aspect-ratio: 1;
     padding: 0;
   }
   div:last-child {
@@ -33,11 +33,11 @@
 
 @media (max-width: 992px) {
   .container {
-    > div {
-      display: none;
+    div {
+      display: none!important;
     }
-    > div:has(img) {
-      display: flex;
+    div:first-child {
+      display: flex!important;
     }
   }
 }

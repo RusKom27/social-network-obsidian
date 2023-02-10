@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { Formik, Field, Form} from 'formik';
 import {useNavigate} from "react-router-dom";
 import * as Yup from 'yup';
@@ -9,7 +9,11 @@ import styles from "./LoginForm.module.scss"
 
 export const LoginForm = () => {
     const navigate = useNavigate()
-    const [login, {isSuccess}] = authApi.useLoginMutation()
+    const [login, {isSuccess, isLoading}] = authApi.useLoginMutation()
+
+    useEffect(() => {
+        if (isSuccess) navigate(`/`)
+    }, [isSuccess, navigate])
 
     return (
         <Formik
@@ -25,10 +29,7 @@ export const LoginForm = () => {
                     email: values.email,
                     password: values.password
                 })
-                if (isSuccess) {
-                    setSubmitting(false);
-                    navigate(`/`)
-                }
+                setSubmitting(false);
             }}
         >
             {({handleSubmit}) => {
@@ -39,7 +40,7 @@ export const LoginForm = () => {
                             <Field name={"password"} type={"password"} component={DefaultField}>Password</Field>
                         </div>
                         <div>
-                            <Button type="submit">Login</Button>
+                            <Button disabled={isLoading} type="submit">Login</Button>
                         </div>
                     </form>
                 )

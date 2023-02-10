@@ -33,6 +33,11 @@
     border: 1px solid transparentize($tertiary-color, 0.5);
   }
 
+  &[disabled] {
+    background-color: $blue!important;
+    color: transparentize($tertiary-color, 0.7)!important;
+  }
+
 
   &:hover {
     cursor: pointer;

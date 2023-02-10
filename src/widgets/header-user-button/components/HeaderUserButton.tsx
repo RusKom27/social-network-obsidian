@@ -15,11 +15,11 @@ interface PropsType {
 
 const HeaderUserButton: FC<PropsType> = () => {
     const user_id = useAppSelector(state => state.auth.user_id)
-    const {openHoverCard} = useContext(HoverCardContext)
+    const {openHoverCard, closeHoverCard} = useContext(HoverCardContext)
 
     const onClickHandler = () => {
         openHoverCard({ children: [
-            <LogoutButton />
+            <LogoutButton onClick={() => closeHoverCard()}/>
         ]})
     }
 

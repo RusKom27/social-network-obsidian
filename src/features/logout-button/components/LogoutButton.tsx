@@ -1,28 +1,27 @@
-import React, {FC, useEffect} from 'react';
+import React, {FC, MouseEventHandler, useEffect} from 'react';
 
-import {Button, Loader} from "../../../shared/ui";
+import {Button, ButtonPropsType, Loader} from "../../../shared/ui";
 import {authApi} from "../../../shared/api";
 import {useNavigate} from "react-router-dom";
 
-interface PropsType {
-}
 
-export const LogoutButton: FC<PropsType> = () => {
+export const LogoutButton: FC<ButtonPropsType> = ({onClick, ...props}) => {
     const [logout, {isLoading, isSuccess}] = authApi.useLogoutMutation()
     const navigate = useNavigate()
 
-    const clickEventHandler = () => {
+    const clickEventHandler = (event: React.MouseEvent) => {
         logout("")
     }
 
     useEffect(() => {
-        if (isSuccess) navigate(`/auth/login`)
-    }, [isSuccess, navigate])
-
-    if (isLoading) return <Loader/>
+        if (isSuccess) {
+            navigate(`/login`)
+            if (onClick) onClick("")
+        }
+    }, [isSuccess, navigate, onClick])
 
     return (
-        <Button border={true} onClick={clickEventHandler} size={2}>
+        <Button disabled={isLoading} {...props} border={true} onClick={clickEventHandler} size={2}>
             Logout
         </Button>
     )

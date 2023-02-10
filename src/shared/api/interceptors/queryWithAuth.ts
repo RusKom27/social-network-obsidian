@@ -20,6 +20,7 @@ export const queryWithAuth: BaseQueryFn<
         } else {
             Storage.removeLocalVariable('token')
             Storage.removeLocalVariable('user_id')
+            window.location.href = "/login"
         }
     }
     return result
