@@ -8,6 +8,7 @@ export interface ButtonPropsType {
     type?: "submit" | "reset" | "button"
     hover_highlight?: "all" | "icon"
     hover_color?: "default" | "red" | "blue" | "orange"
+    background_color?: "default" | "red" | "blue" | "orange"
     disabled?: boolean
     size?: 0 | 1 | 2 | 3 | 4 | 5
     border?: boolean
@@ -22,6 +23,7 @@ const Button: FC<ButtonPropsType> = (
         size= 4,
         hover_highlight= "all",
         hover_color= "default",
+        background_color= "default",
         disabled=false,
         border,
         classNames = []
@@ -34,6 +36,7 @@ const Button: FC<ButtonPropsType> = (
             type={type}
             disabled={disabled}
             data-hover-highlight={hover_highlight}
+            data-background-color={background_color}
             data-hover-color={hover_color}
             data-size={size}
             data-border={border}

@@ -1,6 +1,6 @@
 import React, {FC} from 'react';
 
-import {NavLink, useLocation} from "react-router-dom";
+import {NavLink} from "react-router-dom";
 import {FillableIcon, FillableIconType} from "../../icon";
 
 import styles from "./NavButton.module.scss"

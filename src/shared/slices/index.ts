@@ -1,7 +1,7 @@
 import authSlice from "./auth"
 
-
-
-export default {
+const slices = {
     auth: authSlice
 }
+
+export default slices

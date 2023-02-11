@@ -5,6 +5,7 @@ import {NavButton} from "../../../shared/ui";
 import {Icon} from "../../../shared/ui/icon";
 import {userApi} from "../../../shared/api";
 import {useAppSelector} from "../../../shared/hooks";
+import {OpenCreationPostWindowButton} from "../../../features";
 
 interface PropsType {
 
@@ -21,6 +22,7 @@ const Navbar: FC<PropsType> = () => {
             {user && <NavButton to={`/profile/${user.login}/`} icon_type={"Profile"}>Profile</NavButton>}
             <NavButton to={"/messages/"} icon_type={"Messages"}>Messages</NavButton>
             <NavButton to={"/notifications/"} icon_type={"Notifications"}>Notifications</NavButton>
+            <OpenCreationPostWindowButton/>
         </nav>
     );
 }

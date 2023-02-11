@@ -1,7 +1,7 @@
 import {createContext, ReactNode} from "react";
 
 export interface ModalWindowProps {
-    title: string,
+    title?: string,
     children?: ReactNode | ReactNode[] | string
 }
 

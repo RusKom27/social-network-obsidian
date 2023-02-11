@@ -1,5 +1,5 @@
 import {HeaderUserButton} from "../../header-user-button";
-import React, {useEffect, useState} from "react";
+import React, {useEffect} from "react";
 import {LinkButton} from "../../../shared/ui";
 
 import styles from "./AuthBar.module.scss"

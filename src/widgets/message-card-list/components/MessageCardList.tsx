@@ -12,12 +12,12 @@ interface PropsType {
 const MessageCardList: FC<PropsType> = () => {
     const {dialog_id} = useParams()
     if (!dialog_id) return <Loader/>
-    const {data: messagesList, isLoading} = messageApi.useFetchMessagesQuery(dialog_id)
+    const {data: messagesList} = messageApi.useFetchMessagesQuery(dialog_id)
 
-    if (!messagesList) return <div>Loading</div>
+    if (!messagesList) return <Loader/>
 
     return (
-        <ComponentList>
+        <ComponentList borders={"none"}>
             {messagesList.map(message =>
                 <MessageCard message={message} key={message._id}/>
             )}

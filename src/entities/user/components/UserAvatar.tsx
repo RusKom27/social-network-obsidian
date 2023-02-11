@@ -1,5 +1,4 @@
 import {userApi} from "../../../shared/api";
-import {useAppSelector} from "../../../shared/hooks";
 import {Image, Loader} from "../../../shared/ui";
 import {FetchImage} from "../../image";
 import {FC} from "react";

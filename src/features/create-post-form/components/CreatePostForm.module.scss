@@ -1,0 +1,15 @@
+@import "src/shared/themes/style-variables/variables";
+
+.container {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px 56px;
+  gap: 8px;
+
+  > div:has(button) {
+    display: flex;
+    justify-content: flex-end;
+  }
+}

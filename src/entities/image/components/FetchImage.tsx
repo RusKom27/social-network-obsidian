@@ -1,6 +1,6 @@
-import React, {FC, useState} from 'react';
+import React, {FC} from 'react';
 import {imageApi} from "../../../shared/api";
-import {EmptyImage, Loader} from "../../../shared/ui";
+import {EmptyImage} from "../../../shared/ui";
 
 interface PropsType {
     src: string

@@ -1,6 +1,6 @@
 import React, {FC, useEffect} from 'react';
 
-import {Button, FillableIcon, Icon, Loader} from "../../../shared/ui";
+import {Button, Icon, Loader} from "../../../shared/ui";
 import {dialogApi,} from "../../../shared/api";
 import {useNavigate} from "react-router-dom";
 

@@ -1,6 +1,6 @@
 import React, {FC} from "react";
 
-import {PostCardList, Sidebar} from "../../../widgets";
+import {Sidebar} from "../../../widgets";
 import {PageDefaultLayout} from "../../../shared/ui";
 import {LoginForm} from "../../../features";
 

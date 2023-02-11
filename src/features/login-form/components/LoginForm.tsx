@@ -1,9 +1,9 @@
 import React, {useEffect} from 'react';
-import { Formik, Field, Form} from 'formik';
+import { Formik, Field} from 'formik';
 import {useNavigate} from "react-router-dom";
 import * as Yup from 'yup';
 import {authApi} from "../../../shared/api";
-import {Button, DefaultField} from "../../../shared/ui";
+import {Button, TextInputField} from "../../../shared/ui";
 
 import styles from "./LoginForm.module.scss"
 
@@ -36,8 +36,8 @@ export const LoginForm = () => {
                 return (
                     <form className={styles.container} onSubmit={handleSubmit}>
                         <div>
-                            <Field name={"email"} type={"email"} component={DefaultField}>Email</Field>
-                            <Field name={"password"} type={"password"} component={DefaultField}>Password</Field>
+                            <Field name={"email"} type={"email"} component={TextInputField}>Email</Field>
+                            <Field name={"password"} type={"password"} component={TextInputField}>Password</Field>
                         </div>
                         <div>
                             <Button disabled={isLoading} type="submit">Login</Button>

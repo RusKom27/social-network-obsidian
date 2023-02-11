@@ -1,9 +1,9 @@
 import React from "react";
-import {ErrorMessage, Field, Form, Formik} from "formik";
+import {Field, Formik} from "formik";
 import {authApi} from "../../../shared/api";
 import {useNavigate} from "react-router-dom";
 import * as Yup from "yup"
-import {Button, DefaultField} from "../../../shared/ui";
+import {Button, TextInputField} from "../../../shared/ui";
 
 import styles from "./RegistrationForm.module.scss"
 
@@ -46,10 +46,10 @@ export const RegistrationForm = () => {
                 return (
                     <form className={styles.container} onSubmit={handleSubmit}>
                         <div>
-                            <Field name={"name"} type={"text"} component={DefaultField}>Name</Field>
-                            <Field name={"login"} type={"text"} component={DefaultField}>Login</Field>
-                            <Field name={"email"} type={"email"} component={DefaultField}>Email</Field>
-                            <Field name={"password"} type={"password"} component={DefaultField}>Password</Field>
+                            <Field name={"name"} type={"text"} component={TextInputField}>Name</Field>
+                            <Field name={"login"} type={"text"} component={TextInputField}>Login</Field>
+                            <Field name={"email"} type={"email"} component={TextInputField}>Email</Field>
+                            <Field name={"password"} type={"password"} component={TextInputField}>Password</Field>
                         </div>
                         <div>
                             <Button type="submit">Registration</Button>

@@ -1,6 +1,6 @@
 import React, {FC} from 'react';
 
-import styles from "./DefaultField.module.scss"
+import styles from "./TextInputField.module.scss"
 import { FieldProps } from "formik";
 
 interface PropsType {
@@ -8,7 +8,7 @@ interface PropsType {
     children: string
 }
 
-const DefaultField: FC<PropsType & FieldProps> = ({
+export const TextInputField: FC<PropsType & FieldProps> = ({
          field,
          form: { touched, errors },
          type = "text",
@@ -25,5 +25,3 @@ const DefaultField: FC<PropsType & FieldProps> = ({
         </div>
     </div>
 );
-
-export default DefaultField

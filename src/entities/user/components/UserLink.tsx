@@ -1,7 +1,6 @@
 import {FC, ReactNode} from "react";
 import {userApi} from "../../../shared/api";
 
-import styles from "./User.module.scss"
 import {Loader} from "../../../shared/ui";
 import {Link} from "react-router-dom";
 

@@ -1,22 +1,18 @@
-import {HeaderUserButton} from "../../header-user-button";
-import React, {FC, ReactNode, useEffect, useState} from "react";
-import {LinkButton} from "../../../shared/ui";
+import React, {FC} from "react";
 
 import styles from "./UserInfo.module.scss"
-import {useAppSelector, useAuth} from "../../../shared/hooks";
+import {useAppSelector} from "../../../shared/hooks";
 import {UserAvatar, UserFollowInfo, UserLogin, UserName, UserProfileImage} from "../../../entities/user";
 import {ProfileNavbar} from "../../profile_navbar";
 import {OpenDialogButton} from "../../../features";
 
 
 interface PropsType {
-    children?: ReactNode[]
     user_id: string
 }
 
-export const UserInfo: FC<PropsType> = ({children, user_id}) => {
+export const UserInfo: FC<PropsType> = ({user_id}) => {
     const auth_user_id = useAppSelector(state => state.auth.user_id)
-    const {isAuth} = useAuth()
 
     return (
         <div className={styles.container}>

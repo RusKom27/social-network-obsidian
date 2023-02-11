@@ -1,4 +1,4 @@
-import React, {FC} from 'react';
+import React, {FC, useEffect, useRef} from 'react';
 
 import styles from "./PostCard.module.scss"
 import {IPost} from "../../../../../shared/api/models";
@@ -11,6 +11,13 @@ interface PropsType {
 }
 
 const PostCard: FC<PropsType> = ({post}) => {
+    const textRef = useRef<HTMLDivElement>(null)
+    useEffect(() => {
+        if (textRef.current) {
+            textRef.current.innerHTML = post.text.replace(/\n\r?/g, '<br />')
+        }
+    }, [post, textRef])
+
     return (
         <div className={styles.container}>
             <div className={styles.side}>
@@ -30,8 +37,7 @@ const PostCard: FC<PropsType> = ({post}) => {
                         <Icon type={"ThreeDots"} size={1}/>
                     </div>
                 </div>
-                <div className={styles.content}>
-                    {post.text}
+                <div ref={textRef} className={styles.content}>
                 </div>
                 <div className={styles.footer}>
                     <LikePostButton post_id={post._id}/>

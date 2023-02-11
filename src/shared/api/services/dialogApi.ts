@@ -1,6 +1,6 @@
 import {createApi} from "@reduxjs/toolkit/dist/query/react";
 import {queryWithAuth} from "../interceptors";
-import {IDialog, IUser} from "../models";
+import {IDialog} from "../models";
 
 export const dialogApi = createApi({
     reducerPath: "dialogAPI",

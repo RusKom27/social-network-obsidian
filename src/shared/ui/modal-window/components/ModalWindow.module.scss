@@ -4,7 +4,7 @@
   display: flex;
   position: fixed;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   left: 0;
   top: 0;
   width: 100%;
@@ -17,25 +17,43 @@
 .container {
   width: clamp(50%, 700px, 90%);
   color: $tertiary-color;
+  margin-top: 100px;
   max-height: 80%;
-  padding: 20px;
-  border-radius: 25px;
+  overflow-x: clip;
+  border-radius: 16px;
   background-color: $primary-color;
   border: 1px solid $secondary-color;
 
   > div {
-    padding: 4px;
-  }
+    width: 100%;
+    min-height: 200px;
+    max-height: 600px;
+    overflow-y: auto;
+    > div {
+      padding: 4px;
+    }
 
-  > div:has(h3) {
-    display: flex;
-    justify-content: center;
-    border-bottom: 1px solid transparentize($tertiary-color, 0.9);
+    > div:first-child {
+      display: flex;
+      top: 0;
+      padding: 12px;
+      backface-visibility: visible;
+      background-color: transparentize($primary-color, 0.2);
+      backdrop-filter: blur(6px);
+      position: sticky;
+      justify-content: center;
+      border-bottom: 1px solid transparentize($tertiary-color, 0.9);
 
-    h3 {
-      font-size: 18px;
+      h3 {
+        font-size: 18px;
+      }
+    }
+
+    > div:last-child {
+      height: 80%;
     }
   }
+
 
 
 }

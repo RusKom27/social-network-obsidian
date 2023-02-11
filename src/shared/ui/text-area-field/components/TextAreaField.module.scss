@@ -1,0 +1,33 @@
+@import "../../../themes/style-variables/variables";
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 8px;
+  gap: 8px;
+  width: 100%;
+
+  > label {
+    display: flex;
+    width: 140px;
+    align-items: center;
+  }
+
+  > .error_message {
+    display: flex;
+    align-items: center;
+    width: 140px;
+  }
+  textarea {
+    font-size: 18px;
+    border: none;
+    overflow: hidden;
+    resize: none;
+    background-color: $primary-color;
+    color: $tertiary-color;
+  }
+  textarea:focus {
+    outline: none;
+  }
+}

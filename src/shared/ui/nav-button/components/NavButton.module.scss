@@ -1,6 +1,7 @@
 @import "../../../themes/style-variables/variables";
 
 .container {
+  display: flex;
   text-decoration: none;
   color: $tertiary-color;
   font-size: 18px;

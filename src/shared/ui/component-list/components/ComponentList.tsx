@@ -4,11 +4,15 @@ import styles from "./ComponentList.module.scss"
 
 interface PropsType {
     children: ReactNode | ReactNode[]
+    borders?: "default" | "none"
 }
 
-const ComponentList: FC<PropsType> = ({children}) => {
+const ComponentList: FC<PropsType> = ({children, borders = "default"}) => {
     return (
-        <div className={styles.container}>
+        <div
+            className={styles.container}
+            data-borders={borders}
+        >
             {children}
         </div>
     )

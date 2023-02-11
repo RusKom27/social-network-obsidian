@@ -4,7 +4,7 @@
   flex: 3;
   display: flex;
   flex-direction: column;
-  align-items: start;
+  align-items: flex-start;
   min-height: 100vh;
   border-left: 1px solid transparentize($tertiary-color, 0.9);
 

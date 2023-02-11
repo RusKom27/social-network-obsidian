@@ -1,14 +1,10 @@
-import React, {FC, ReactEventHandler, ReactNode, useContext, useEffect} from 'react';
+import React, {FC, useContext, useEffect} from 'react';
 
 import styles from "./ModalWindow.module.scss"
 import {ModalWindowContext} from "../../../lib/contexts";
+import {ModalWindowProps} from "../../../lib/contexts/modal-window/ModalWindowContext";
 
-interface PropsType {
-    title?: string,
-    children: ReactNode | ReactNode[] | string
-}
-
-const ModalWindow: FC<PropsType> = ({title, children}) => {
+const ModalWindow: FC<ModalWindowProps> = ({title= "", children}) => {
     const {closeModalWindow} = useContext(ModalWindowContext);
 
     const preventScroll = (prevent: boolean) => {
@@ -26,10 +22,12 @@ const ModalWindow: FC<PropsType> = ({title, children}) => {
         }}>
             <div className={styles.container} onClick={(event) => event.stopPropagation()}>
                 <div>
-                    <h3>{title}</h3>
-                </div>
-                <div>
-                    {children}
+                    <div>
+                        <h3>{title}</h3>
+                    </div>
+                    <div>
+                        {children}
+                    </div>
                 </div>
             </div>
         </div>

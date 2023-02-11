@@ -1,7 +1,6 @@
-import React, {FC, memo, useEffect, useState} from 'react';
+import React, {memo, useEffect, useState} from 'react';
 
-import styles from "./LikePostButton.module.scss"
-import {Button, FillableIcon, Icon} from "../../../shared/ui";
+import {Button, FillableIcon} from "../../../shared/ui";
 import {postApi} from "../../../shared/api";
 import {useAppSelector} from "../../../shared/hooks";
 

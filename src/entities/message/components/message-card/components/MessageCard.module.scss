@@ -2,13 +2,14 @@
 
 .container {
   display: flex;
-  padding: 12px;
   gap: 12px;
-  flex-direction: row;
+  flex-direction: row-reverse;
+  margin-top: 8px;
 
   .main {
-    flex: 10;
     display: flex;
+    flex: 10;
+    max-width: 200px;
     gap: 8px;
     flex-direction: column;
     justify-content: space-between;
@@ -21,7 +22,7 @@
       > div {
         display: flex;
         flex-direction: row;
-        align-items: end;
+        align-items: flex-end;
         gap: 4px;
       }
     }
@@ -36,6 +37,11 @@
       display: flex;
     }
   }
+
+  &[data-from-other-user="true"] {
+    flex-direction: row;
+  }
+
 }
 
 

@@ -1,7 +1,7 @@
 import React, {FC, useContext, useRef} from 'react';
 
 import styles from "./HeaderUserButton.module.scss"
-import {Button, Icon, LinkButton, Loader} from "../../../shared/ui";
+import {Button, Icon, Loader} from "../../../shared/ui";
 import {UserAvatar, UserLogin, UserName} from "../../../entities/user";
 import {useAppSelector} from "../../../shared/hooks";
 import {HoverCardContext} from "../../../shared/lib/contexts";

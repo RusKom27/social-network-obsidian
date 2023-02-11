@@ -1,6 +1,6 @@
 import React, {FC} from "react";
 
-import {PostCardList, Sidebar} from "../../../widgets";
+import {Sidebar} from "../../../widgets";
 import {PageDefaultLayout} from "../../../shared/ui";
 import {DialogCardList} from "../../../widgets/dialog-card-list";
 import {Route, Routes} from "react-router-dom";

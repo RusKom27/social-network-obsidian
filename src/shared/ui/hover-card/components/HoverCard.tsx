@@ -1,4 +1,4 @@
-import React, {FC, StyleHTMLAttributes, useContext, useEffect, useRef} from 'react';
+import React, {FC, useContext} from 'react';
 import type * as CSS from 'csstype';
 
 import styles from "./HoverCard.module.scss"
@@ -8,7 +8,6 @@ import {HoverCardProps} from "../../../lib/contexts/hover-card/HoverCardContext"
 
 const HoverCard: FC<HoverCardProps> = ({children, targetElement}) => {
     const {closeHoverCard} = useContext(HoverCardContext);
-    const ref = useRef<HTMLDivElement>(null)
     const targetRect = targetElement?.getClientRects().item(0)
     let rect: CSS.Properties<string | number> | null = (targetElement && targetRect) ? {
         top: targetRect?.top - targetRect.height - 20,

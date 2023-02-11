@@ -1,10 +1,10 @@
 import React, {FC} from 'react';
 
-import {NavLink, useLocation} from "react-router-dom";
-import {FillableIcon, FillableIconType} from "../../icon";
+import {NavLink} from "react-router-dom";
+import {FillableIconType} from "../../icon";
 
 import styles from "./NavTab.module.scss"
-import {Button, ButtonPropsType} from "../../button";
+import {ButtonPropsType} from "../../button";
 
 
 interface PropsType {

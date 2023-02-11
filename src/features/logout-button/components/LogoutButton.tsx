@@ -1,6 +1,6 @@
-import React, {FC, MouseEventHandler, useEffect} from 'react';
+import React, {FC, useEffect} from 'react';
 
-import {Button, ButtonPropsType, Loader} from "../../../shared/ui";
+import {Button, ButtonPropsType} from "../../../shared/ui";
 import {authApi} from "../../../shared/api";
 import {useNavigate} from "react-router-dom";
 
@@ -21,7 +21,7 @@ export const LogoutButton: FC<ButtonPropsType> = ({onClick, ...props}) => {
     }, [isSuccess, navigate, onClick])
 
     return (
-        <Button disabled={isLoading} {...props} onClick={clickEventHandler} size={2}>
+        <Button disabled={isLoading} {...props} onClick={clickEventHandler} size={3}>
             Logout
         </Button>
     )
