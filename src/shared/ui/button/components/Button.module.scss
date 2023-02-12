@@ -51,7 +51,7 @@
     &[data-hover-color="orange"] {color: $orange; svg {fill: $orange} }
   }
 
-  &[data-background-color="default"] {background-color: $primary-color;}
+  &[data-background-color="default"] {background-color: transparent;}
   &[data-background-color="blue"] {background-color: $blue;}
   &[data-background-color="red"] {background-color: $red;}
   &[data-background-color="orange"] {background-color: $orange;}
