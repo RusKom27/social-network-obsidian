@@ -19,14 +19,34 @@
     align-items: center;
     width: 140px;
   }
+
   textarea {
     font-size: 18px;
     border: none;
-    overflow: hidden;
+    overflow: auto;
     resize: none;
     background-color: $primary-color;
     color: $tertiary-color;
   }
+
+  &[data-input-type="PostInput"] {
+  }
+
+  &[data-input-type="MessageInput"] {
+    display: flex;
+    margin: 0;
+    justify-content: center;
+
+    textarea {
+      margin: 8px;
+      background-color: transparent;
+    }
+
+    .error_message {
+      display: none;
+    }
+  }
+
   textarea:focus {
     outline: none;
   }

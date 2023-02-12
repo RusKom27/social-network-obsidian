@@ -4,11 +4,16 @@ import styles from "./TextAreaField.module.scss"
 import { FieldProps } from "formik";
 
 interface PropsType {
-    type?: string;
+    type: "PostInput" | "MessageInput"
+    max_height?: number
+    autosize: boolean
     children?: string
 }
 
 export const TextAreaField: FC<PropsType & FieldProps> = ({
+         type,
+         max_height,
+         autosize=true,
          field,
          form: { touched, errors },
          children,
@@ -16,9 +21,9 @@ export const TextAreaField: FC<PropsType & FieldProps> = ({
      }) => {
     const ref = useRef<HTMLTextAreaElement>(null)
 
-    const autosize = () => {
+    const autosizeTextArea = () => {
         setTimeout(() => {
-            if (ref.current) {
+            if (ref.current && (!max_height || max_height > ref.current.scrollHeight)) {
                 ref.current.style.cssText = 'height:auto; padding:0';
                 ref.current.style.cssText = `height:${ref.current.scrollHeight}px`;
             }
@@ -27,12 +32,12 @@ export const TextAreaField: FC<PropsType & FieldProps> = ({
 
     useEffect(() => {
         if (ref.current) {
-            ref.current.addEventListener('keydown', autosize);
+            ref.current.addEventListener('keydown', autosizeTextArea);
         }
     }, [ref])
 
     return (
-        <div className={styles.container}>
+        <div data-input-type={type} className={styles.container}>
             {children && <label htmlFor={field.name}>{children}</label>}
             <textarea ref={ref} {...field} {...props} placeholder={"Text something..."}/>
             <div className={styles.error_message}>

@@ -1,6 +1,7 @@
 export * from "./open-modal-window"
 export * from "./like-post-button"
 export * from "./create-post-form"
+export * from "./create-message-form"
 export * from "./open-dialog-button"
 export * from "./registration-form"
 export * from "./login-form"

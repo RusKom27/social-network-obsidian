@@ -1,0 +1,16 @@
+@import "src/shared/themes/style-variables/variables";
+
+.container {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 8px;
+
+  > div {
+    display: flex;
+    align-content: center;
+    width: 100%;
+  }
+}

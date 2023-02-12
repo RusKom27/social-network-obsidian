@@ -5,11 +5,27 @@
   gap: 12px;
   flex-direction: row-reverse;
   margin-top: 8px;
+  margin-inline: 8px;
+
+  .options {
+    display: flex;
+    align-items: flex-end;
+    svg {
+      margin-block: 6px;
+      opacity: 0;
+      transition: 0.3s;
+    }
+  }
+
+
+  .side {
+    min-width: 50px;
+  }
 
   .main {
     display: flex;
-    flex: 10;
-    max-width: 200px;
+    min-width: 150px;
+    max-width: 350px;
     gap: 8px;
     flex-direction: column;
     justify-content: space-between;
@@ -29,6 +45,9 @@
 
     .content {
       display: flex;
+      background-color: $blue;
+      border-radius: 8px;
+      padding: 8px;
     }
 
     .footer {
@@ -40,6 +59,18 @@
 
   &[data-from-other-user="true"] {
     flex-direction: row;
+
+    .content {
+      background-color: transparentize($tertiary-color, 0.9);
+    }
+  }
+
+  &:hover {
+    .options {
+      svg {
+        opacity: 1;
+      }
+    }
   }
 
 }

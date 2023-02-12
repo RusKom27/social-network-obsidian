@@ -2,7 +2,6 @@
 
 .container {
   display: flex;
-  width: clamp(580px, 580px, 100%);
+  width: $page-max-width;
   flex-direction: column;
-  height: 1200px;
 }

@@ -1,0 +1,1 @@
+export {MessageInputBar} from "./components/MessageInputBar"

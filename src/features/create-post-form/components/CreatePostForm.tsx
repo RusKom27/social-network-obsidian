@@ -36,7 +36,7 @@ export const CreatePostForm: FC<PropsType> = ({onSuccess}) => {
                 return (
                     <form className={styles.container} onSubmit={handleSubmit}>
                         <div>
-                            <Field name={"post_text"} component={TextAreaField}></Field>
+                            <Field type={"PostInput"} name={"post_text"} component={TextAreaField}></Field>
                         </div>
                         <div>
                             <Button type="submit">Create</Button>

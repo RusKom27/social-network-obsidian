@@ -1,6 +1,12 @@
 import {createApi} from "@reduxjs/toolkit/dist/query/react";
 import {queryWithAuth} from "../interceptors";
-import {IMessage} from "../models";
+import {IDialog, IMessage} from "../models";
+
+interface MessageCreationProps {
+    text?: string
+    image?: string
+    dialog_id: string
+}
 
 export const messageApi = createApi({
     reducerPath: "messageAPI",
@@ -13,5 +19,15 @@ export const messageApi = createApi({
             }),
             providesTags: (result) => ['Message']
         }),
+        createMessage: build.mutation<IMessage, MessageCreationProps>({
+            query: (message) => ({
+                url: `/message/create`,
+                method: 'POST',
+                body: {
+                    ...message
+                }
+            }),
+            invalidatesTags: ['Message']
+        })
     })
 })

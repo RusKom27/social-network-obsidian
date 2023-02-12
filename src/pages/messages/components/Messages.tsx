@@ -1,6 +1,6 @@
 import React, {FC} from "react";
 
-import {Sidebar} from "../../../widgets";
+import {MessageInputBar, Sidebar} from "../../../widgets";
 import {PageDefaultLayout} from "../../../shared/ui";
 import {DialogCardList} from "../../../widgets/dialog-card-list";
 import {Route, Routes} from "react-router-dom";
@@ -16,9 +16,13 @@ const Messages: FC<PropsType> = () => {
             <PageDefaultLayout header={"Messages"}>
                 <Routes>
                     <Route path={"/"} element={<DialogCardList/>}/>
-                    <Route path={":dialog_id"} element={<MessageCardList/>}/>
+                    <Route path={":dialog_id"} element={
+                        <>
+                            <MessageCardList/>
+                            <MessageInputBar/>
+                        </>
+                    }/>
                 </Routes>
-
             </PageDefaultLayout>
             <Sidebar/>
         </>
