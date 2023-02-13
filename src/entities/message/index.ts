@@ -1,1 +1,1 @@
-export {MessageCard} from "./components/message-card"
+export {MessageText} from "./components/MessageText"

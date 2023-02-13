@@ -21,7 +21,9 @@ const HeaderUserButton: FC<PropsType> = () => {
             children: <>
                 <LogoutButton border={false} onClick={() => closeHoverCard()}/>
             </>,
-            targetElement: ref.current
+            targetElement: ref.current,
+            position: "fixed",
+            align: "top"
         })
     }
 

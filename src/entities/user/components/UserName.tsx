@@ -1,4 +1,4 @@
-import {FC} from "react";
+import {FC, memo} from "react";
 import {userApi} from "../../../shared/api";
 
 import styles from "./User.module.scss"
@@ -6,12 +6,13 @@ import {Loader} from "../../../shared/ui";
 import {Size} from "../../../shared/lib/types";
 
 interface PropsType {
-    user_id: string
+    user_id: string | undefined
     size?: Size
+
 }
 
-export const UserName: FC<PropsType> = ({user_id, size= 3}) => {
-    const {data: user} = userApi.useFetchUserByIdQuery(user_id)
+export const UserName = memo<PropsType>(({user_id, size= 3}) => {
+    const {data: user} = userApi.useFetchUserByIdQuery(user_id || "")
 
     if (!user) return <Loader />
 
@@ -23,4 +24,4 @@ export const UserName: FC<PropsType> = ({user_id, size= 3}) => {
             {user.name}
         </span>
     )
-}
+})

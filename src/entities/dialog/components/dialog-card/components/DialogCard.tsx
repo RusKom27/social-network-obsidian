@@ -16,13 +16,11 @@ interface PropsType {
 const DialogCard = memo<PropsType>(({dialog}) => {
     const user_id = useAppSelector(state => state.auth.user_id)
     const other_members_id = dialog.members_id.filter(member_id => member_id !== user_id)
-    const {data: messages, isLoading} = messageApi.useFetchMessagesQuery(dialog._id, {
+    const {data: messageIdArray, isLoading} = messageApi.useFetchMessagesQuery(dialog._id, {
         pollingInterval: 1000
     })
 
-    const lastMessage = useMemo(() => {
-        return messages?.at(-1)
-    }, [messages])
+
 
     return (
         <Link to={`/messages/${dialog._id}`} className={styles.container}>
@@ -42,9 +40,9 @@ const DialogCard = memo<PropsType>(({dialog}) => {
                     </div>
                 </div>
                 <div className={styles.content}>
-                    {isLoading && <Loader/>}
-                    {lastMessage && <UserName user_id={lastMessage.sender_id}/> }
-                    {lastMessage && <div>{lastMessage.text}</div> }
+                    {/*{isLoading && <Loader/>}*/}
+                    {/*{lastMessage && <UserName user_id={lastMessage.sender_id}/> }*/}
+                    {/*{lastMessage && <div>{lastMessage.text}</div> }*/}
                 </div>
             </div>
         </Link>

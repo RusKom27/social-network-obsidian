@@ -1,17 +1,17 @@
 import {userApi} from "../../../shared/api";
 import {Image, Loader} from "../../../shared/ui";
 import {FetchImage} from "../../image";
-import {FC} from "react";
+import {FC, memo} from "react";
 import {Size} from "../../../shared/lib/types";
 
 
 interface PropsType {
     size?: Size
-    user_id: string
+    user_id: string | undefined
 }
 
-export const UserAvatar: FC<PropsType> = ({size, user_id}) => {
-    const {data: user} = userApi.useFetchUserByIdQuery(user_id)
+export const UserAvatar = memo<PropsType>(({size, user_id}) => {
+    const {data: user} = userApi.useFetchUserByIdQuery(user_id || "")
 
     if (!user) return <Loader />
 
@@ -20,4 +20,4 @@ export const UserAvatar: FC<PropsType> = ({size, user_id}) => {
             <FetchImage src={user.images.avatar_image.small} type={"avatar"}/>
         </Image>
     )
-}
+})

@@ -1,4 +1,4 @@
-@import "../../../../../shared/themes/style-variables/variables";
+@import "../../../shared/themes/style-variables/variables";
 
 .container {
   display: flex;
@@ -10,8 +10,8 @@
   .options {
     display: flex;
     align-items: flex-end;
+    aspect-ratio: 1;
     svg {
-      margin-block: 6px;
       opacity: 0;
       transition: 0.3s;
     }
