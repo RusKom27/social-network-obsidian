@@ -1,4 +1,4 @@
-import React, {FC, useEffect} from 'react';
+import React, {FC, useEffect, useMemo} from 'react';
 
 import {messageApi} from "../../../shared/api";
 import {ComponentList, Loader} from "../../../shared/ui";
@@ -11,6 +11,10 @@ interface PropsType {
 
 const MessageCardList: FC<PropsType> = () => {
     const {dialog_id} = useParams()
+    const {data: messagesList, isLoading} = messageApi.useFetchMessagesQuery(dialog_id || "", {
+        pollingInterval: 1000,
+    })
+
 
     useEffect(() => {
         window.scrollTo({
@@ -19,20 +23,17 @@ const MessageCardList: FC<PropsType> = () => {
         })
     }, [dialog_id])
 
-    if (!dialog_id) return <Loader/>
-    const {data: messagesList} = messageApi.useFetchMessagesQuery(dialog_id, {
-        pollingInterval: 1000,
-    })
+    const messageComponents = useMemo(() => {
+        return messagesList?.map(message =>
+            <MessageCard message={message} key={message._id}/>
+        )
+    }, [messagesList])
 
-
-
-    if (!messagesList) return <Loader/>
+    if (isLoading) return <Loader/>
 
     return (
         <ComponentList borders={"none"}>
-            {messagesList.map(message =>
-                <MessageCard message={message} key={message._id}/>
-            )}
+            {messageComponents}
         </ComponentList>
     );
 }

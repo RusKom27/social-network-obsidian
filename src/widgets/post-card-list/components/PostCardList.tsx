@@ -1,4 +1,4 @@
-import React, {FC} from 'react';
+import React, {FC, useMemo} from 'react';
 
 import {PostCard} from "../../../entities/post";
 import {postApi} from "../../../shared/api";
@@ -14,13 +14,17 @@ const PostCardList: FC<PropsType> = ({query}) => {
         postApi.useFetchAllPostListQuery("") :
         postApi.useFetchPostListByUserLoginQuery(query)
 
-    if (isLoading || !postList) return <Loader/>
+    const postComponents = useMemo(() => {
+        return postList?.map(post =>
+            <PostCard post={post} key={post._id}/>
+        )
+    }, [postList])
+
+    if (isLoading) return <Loader/>
 
     return (
         <ComponentList>
-            {postList.map(post =>
-                <PostCard post={post} key={post._id}/>
-            )}
+            {postComponents}
         </ComponentList>
     );
 }

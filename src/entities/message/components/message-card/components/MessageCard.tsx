@@ -1,4 +1,4 @@
-import React, {FC, useEffect, useRef, useState} from 'react';
+import React, {FC, memo, useEffect, useRef, useState} from 'react';
 
 import styles from "./MessageCard.module.scss"
 import {IMessage} from "../../../../../shared/api/models";
@@ -11,11 +11,10 @@ interface PropsType {
     message: IMessage
 }
 
-const MessageCard: FC<PropsType> = ({message}) => {
+const MessageCard = memo<PropsType>(({message}) => {
     const [isFirstInGroup, setIsFirstInGroup] = useState(true)
     const user_id = useAppSelector(state => state.auth.user_id)
     const from_other_user = user_id !== message.sender_id
-
     const ref = useRef<HTMLDivElement>(null)
     const textRef = useRef<HTMLDivElement>(null)
 
@@ -54,7 +53,7 @@ const MessageCard: FC<PropsType> = ({message}) => {
             </div>
         </div>
     );
-}
+})
 
 export default MessageCard;
 

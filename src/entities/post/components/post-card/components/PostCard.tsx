@@ -1,4 +1,4 @@
-import React, {FC, useEffect, useRef} from 'react';
+import React, {memo, useEffect, useRef} from 'react';
 
 import styles from "./PostCard.module.scss"
 import {IPost} from "../../../../../shared/api/models";
@@ -10,7 +10,7 @@ interface PropsType {
     post: IPost
 }
 
-const PostCard: FC<PropsType> = ({post}) => {
+const PostCard = memo<PropsType>(({post}) => {
     const textRef = useRef<HTMLDivElement>(null)
     useEffect(() => {
         if (textRef.current) {
@@ -45,7 +45,7 @@ const PostCard: FC<PropsType> = ({post}) => {
             </div>
         </div>
     );
-}
+})
 
 export default PostCard;
 

@@ -30,6 +30,8 @@
 
     .content {
       display: flex;
+      flex-direction: column;
+      color: transparentize($tertiary-color, 0.5);
     }
   }
 
