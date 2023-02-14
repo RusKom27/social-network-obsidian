@@ -16,13 +16,13 @@ export const messageApi = createApi({
     endpoints: (build) => ({
         fetchMessage: build.query<IMessage, string>({
             query: (message_id) => ({
-                url: `/message/get/${message_id}`,
+                url: `/message/id/${message_id}`,
             }),
             providesTags: (result) => ['Message'],
         }),
         fetchMessages: build.query<string[], string>({
             query: (dialog_id) => ({
-                url: `/message/get_id_array/${dialog_id}`,
+                url: `/message/all/${dialog_id}`,
             }),
             providesTags: (result) => ['MessageIdArray'],
         }),

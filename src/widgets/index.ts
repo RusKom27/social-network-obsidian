@@ -10,3 +10,4 @@ export * from "./dialog-card-list";
 export * from "./dialog-card";
 export * from "./header-user-button";
 export * from "./post-card-list";
+export * from "./post-card";

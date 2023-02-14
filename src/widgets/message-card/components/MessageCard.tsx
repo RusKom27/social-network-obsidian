@@ -8,7 +8,7 @@ import {Button, Icon} from "../../../shared/ui";
 import {messageApi} from "../../../shared/api";
 import {MessageText} from "../../../entities/message";
 import {HoverCardContext} from "../../../shared/lib/contexts";
-import {DeleteMessageButton} from "../../../features";
+import {DeleteMessageButton, OpenMessageOptionsButton} from "../../../features";
 
 
 interface PropsType {
@@ -21,20 +21,6 @@ const MessageCard = memo<PropsType>(({message_id}) => {
     const user_id = useAppSelector(state => state.auth.user_id);
     const from_other_user = user_id !== message?.sender_id;
     const ref = useRef<HTMLDivElement>(null);
-    const optionRef = useRef<HTMLDivElement>(null);
-    const {openHoverCard, closeHoverCard} = useContext(HoverCardContext);
-
-    const onClickHandler = () => {
-        openHoverCard({
-            children: <>
-                <DeleteMessageButton size={1} border={false} onSubmit={() => closeHoverCard()} message_id={message_id}/>
-            </>,
-            targetElement: optionRef.current,
-            position: "absolute",
-            align: "same",
-        });
-    };
-
 
     useEffect(() => {
         if (ref.current && ref.current.previousElementSibling) {
@@ -63,10 +49,8 @@ const MessageCard = memo<PropsType>(({message_id}) => {
                     <MessageText message_id={message_id}/>
                 </div>
             </div>
-            <div ref={optionRef} className={styles.options}>
-                <Button onClick={onClickHandler} size={0}>
-                    <Icon type={"ThreeDots"} size={1}/>
-                </Button>
+            <div className={styles.options}>
+                <OpenMessageOptionsButton message_id={message_id}/>
             </div>
         </div>
     );

@@ -1,4 +1,3 @@
-
 import {Link} from "react-router-dom";
 import React, {memo} from 'react';
 
@@ -6,6 +5,9 @@ import styles from "./DialogCard.module.scss";
 import {IDialog} from "../../../shared/api/models";
 import {UserAvatar, UserLogin, UserName} from "../../../entities/user";
 import {useAppSelector} from "../../../shared/hooks";
+import {messageApi} from "../../../shared/api";
+import {MessageText} from "../../../entities/message";
+import {Loader} from "../../../shared/ui";
 
 
 interface PropsType {
@@ -15,9 +17,9 @@ interface PropsType {
 const DialogCard = memo<PropsType>(({dialog}) => {
     const user_id = useAppSelector(state => state.auth.user_id);
     const other_members_id = dialog.members_id.filter(member_id => member_id !== user_id);
-
-
-
+    const {data: message_id_list} = messageApi.useFetchMessagesQuery(dialog._id);
+    if (!message_id_list) return <Loader/>;
+    const last_message_id = message_id_list.at(-1);
 
     return (
         <Link to={`/messages/${dialog._id}`} className={styles.container}>
@@ -37,9 +39,7 @@ const DialogCard = memo<PropsType>(({dialog}) => {
                     </div>
                 </div>
                 <div className={styles.content}>
-                    {/*{isLoading && <Loader/>}*/}
-                    {/*{lastMessage && <UserName user_id={lastMessage.sender_id}/> }*/}
-                    {/*{lastMessage && <div>{lastMessage.text}</div> }*/}
+                    {last_message_id && <MessageText message_id={last_message_id}/>}
                 </div>
             </div>
         </Link>

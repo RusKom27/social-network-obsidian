@@ -6,37 +6,37 @@ import {queryWithAuth} from "../interceptors";
 export const postApi = createApi({
     reducerPath: "postAPI",
     baseQuery: queryWithAuth,
-    tagTypes: ['Post', 'PostList', 'ActualTopicList', 'PopularTagList'],
+    tagTypes: ['Post', 'PostId', 'ActualTopic', 'PopularTag'],
     endpoints: (build) => ({
-        fetchPostById: build.query<IPost, string>({
+        fetchPost: build.query<IPost, string>({
             query: (post_id) => ({
                 url: `/post/id/${post_id}`,
             }),
             providesTags: () => ['Post'],
         }),
-        fetchAllPostList: build.query<IPost[], string>({
+        fetchAllPostIdList: build.query<string[], string>({
             query: () => ({
                 url: `/post/all`,
             }),
-            providesTags: () => ['PostList'],
+            providesTags: () => ['PostId'],
         }),
-        fetchPostListByUserLogin: build.query<IPost[], string>({
+        fetchPostIdListByUserLogin: build.query<string[], string>({
             query: (user_login) => ({
                 url: `/post/user_login/${user_login}`,
             }),
-            providesTags: () => ['PostList'],
+            providesTags: () => ['PostId'],
         }),
         fetchActualTopicList: build.query({
             query: () => ({
                 url: `/post/actual_topics`,
             }),
-            providesTags: (result) => ['ActualTopicList'],
+            providesTags: () => ['ActualTopic'],
         }),
         fetchPopularTagList: build.query({
             query: () => ({
                 url: `/post/popular_tags`,
             }),
-            providesTags: () => ['PopularTagList'],
+            providesTags: () => ['PopularTag'],
         }),
         createPost: build.mutation<IPost, string>({
             query: (post_text) => ({
@@ -46,28 +46,28 @@ export const postApi = createApi({
                     text: post_text,
                 },
             }),
-            invalidatesTags: ['Post', 'PostList'],
+            invalidatesTags: ['Post'],
         }),
         likePost: build.mutation<IPost, string>({
             query: (post_id) => ({
                 url: `/post/like/${post_id}`,
                 method: 'PUT',
             }),
-            invalidatesTags: ['Post', 'PostList'],
+            invalidatesTags: ['Post'],
         }),
-        removePost: build.mutation({
+        deletePost: build.mutation({
             query: (post_id) => ({
                 url: `/post/delete/${post_id}`,
                 method: 'DELETE',
             }),
-            invalidatesTags: ['Post', 'PostList'],
+            invalidatesTags: ['Post'],
         }),
         checkPost: build.mutation({
             query: (post_id) => ({
                 url: `/post/check/${post_id}`,
                 method: 'PUT',
             }),
-            invalidatesTags: ['Post', 'PostList'],
+            invalidatesTags: ['Post'],
         }),
     }),
 });

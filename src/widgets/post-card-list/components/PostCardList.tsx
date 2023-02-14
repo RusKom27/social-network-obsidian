@@ -1,9 +1,8 @@
-
 import React, {FC, useMemo} from 'react';
 
-import {PostCard} from "../../../entities/post";
 import {postApi} from "../../../shared/api";
 import {ComponentList, Loader} from "../../../shared/ui";
+import {PostCard} from "../../post-card";
 
 
 interface PropsType {
@@ -11,15 +10,15 @@ interface PropsType {
 }
 
 const PostCardList: FC<PropsType> = ({query}) => {
-    const {data: postList, isLoading} = !query ?
-        postApi.useFetchAllPostListQuery("") :
-        postApi.useFetchPostListByUserLoginQuery(query);
+    const {data: postIdList, isLoading} = !query ?
+        postApi.useFetchAllPostIdListQuery("") :
+        postApi.useFetchPostIdListByUserLoginQuery(query);
 
     const postComponents = useMemo(() => {
-        return postList?.map(post =>
-            <PostCard post={post} key={post._id}/>,
+        return postIdList?.map(post_id =>
+            <PostCard post_id={post_id} key={post_id}/>,
         );
-    }, [postList]);
+    }, [postIdList]);
 
     if (isLoading) return <Loader/>;
 

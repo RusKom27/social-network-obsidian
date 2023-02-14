@@ -11,7 +11,7 @@ interface PropsType {
 
 export const LikePostButton = memo<PropsType>(({post_id}) => {
     const user_id = useAppSelector(state => state.auth.user_id);
-    const {data: post} = postApi.useFetchPostByIdQuery(post_id);
+    const {data: post} = postApi.useFetchPostQuery(post_id);
     const [likePost, {data: mutated_post}] = postApi.useLikePostMutation();
     const [isLiked, setIsLiked] = useState(false);
 

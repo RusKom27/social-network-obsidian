@@ -1,23 +1,25 @@
-
 import React, {memo, useEffect, useRef} from 'react';
 
 import styles from "./PostCard.module.scss";
-import {IPost} from "../../../../../shared/api/models";
-import {LikePostButton} from "../../../../../features";
-import {UserAvatar, UserLink, UserLogin, UserName} from "../../../../user";
-import {Icon} from "../../../../../shared/ui";
+import {LikePostButton, OpenPostOptionsButton} from "../../../features";
+import {UserAvatar, UserLink, UserLogin, UserName} from "../../../entities/user";
+import {Icon, Loader} from "../../../shared/ui";
+import {postApi} from "../../../shared/api";
 
 interface PropsType {
-    post: IPost
+    post_id: string
 }
 
-const PostCard = memo<PropsType>(({post}) => {
+const PostCard = memo<PropsType>(({post_id}) => {
+    const {data: post} = postApi.useFetchPostQuery(post_id);
     const textRef = useRef<HTMLDivElement>(null);
     useEffect(() => {
-        if (textRef.current) {
+        if (textRef.current && post) {
             textRef.current.innerHTML = post.text.replace(/\n\r?/g, '<br />');
         }
     }, [post, textRef]);
+
+    if (!post) return <Loader/>;
 
     return (
         <div className={styles.container}>
@@ -35,7 +37,7 @@ const PostCard = memo<PropsType>(({post}) => {
                         </UserLink>
                     </div>
                     <div>
-                        <Icon type={"ThreeDots"} size={1}/>
+                        <OpenPostOptionsButton post_id={post_id}/>
                     </div>
                 </div>
                 <div ref={textRef} className={styles.content}>
