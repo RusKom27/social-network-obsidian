@@ -1,6 +1,7 @@
 import {combineReducers, configureStore} from "@reduxjs/toolkit";
+
 import {authApi, dialogApi, imageApi, messageApi, postApi, searchApi, userApi} from "../../shared/api";
-import slices from "../../shared/slices"
+import slices from "../../shared/slices";
 
 const rootReducer = combineReducers({
     [authApi.reducerPath]: authApi.reducer,
@@ -10,8 +11,8 @@ const rootReducer = combineReducers({
     [userApi.reducerPath]: userApi.reducer,
     [imageApi.reducerPath]: imageApi.reducer,
     [searchApi.reducerPath]: searchApi.reducer,
-    ...slices
-})
+    ...slices,
+});
 
 export const setupStore = () => {
     return configureStore({
@@ -24,10 +25,10 @@ export const setupStore = () => {
                 dialogApi.middleware,
                 imageApi.middleware,
                 searchApi.middleware,
-                postApi.middleware
-            )
-    })
-}
+                postApi.middleware,
+            ),
+    });
+};
 
 export type RootState = ReturnType<typeof rootReducer>
 export type AppStore = ReturnType<typeof setupStore>

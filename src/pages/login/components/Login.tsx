@@ -1,14 +1,12 @@
-import React, {FC} from "react";
+
+import React from "react";
 
 import {Sidebar} from "../../../widgets";
 import {PageDefaultLayout} from "../../../shared/ui";
 import {LoginForm} from "../../../features";
 
-interface PropsType {
 
-}
-
-const Login: FC<PropsType> = () => {
+const Login = () => {
     return (
         <>
             <PageDefaultLayout header={"Login"}>
@@ -16,7 +14,7 @@ const Login: FC<PropsType> = () => {
             </PageDefaultLayout>
             <Sidebar/>
         </>
-    )
-}
+    );
+};
 
 export default Login;

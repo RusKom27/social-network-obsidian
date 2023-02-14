@@ -8,6 +8,6 @@ export interface HoverCardProps {
 }
 
 export const HoverCardContext = createContext({
-    openHoverCard: (props: HoverCardProps) => {},
-    closeHoverCard: () => {},
-})
+    openHoverCard: (hoverCardProps: HoverCardProps):void => {return;},
+    closeHoverCard: () => {return;},
+});

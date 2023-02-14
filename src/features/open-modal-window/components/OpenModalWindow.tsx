@@ -1,4 +1,5 @@
 import {FC, ReactNode, useContext} from "react";
+
 import { ModalWindowContext } from "../../../shared/lib/contexts";
 import {Button} from "../../../shared/ui";
 
@@ -10,14 +11,14 @@ interface PropsType {
 }
 
 export const OpenModalWindow: FC<PropsType> = ({children, title, name}) => {
-    const {openModalWindow} = useContext(ModalWindowContext)
+    const {openModalWindow} = useContext(ModalWindowContext);
 
     const onClickHandler = () => {
         openModalWindow({
             title,
-            children
-        })
-    }
+            children,
+        });
+    };
 
-    return <Button onClick={onClickHandler}>{name}</Button>
-}
+    return <Button onClick={onClickHandler}>{name}</Button>;
+};

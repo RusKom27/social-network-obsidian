@@ -1,11 +1,11 @@
-import React, {FC} from 'react';
 
 import {Link} from "react-router-dom";
-import {FillableIconType} from "../../icon";
+import React, {FC} from 'react';
 
-import styles from "./LinkButton.module.scss"
+import styles from "./LinkButton.module.scss";
+import {FillableIconType,Icon, IconType} from "../../icon";
 import {Button, ButtonPropsType} from "../../button";
-import {Icon, IconType} from "../../icon";
+
 
 
 interface PropsType {
@@ -19,8 +19,8 @@ const LinkButton: FC<PropsType & ButtonPropsType> = (
         children,
         icon_type,
         ...props
-    }
-    ) => {
+    },
+) => {
 
     return (
         <Link
@@ -34,7 +34,7 @@ const LinkButton: FC<PropsType & ButtonPropsType> = (
                 <div>{children}</div>
             </Button>
         </Link>
-    )
-}
+    );
+};
 
 export default LinkButton;

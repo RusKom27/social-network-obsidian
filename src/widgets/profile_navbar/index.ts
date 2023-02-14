@@ -1,3 +1,3 @@
 import ProfileNavbar from "./components/ProfileNavbar";
 
-export {ProfileNavbar}
+export {ProfileNavbar};

@@ -1,1 +1,1 @@
-export {CreateMessageForm} from "./components/CreateMessageForm"
+export {CreateMessageForm} from "./components/CreateMessageForm";

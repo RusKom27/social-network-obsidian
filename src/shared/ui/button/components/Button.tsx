@@ -1,6 +1,7 @@
 import React, {FC, ReactNode} from 'react';
 
-import styles from "./Button.module.scss"
+import styles from "./Button.module.scss";
+
 
 export interface ButtonPropsType {
     children?: ReactNode | ReactNode[] | string
@@ -26,9 +27,9 @@ const Button: FC<ButtonPropsType> = (
         background_color= "default",
         disabled=false,
         border,
-        classNames = []
-    }
-    ) => {
+        classNames = [],
+    },
+) => {
     return (
         <button
             className={[styles.container, ...classNames].join(" ")}
@@ -43,7 +44,7 @@ const Button: FC<ButtonPropsType> = (
         >
             {children}
         </button>
-    )
-}
+    );
+};
 
 export default Button;

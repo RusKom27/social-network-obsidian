@@ -1,16 +1,13 @@
-import React, {FC} from "react";
+
+import {Route, Routes} from "react-router-dom";
+import React from "react";
 
 import {MessageInputBar, Sidebar} from "../../../widgets";
 import {PageDefaultLayout} from "../../../shared/ui";
 import {DialogCardList} from "../../../widgets/dialog-card-list";
-import {Route, Routes} from "react-router-dom";
 import {MessageCardList} from "../../../widgets/message-card-list";
 
-interface PropsType {
-
-}
-
-const Messages: FC<PropsType> = () => {
+const Messages = () => {
     return (
         <>
             <PageDefaultLayout header={"Messages"}>
@@ -26,7 +23,7 @@ const Messages: FC<PropsType> = () => {
             </PageDefaultLayout>
             <Sidebar/>
         </>
-    )
-}
+    );
+};
 
 export default Messages;

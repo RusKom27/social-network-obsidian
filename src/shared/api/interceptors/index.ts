@@ -1,2 +1,2 @@
-export {baseQuery} from "./baseQuery"
-export {queryWithAuth} from "./queryWithAuth"
+export {baseQuery} from "./baseQuery";
+export {queryWithAuth} from "./queryWithAuth";

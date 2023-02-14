@@ -1,6 +1,7 @@
 import React, {FC, ReactNode} from 'react';
 
-import styles from "./Sidebar.module.scss"
+import styles from "./Sidebar.module.scss";
+
 
 interface PropsType {
     children?: ReactNode | ReactNode[]
@@ -12,7 +13,7 @@ const SideBar: FC<PropsType> = ({children}) => {
             {children}
         </div>
     );
-}
+};
 
 export default SideBar;
 

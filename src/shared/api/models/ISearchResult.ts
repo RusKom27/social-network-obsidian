@@ -1,6 +1,8 @@
 import IUser from "./IUser";
 
-export default interface ISearchResult {
+interface ISearchResult {
     topics: string[],
     users: IUser[]
 }
+
+export default ISearchResult;

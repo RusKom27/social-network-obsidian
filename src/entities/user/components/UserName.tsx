@@ -1,7 +1,7 @@
-import {FC, memo} from "react";
-import {userApi} from "../../../shared/api";
+import {memo} from "react";
 
-import styles from "./User.module.scss"
+import styles from "./User.module.scss";
+import {userApi} from "../../../shared/api";
 import {Loader} from "../../../shared/ui";
 import {Size} from "../../../shared/lib/types";
 
@@ -12,9 +12,9 @@ interface PropsType {
 }
 
 export const UserName = memo<PropsType>(({user_id, size= 3}) => {
-    const {data: user} = userApi.useFetchUserByIdQuery(user_id || "")
+    const {data: user} = userApi.useFetchUserByIdQuery(user_id || "");
 
-    if (!user) return <Loader />
+    if (!user) return <Loader />;
 
     return (
         <span
@@ -23,5 +23,5 @@ export const UserName = memo<PropsType>(({user_id, size= 3}) => {
         >
             {user.name}
         </span>
-    )
-})
+    );
+});

@@ -1,6 +1,7 @@
+
 import React, {FC} from "react";
 
-import styles from "./UserInfo.module.scss"
+import styles from "./UserInfo.module.scss";
 import {useAppSelector} from "../../../shared/hooks";
 import {UserAvatar, UserFollowInfo, UserLogin, UserName, UserProfileImage} from "../../../entities/user";
 import {ProfileNavbar} from "../../profile_navbar";
@@ -12,7 +13,7 @@ interface PropsType {
 }
 
 export const UserInfo: FC<PropsType> = ({user_id}) => {
-    const auth_user_id = useAppSelector(state => state.auth.user_id)
+    const auth_user_id = useAppSelector(state => state.auth.user_id);
 
     return (
         <div className={styles.container}>
@@ -41,5 +42,5 @@ export const UserInfo: FC<PropsType> = ({user_id}) => {
             </div>
             <ProfileNavbar/>
         </div>
-    )
-}
+    );
+};

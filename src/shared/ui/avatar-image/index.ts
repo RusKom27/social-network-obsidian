@@ -1,3 +1,3 @@
 import AvatarImage from "./components/AvatarImage";
 
-export {AvatarImage}
+export {AvatarImage};

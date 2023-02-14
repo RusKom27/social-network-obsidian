@@ -1,4 +1,5 @@
 import {FC, ReactNode, useState} from "react";
+
 import {HoverCardContext, HoverCardProps} from "./HoverCardContext";
 import {HoverCard} from "../../../ui";
 
@@ -7,17 +8,17 @@ interface PropsType {
 }
 
 export const HoverCardProvider: FC<PropsType> = ({children}) => {
-    const [isHoverCardOpened, setHoverCardOpened] = useState(false)
-    const [hoverCardContent, setHoverCardContent] = useState<HoverCardProps | null>(null)
+    const [isHoverCardOpened, setHoverCardOpened] = useState(false);
+    const [hoverCardContent, setHoverCardContent] = useState<HoverCardProps | null>(null);
 
     const openHoverCard = (hoverCardProps: HoverCardProps) => {
-        setHoverCardContent(hoverCardProps)
-        setHoverCardOpened(!isHoverCardOpened)
-    }
+        setHoverCardContent(hoverCardProps);
+        setHoverCardOpened(!isHoverCardOpened);
+    };
 
     const closeHoverCard = () => {
-        setHoverCardOpened(false)
-    }
+        setHoverCardOpened(false);
+    };
 
     return (
         <HoverCardContext.Provider value={{openHoverCard, closeHoverCard}}>
@@ -28,5 +29,5 @@ export const HoverCardProvider: FC<PropsType> = ({children}) => {
                 </HoverCard>
             }
         </HoverCardContext.Provider>
-    )
-}
+    );
+};

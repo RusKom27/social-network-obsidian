@@ -1,6 +1,7 @@
+
 import React, {FC, ReactNode} from 'react';
 
-import styles from "./Image.module.scss"
+import styles from "./Image.module.scss";
 import {ImageType} from "../types";
 import {Size} from "../../../lib/types";
 
@@ -19,7 +20,7 @@ const Image: FC<PropsType> = ({children, type= "default", size}) => {
         >
             {children}
         </div>
-    )
-}
+    );
+};
 
 export default Image;

@@ -1,1 +1,1 @@
-export {LikePostButton} from "./components/LikePostButton"
+export {LikePostButton} from "./components/LikePostButton";

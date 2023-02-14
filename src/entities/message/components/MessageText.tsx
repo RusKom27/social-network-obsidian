@@ -1,7 +1,6 @@
 import {FC, useEffect, useRef} from "react";
-import {messageApi, userApi} from "../../../shared/api";
 
-import styles from "./Message.module.scss"
+import {messageApi} from "../../../shared/api";
 import {Loader} from "../../../shared/ui";
 
 interface PropsType {
@@ -9,19 +8,19 @@ interface PropsType {
 }
 
 export const MessageText: FC<PropsType> = ({message_id}) => {
-    const {data: message} = messageApi.useFetchMessageQuery(message_id)
+    const {data: message} = messageApi.useFetchMessageQuery(message_id);
 
-    const textRef = useRef<HTMLSpanElement>(null)
+    const textRef = useRef<HTMLSpanElement>(null);
 
     useEffect(() => {
         if (textRef.current) {
-            textRef.current.innerHTML = message ? message.text.replace(/\n\r?/g, '<br />') : ""
+            textRef.current.innerHTML = message ? message.text.replace(/\n\r?/g, '<br />') : "";
         }
-    }, [message, textRef])
+    }, [message, textRef]);
 
-    if (!message) return <Loader />
+    if (!message) return <Loader />;
 
     return (
         <span ref={textRef}></span>
-    )
-}
+    );
+};

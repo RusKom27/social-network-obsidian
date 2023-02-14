@@ -1,0 +1,33 @@
+{
+  "root": true,
+  "extends": [
+    "react-app",
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "@feature-sliced/eslint-config/rules/layers-slices"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "plugins": [
+    "@typescript-eslint"
+  ],
+  "rules": {
+    "import/no-unresolved": "off",
+    "no-console": "warn",
+    "prefer-const": "error",
+    "indent": ["warn", 4],
+    "max-len": ["error", {"code": 120}],
+    "comma-dangle": ["error", "always-multiline"],
+    "semi": "error",
+    "import/named": "off",
+    "import/order": [
+      "error",
+      {
+        "groups": [
+          "builtin", "external", ["parent", "sibling"], "index"
+        ],
+        "newlines-between": "always"
+      }
+    ]
+  },
+  "ignorePatterns": ["src/**/*.test.ts"]
+}

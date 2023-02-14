@@ -1,4 +1,5 @@
 import {createApi} from "@reduxjs/toolkit/dist/query/react";
+
 import {baseQuery} from "../interceptors";
 import {IImage} from "../models";
 
@@ -11,7 +12,7 @@ export const imageApi = createApi({
             query: (image_name) => ({
                 url: `/image/${image_name}`,
             }),
-            providesTags: (result) => ['Image']
+            providesTags: (result) => ['Image'],
         }),
         // loadImage: build.mutation<{}, FormData>({
         //     query: (imageFormData) => ({
@@ -26,5 +27,5 @@ export const imageApi = createApi({
         //     }),
         //     invalidatesTags: ['Image']
         // }),
-    })
-})
+    }),
+});

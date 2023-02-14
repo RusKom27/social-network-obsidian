@@ -1,4 +1,5 @@
 import {createApi} from "@reduxjs/toolkit/dist/query/react";
+
 import {queryWithAuth} from "../interceptors";
 import {ISearchResult} from "../models";
 
@@ -12,13 +13,13 @@ export const searchApi = createApi({
             query: (user_input) => ({
                 url: `/?user_input=${user_input.trim()}`,
             }),
-            async onCacheEntryAdded(arg, {cacheDataLoaded, dispatch}) {
-                // const cacheData = await cacheDataLoaded
-                // dispatch(setSearchResults(cacheData.data))
-            },
-            transformErrorResponse (baseQueryReturnValue, meta, arg) {
-                console.log({baseQueryReturnValue})
-            }
+            // async onCacheEntryAdded(arg, {cacheDataLoaded, dispatch}) {
+            //     // const cacheData = await cacheDataLoaded
+            //     // dispatch(setSearchResults(cacheData.data))
+            // },
+            // transformErrorResponse (baseQueryReturnValue, meta, arg) {
+            //     console.log({baseQueryReturnValue})
+            // }
         }),
-    })
-})
+    }),
+});

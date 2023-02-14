@@ -6,6 +6,6 @@ export interface ModalWindowProps {
 }
 
 export const ModalWindowContext = createContext({
-    openModalWindow: (props: ModalWindowProps) => {},
-    closeModalWindow: () => {},
-})
+    openModalWindow: (modalWindowProps: ModalWindowProps):void => {return;},
+    closeModalWindow: () => {return;},
+});

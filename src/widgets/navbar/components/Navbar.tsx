@@ -1,24 +1,18 @@
-import React, {FC, useEffect} from 'react';
 
-import styles from "./Navbar.module.scss"
+import React from 'react';
+
+import styles from "./Navbar.module.scss";
 import {NavButton} from "../../../shared/ui";
 import {Icon} from "../../../shared/ui/icon";
 import {userApi} from "../../../shared/api";
 import {useAppSelector, useAuth} from "../../../shared/hooks";
 import {OpenCreationPostWindowButton} from "../../../features";
 
-interface PropsType {
 
-}
-
-const Navbar: FC<PropsType> = () => {
-    const {isAuth} = useAuth()
-    const user_id = useAppSelector(state => state.auth.user_id)
-    const {data: user} = userApi.useFetchUserByIdQuery(user_id)
-
-    useEffect(() => {
-
-    }, [isAuth])
+const Navbar = () => {
+    const {isAuth} = useAuth();
+    const user_id = useAppSelector(state => state.auth.user_id);
+    const {data: user} = userApi.useFetchUserByIdQuery(user_id);
 
     return (
         <nav className={styles.container}>
@@ -30,7 +24,7 @@ const Navbar: FC<PropsType> = () => {
             {isAuth && <OpenCreationPostWindowButton/>}
         </nav>
     );
-}
+};
 
 export default Navbar;
 

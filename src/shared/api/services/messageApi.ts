@@ -1,6 +1,7 @@
 import {createApi} from "@reduxjs/toolkit/dist/query/react";
+
 import {queryWithAuth} from "../interceptors";
-import {IDialog, IMessage} from "../models";
+import {IMessage} from "../models";
 
 interface MessageCreationProps {
     text?: string
@@ -17,30 +18,30 @@ export const messageApi = createApi({
             query: (message_id) => ({
                 url: `/message/get/${message_id}`,
             }),
-            providesTags: (result) => ['Message']
+            providesTags: (result) => ['Message'],
         }),
         fetchMessages: build.query<string[], string>({
             query: (dialog_id) => ({
                 url: `/message/get_id_array/${dialog_id}`,
             }),
-            providesTags: (result) => ['MessageIdArray']
+            providesTags: (result) => ['MessageIdArray'],
         }),
         createMessage: build.mutation<IMessage, MessageCreationProps>({
             query: (message) => ({
                 url: `/message/create`,
                 method: 'POST',
                 body: {
-                    ...message
-                }
+                    ...message,
+                },
             }),
-            invalidatesTags: ['Message']
+            invalidatesTags: ['Message'],
         }),
         deleteMessage: build.mutation<IMessage, string>({
             query: (message_id) => ({
                 url: `/message/delete/${message_id}`,
-                method: 'DELETE'
+                method: 'DELETE',
             }),
-            invalidatesTags: ['Message']
-        })
-    })
-})
+            invalidatesTags: ['Message'],
+        }),
+    }),
+});

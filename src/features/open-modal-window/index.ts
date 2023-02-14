@@ -1,1 +1,1 @@
-export {OpenModalWindow} from "./components/OpenModalWindow"
+export {OpenModalWindow} from "./components/OpenModalWindow";

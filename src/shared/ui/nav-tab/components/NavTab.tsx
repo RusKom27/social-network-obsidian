@@ -1,10 +1,11 @@
 import React, {FC} from 'react';
-
 import {NavLink} from "react-router-dom";
-import {FillableIconType} from "../../icon";
 
-import styles from "./NavTab.module.scss"
+import styles from "./NavTab.module.scss";
+import {FillableIconType} from "../../icon";
 import {ButtonPropsType} from "../../button";
+
+
 
 
 interface PropsType {
@@ -16,11 +17,10 @@ const NavTab: FC<PropsType & ButtonPropsType> = (
     {
         children,
         to,
-        ...props
-    }
-    ) => {
+    },
+) => {
     const activeClassName: ((props: {isActive: boolean}) => string) = ({isActive}) =>
-        isActive ? [styles.active, styles.container].join(' ') : styles.container
+        isActive ? [styles.active, styles.container].join(' ') : styles.container;
 
     return (
         <NavLink
@@ -32,7 +32,7 @@ const NavTab: FC<PropsType & ButtonPropsType> = (
                 <div className={styles.highlight_line}></div>
             </div>
         </NavLink>
-    )
-}
+    );
+};
 
 export default NavTab;

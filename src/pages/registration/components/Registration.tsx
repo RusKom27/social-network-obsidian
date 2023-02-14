@@ -1,14 +1,11 @@
-import React, {FC} from "react";
+
+import React from "react";
 
 import {Sidebar} from "../../../widgets";
 import {PageDefaultLayout} from "../../../shared/ui";
 import {RegistrationForm} from "../../../features";
 
-interface PropsType {
-
-}
-
-const Registration: FC<PropsType> = () => {
+const Registration = () => {
     return (
         <>
             <PageDefaultLayout header={"Registration"}>
@@ -16,7 +13,7 @@ const Registration: FC<PropsType> = () => {
             </PageDefaultLayout>
             <Sidebar/>
         </>
-    )
-}
+    );
+};
 
 export default Registration;

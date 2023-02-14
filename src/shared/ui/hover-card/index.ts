@@ -1,3 +1,3 @@
 import HoverCard from "./components/HoverCard";
 
-export {HoverCard}
+export {HoverCard};

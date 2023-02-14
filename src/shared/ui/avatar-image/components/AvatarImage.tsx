@@ -1,6 +1,7 @@
 import React, {FC, ReactNode} from 'react';
 
-import styles from "./AvatarImage.module.scss"
+import styles from "./AvatarImage.module.scss";
+
 
 interface PropsType {
     children: ReactNode
@@ -11,7 +12,7 @@ const AvatarImage: FC<PropsType> = ({children}) => {
         <div className={styles.container}>
             {children}
         </div>
-    )
-}
+    );
+};
 
 export default AvatarImage;

@@ -1,1 +1,1 @@
-export {MessageInputBar} from "./components/MessageInputBar"
+export {MessageInputBar} from "./components/MessageInputBar";

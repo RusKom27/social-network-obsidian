@@ -1,8 +1,8 @@
 import {FC, ReactNode} from "react";
-import {userApi} from "../../../shared/api";
-
-import {Loader} from "../../../shared/ui";
 import {Link} from "react-router-dom";
+
+import {userApi} from "../../../shared/api";
+import {Loader} from "../../../shared/ui";
 
 interface PropsType {
     user_id: string
@@ -10,9 +10,9 @@ interface PropsType {
 }
 
 export const UserLink: FC<PropsType> = ({user_id, children}) => {
-    const {data: user} = userApi.useFetchUserByIdQuery(user_id)
+    const {data: user} = userApi.useFetchUserByIdQuery(user_id);
 
-    if (!user) return <Loader />
+    if (!user) return <Loader />;
 
     return (
         <Link
@@ -20,5 +20,5 @@ export const UserLink: FC<PropsType> = ({user_id, children}) => {
         >
             {children}
         </Link>
-    )
-}
+    );
+};

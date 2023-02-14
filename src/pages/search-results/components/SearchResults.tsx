@@ -1,13 +1,11 @@
-import React, {FC} from "react";
+
+import React from "react";
 
 import {Sidebar} from "../../../widgets";
 import {PageDefaultLayout} from "../../../shared/ui";
 
-interface PropsType {
 
-}
-
-const SearchResults: FC<PropsType> = () => {
+const SearchResults = () => {
     return (
         <>
             <PageDefaultLayout header={"Results"}>
@@ -15,7 +13,7 @@ const SearchResults: FC<PropsType> = () => {
             </PageDefaultLayout>
             <Sidebar/>
         </>
-    )
-}
+    );
+};
 
 export default SearchResults;

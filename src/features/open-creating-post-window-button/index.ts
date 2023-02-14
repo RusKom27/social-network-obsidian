@@ -1,1 +1,1 @@
-export {OpenCreationPostWindowButton} from "./components/OpenCreationPostWindowButton"
+export {OpenCreationPostWindowButton} from "./components/OpenCreationPostWindowButton";

@@ -1,4 +1,5 @@
-import React from "react"
+import React from "react";
+
 import Layout from "./Layout";
 import RoutesComponent from "../../routes";
 import {withProviders} from "../providers";
@@ -9,9 +10,9 @@ const App = () => {
             <RoutesComponent/>
         </Layout>
     );
-}
+};
 
-export default withProviders(App)
+export default withProviders(App);
 
 
 

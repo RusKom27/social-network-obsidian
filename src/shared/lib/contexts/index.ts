@@ -1,2 +1,2 @@
-export * from "./modal-window"
-export * from "./hover-card"
+export * from "./modal-window";
+export * from "./hover-card";

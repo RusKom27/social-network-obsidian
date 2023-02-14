@@ -1,3 +1,3 @@
 import PageDefaultLayout from "./components/PageDefaultLayout";
 
-export {PageDefaultLayout}
+export {PageDefaultLayout};

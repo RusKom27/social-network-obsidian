@@ -1,11 +1,12 @@
-import React, {lazy} from "react"
+import React, {lazy} from "react";
 import {Route, Routes} from "react-router-dom";
+
 import {Login, NotFoundPage, Registration} from "../pages";
 
-const Feed = lazy(() => import("../pages").then(({Feed}) => ({default: Feed})))
-const Messages = lazy(() => import("../pages").then(({Messages}) => ({default: Messages})))
-const Notifications = lazy(() => import("../pages").then(({Notifications}) => ({default: Notifications})))
-const Profile = lazy(() => import("../pages").then(({Profile}) => ({default: Profile})))
+const Feed = lazy(() => import("../pages").then(({Feed}) => ({default: Feed})));
+const Messages = lazy(() => import("../pages").then(({Messages}) => ({default: Messages})));
+const Notifications = lazy(() => import("../pages").then(({Notifications}) => ({default: Notifications})));
+const Profile = lazy(() => import("../pages").then(({Profile}) => ({default: Profile})));
 
 const RoutesComponents = () => {
     return (
@@ -18,6 +19,6 @@ const RoutesComponents = () => {
             <Route path={"/registration"} element={<Registration/>}/>
             <Route path={"*"} element={<NotFoundPage/>}/>
         </Routes>
-)}
+    );};
 
-export default RoutesComponents
+export default RoutesComponents;

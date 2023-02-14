@@ -1,2 +1,2 @@
-export {HoverCardProvider} from "./HoverCardProvider"
-export {HoverCardContext} from "./HoverCardContext"
+export {HoverCardProvider} from "./HoverCardProvider";
+export {HoverCardContext} from "./HoverCardContext";

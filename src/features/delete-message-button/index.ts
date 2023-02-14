@@ -1,1 +1,1 @@
-export {DeleteMessageButton} from "./components/DeleteMessageButton"
+export {DeleteMessageButton} from "./components/DeleteMessageButton";

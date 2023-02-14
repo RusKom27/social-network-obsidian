@@ -1,16 +1,17 @@
 import React from "react";
 import {Field, Formik} from "formik";
-import {authApi} from "../../../shared/api";
 import {useNavigate} from "react-router-dom";
-import * as Yup from "yup"
-import {Button, TextInputField} from "../../../shared/ui";
+import * as Yup from "yup";
 
-import styles from "./RegistrationForm.module.scss"
+import {Button, TextInputField} from "../../../shared/ui";
+import {authApi} from "../../../shared/api";
+import styles from "./RegistrationForm.module.scss";
+
 
 
 export const RegistrationForm = () => {
-    const navigate = useNavigate()
-    const [registration, {isSuccess}] = authApi.useRegistrationMutation()
+    const navigate = useNavigate();
+    const [registration, {isSuccess}] = authApi.useRegistrationMutation();
 
     return (
         <Formik
@@ -34,11 +35,11 @@ export const RegistrationForm = () => {
                     name: values.name,
                     login: values.login,
                     email: values.email,
-                    password: values.password
-                })
+                    password: values.password,
+                });
                 if (isSuccess) {
-                    setSubmitting(false)
-                    navigate(`/`)
+                    setSubmitting(false);
+                    navigate(`/`);
                 }
             }}
         >
@@ -55,7 +56,7 @@ export const RegistrationForm = () => {
                             <Button type="submit">Registration</Button>
                         </div>
                     </form>
-                )
+                );
             }
             }
 

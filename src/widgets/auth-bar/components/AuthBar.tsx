@@ -1,17 +1,13 @@
-import {HeaderUserButton} from "../../header-user-button";
-import React, {useEffect} from "react";
-import {LinkButton} from "../../../shared/ui";
+import React from "react";
 
-import styles from "./AuthBar.module.scss"
+import styles from "./AuthBar.module.scss";
+import {HeaderUserButton} from "../../header-user-button";
+import {LinkButton} from "../../../shared/ui";
 import {useAuth} from "../../../shared/hooks";
 
 
 export const AuthBar = () => {
-    const {isAuth} = useAuth()
-
-    useEffect(() => {
-
-    }, [isAuth])
+    const {isAuth} = useAuth();
 
     return (
         <div className={styles.container}>
@@ -23,5 +19,5 @@ export const AuthBar = () => {
                 </div>
             }
         </div>
-    )
-}
+    );
+};

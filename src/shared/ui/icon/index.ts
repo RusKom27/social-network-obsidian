@@ -1,10 +1,10 @@
-import Icon from "./components/Icon"
-import FillableIcon from "./components/FillableIcon"
+import Icon from "./components/Icon";
+import FillableIcon from "./components/FillableIcon";
 import {IconType, FillableIconType} from "./types";
 
 export {
     Icon,
-    FillableIcon
-}
+    FillableIcon,
+};
 
-export type {IconType, FillableIconType}
+export type {IconType, FillableIconType};

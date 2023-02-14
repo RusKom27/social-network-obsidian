@@ -1,1 +1,1 @@
-export {OpenDialogButton} from "./components/OpenDialogButton"
+export {OpenDialogButton} from "./components/OpenDialogButton";

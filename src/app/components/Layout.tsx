@@ -1,6 +1,7 @@
+
 import React, {FC, ReactNode} from 'react';
 
-import styles from "./Layout.module.scss"
+import styles from "./Layout.module.scss";
 import {AuthBar, Navbar} from "../../widgets";
 
 interface PropsType {
@@ -22,6 +23,6 @@ const Layout: FC<PropsType> = ({children}) => {
             </div>
         </div>
     );
-}
+};
 
 export default Layout;

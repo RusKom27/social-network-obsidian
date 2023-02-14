@@ -1,13 +1,11 @@
-import React, {FC} from "react";
+
+import React from "react";
 
 import {Sidebar} from "../../../widgets";
 import {PageDefaultLayout} from "../../../shared/ui";
 
-interface PropsType {
 
-}
-
-const Notifications: FC<PropsType> = () => {
+const Notifications = () => {
     return (
         <>
             <PageDefaultLayout header={"Notifications"}>
@@ -15,7 +13,7 @@ const Notifications: FC<PropsType> = () => {
             </PageDefaultLayout>
             <Sidebar/>
         </>
-    )
-}
+    );
+};
 
 export default Notifications;

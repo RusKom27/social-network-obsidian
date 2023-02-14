@@ -1,7 +1,7 @@
-import authSlice from "./auth"
+import authSlice from "./auth";
 
 const slices = {
-    auth: authSlice
-}
+    auth: authSlice,
+};
 
-export default slices
+export default slices;

@@ -2,18 +2,19 @@ import React, {useEffect} from 'react';
 import { Formik, Field} from 'formik';
 import {useNavigate} from "react-router-dom";
 import * as Yup from 'yup';
-import {authApi} from "../../../shared/api";
-import {Button, TextInputField} from "../../../shared/ui";
 
-import styles from "./LoginForm.module.scss"
+import {Button, TextInputField} from "../../../shared/ui";
+import {authApi} from "../../../shared/api";
+import styles from "./LoginForm.module.scss";
+
 
 export const LoginForm = () => {
-    const navigate = useNavigate()
-    const [login, {isSuccess, isLoading}] = authApi.useLoginMutation()
+    const navigate = useNavigate();
+    const [login, {isSuccess, isLoading}] = authApi.useLoginMutation();
 
     useEffect(() => {
-        if (isSuccess) navigate(`/`)
-    }, [isSuccess, navigate])
+        if (isSuccess) navigate(`/`);
+    }, [isSuccess, navigate]);
 
     return (
         <Formik
@@ -27,8 +28,8 @@ export const LoginForm = () => {
             onSubmit={(values, { setSubmitting }) => {
                 login({
                     email: values.email,
-                    password: values.password
-                })
+                    password: values.password,
+                });
                 setSubmitting(false);
             }}
         >
@@ -43,8 +44,8 @@ export const LoginForm = () => {
                             <Button disabled={isLoading} type="submit">Login</Button>
                         </div>
                     </form>
-                )
+                );
             }}
         </Formik>
-    )
-}
+    );
+};

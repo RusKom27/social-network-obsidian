@@ -1,10 +1,11 @@
 import React, {FC} from 'react';
-
 import {NavLink} from "react-router-dom";
-import {FillableIcon, FillableIconType} from "../../icon";
 
-import styles from "./NavButton.module.scss"
+import styles from "./NavButton.module.scss";
+import {FillableIcon, FillableIconType} from "../../icon";
 import {Button, ButtonPropsType} from "../../button";
+
+
 
 
 interface PropsType {
@@ -18,10 +19,10 @@ const NavButton: FC<PropsType & ButtonPropsType> = (
         to,
         icon_type,
         ...props
-    }
-    ) => {
+    },
+) => {
     const activeClassName: ((props: {isActive: boolean}) => string) = ({isActive}) =>
-        isActive ? [styles.active, styles.container].join(' ') : styles.container
+        isActive ? [styles.active, styles.container].join(' ') : styles.container;
 
     return (
         <NavLink
@@ -39,7 +40,7 @@ const NavButton: FC<PropsType & ButtonPropsType> = (
                 </Button>
             }
         </NavLink>
-    )
-}
+    );
+};
 
 export default NavButton;

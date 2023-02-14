@@ -1,1 +1,1 @@
-export {AuthBar} from "./components/AuthBar"
+export {AuthBar} from "./components/AuthBar";

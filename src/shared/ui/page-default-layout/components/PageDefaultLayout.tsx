@@ -1,6 +1,7 @@
+
 import React, {FC, ReactNode} from 'react';
 
-import styles from "./PageDefaultLayout.module.scss"
+import styles from "./PageDefaultLayout.module.scss";
 import {PageHeader} from "../../page-header";
 
 interface PropsType {
@@ -14,7 +15,7 @@ const PageDefaultLayout: FC<PropsType> = ({children, header}) => {
             <PageHeader>{header}</PageHeader>
             { children }
         </div>
-    )
-}
+    );
+};
 
 export default PageDefaultLayout;

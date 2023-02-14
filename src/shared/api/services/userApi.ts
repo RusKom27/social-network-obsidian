@@ -1,4 +1,5 @@
 import {createApi} from "@reduxjs/toolkit/dist/query/react";
+
 import {queryWithAuth} from "../interceptors";
 import {IUser} from "../models";
 
@@ -9,31 +10,31 @@ export const userApi = createApi({
     endpoints: (build) => ({
         fetchUserById: build.query<IUser, string | null>({
             query: (user_id) => ({
-                url: `/user/id/${user_id}`
+                url: `/user/id/${user_id}`,
             }),
-            providesTags: () => ['User']
+            providesTags: () => ['User'],
         }),
         fetchUserListById: build.query<IUser[], string[]>({
             query: (users_id) => ({
-                url: `/user/id_array?users_id=${users_id.join('&users_id=')}`
+                url: `/user/id_array?users_id=${users_id.join('&users_id=')}`,
             }),
-            providesTags: () => ['UserList']
+            providesTags: () => ['UserList'],
         }),
         fetchUserByLogin: build.query<IUser, string>({
             query: (user_login) => ({
-                url: `/user/login/${user_login}`
+                url: `/user/login/${user_login}`,
             }),
-            providesTags: () => ['User']
+            providesTags: () => ['User'],
         }),
         updateUser: build.mutation<IUser, any>({
             query: (props) => ({
                 url: `/user/update`,
                 method: 'POST',
                 body: {
-                    ...props
-                }
+                    ...props,
+                },
             }),
-            invalidatesTags: ['User']
-        })
-    })
-})
+            invalidatesTags: ['User'],
+        }),
+    }),
+});

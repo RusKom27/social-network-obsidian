@@ -1,36 +1,5 @@
-@import "../../../themes/style-variables/variables";
+@import "src/shared/themes/style-variables/variables";
 
 .container {
-  --logo-size: 40px;
 
-  display: flex;
-  justify-items: center;
-  align-items: center;
-
-  > svg {
-    max-height: var(--logo-size);
-    max-width: var(--logo-size);
-    min-width: var(--logo-size);
-    min-height: var(--logo-size);
-    fill: $tertiary-color
-  }
-
-  &[data-size='0'] {
-    --logo-size: 10px;
-  }
-  &[data-size='1'] {
-    --logo-size: 20px;
-  }
-  &[data-size='2'] {
-    --logo-size: 30px;
-  }
-  &[data-size='3'] {
-    --logo-size: 40px;
-  }
-  &[data-size='4'] {
-    --logo-size: 50px;
-  }
-  &[data-size='5'] {
-    --logo-size: 60px;
-  }
 }

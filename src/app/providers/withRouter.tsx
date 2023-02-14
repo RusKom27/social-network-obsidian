@@ -8,5 +8,5 @@ export const withRouter = (Component: any) => () => {
                 <Component/>
             </Suspense>
         </BrowserRouter>
-    )
-}
+    );
+};

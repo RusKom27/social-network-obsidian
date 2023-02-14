@@ -1,1 +1,1 @@
-export {UserInfo} from "./components/UserInfo"
+export {UserInfo} from "./components/UserInfo";

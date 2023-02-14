@@ -1,1 +1,1 @@
-export {FetchImage} from "./components/FetchImage"
+export {FetchImage} from "./components/FetchImage";

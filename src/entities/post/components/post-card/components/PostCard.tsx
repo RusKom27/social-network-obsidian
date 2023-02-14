@@ -1,6 +1,7 @@
+
 import React, {memo, useEffect, useRef} from 'react';
 
-import styles from "./PostCard.module.scss"
+import styles from "./PostCard.module.scss";
 import {IPost} from "../../../../../shared/api/models";
 import {LikePostButton} from "../../../../../features";
 import {UserAvatar, UserLink, UserLogin, UserName} from "../../../../user";
@@ -11,12 +12,12 @@ interface PropsType {
 }
 
 const PostCard = memo<PropsType>(({post}) => {
-    const textRef = useRef<HTMLDivElement>(null)
+    const textRef = useRef<HTMLDivElement>(null);
     useEffect(() => {
         if (textRef.current) {
-            textRef.current.innerHTML = post.text.replace(/\n\r?/g, '<br />')
+            textRef.current.innerHTML = post.text.replace(/\n\r?/g, '<br />');
         }
-    }, [post, textRef])
+    }, [post, textRef]);
 
     return (
         <div className={styles.container}>
@@ -45,7 +46,7 @@ const PostCard = memo<PropsType>(({post}) => {
             </div>
         </div>
     );
-})
+});
 
 export default PostCard;
 

@@ -1,6 +1,7 @@
+
 import React, {FC} from 'react';
 
-import styles from "./Loader.module.scss"
+import styles from "./Loader.module.scss";
 import {Icon} from "../../index";
 import {Size} from "../../../lib/types";
 
@@ -13,7 +14,7 @@ const Loader: FC<PropsType> = ({size= 3}) => {
         <div className={styles.container}>
             <Icon type={"Loader"} size={size}/>
         </div>
-    )
-}
+    );
+};
 
 export default Loader;

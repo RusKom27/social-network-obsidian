@@ -1,1 +1,1 @@
-export {CreatePostForm} from "./components/CreatePostForm"
+export {CreatePostForm} from "./components/CreatePostForm";

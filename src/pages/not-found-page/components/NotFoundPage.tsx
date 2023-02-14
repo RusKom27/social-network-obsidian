@@ -1,15 +1,12 @@
-import React, {FC} from "react";
-
+import React from "react";
 import {useLocation} from "react-router-dom";
+
 import {PageDefaultLayout} from "../../../shared/ui";
 import {Sidebar} from "../../../widgets";
 
-interface PropsType {
 
-}
-
-const NotFoundPage: FC<PropsType> = () => {
-    const location = useLocation()
+const NotFoundPage = () => {
+    const location = useLocation();
 
     return (
         <>
@@ -18,7 +15,7 @@ const NotFoundPage: FC<PropsType> = () => {
             </PageDefaultLayout>
             <Sidebar/>
         </>
-    )
-}
+    );
+};
 
 export default NotFoundPage;

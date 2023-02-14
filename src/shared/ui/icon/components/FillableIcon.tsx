@@ -1,8 +1,8 @@
+
 import React, {FC} from 'react';
 
-import {FillableIcons} from "../../../images/svg"
-
-import styles from "./Icon.module.scss"
+import styles from "./Icon.module.scss";
+import {FillableIcons} from "../../../images/svg";
 import {FillableIconType} from "../types";
 
 interface PropsType {
@@ -12,17 +12,17 @@ interface PropsType {
 }
 
 const FillableIcon: FC<PropsType> = ({filled, type, size}) => {
-    if (!type) return null
+    if (!type) return null;
 
-    const icon_key = `${type}${filled ? "Filled" : ''}SVG`
+    const icon_key = `${type}${filled ? "Filled" : ''}SVG`;
 
-    const IconComponent =  FillableIcons[icon_key as keyof typeof FillableIcons]
+    const IconComponent =  FillableIcons[icon_key as keyof typeof FillableIcons];
 
     return (
         <div className={styles.container} data-size={size}>
             <IconComponent />
         </div>
-    )
-}
+    );
+};
 
 export default FillableIcon;

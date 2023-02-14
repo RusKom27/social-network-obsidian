@@ -1,18 +1,16 @@
-import React, {FC} from "react";
+
+import React from "react";
+import {Route, Routes} from "react-router-dom";
 
 import {PostCardList, Sidebar, UserInfo} from "../../../widgets";
 import {Loader, PageDefaultLayout} from "../../../shared/ui";
 import {useFetchUserFromParams} from "../hooks";
-import {Route, Routes} from "react-router-dom";
 
-interface PropsType {
 
-}
+const Profile = () => {
+    const {data: user} = useFetchUserFromParams();
 
-const Profile: FC<PropsType> = () => {
-    const {data: user} = useFetchUserFromParams()
-
-    if (!user) return <Loader/>
+    if (!user) return <Loader/>;
 
     return (
         <>
@@ -25,7 +23,7 @@ const Profile: FC<PropsType> = () => {
             </PageDefaultLayout>
             <Sidebar/>
         </>
-    )
-}
+    );
+};
 
 export default Profile;

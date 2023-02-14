@@ -1,3 +1,3 @@
 import EmptyImage from "./components/EmptyImage";
 
-export {EmptyImage}
+export {EmptyImage};

@@ -1,7 +1,8 @@
-import React, {FC, ReactNode} from 'react';
-import { useNavigate } from "react-router-dom";
 
-import styles from "./PageHeader.module.scss"
+import { useNavigate } from "react-router-dom";
+import React, {FC, ReactNode} from 'react';
+
+import styles from "./PageHeader.module.scss";
 import {Button} from "../../button";
 import {Icon} from "../../icon";
 
@@ -10,7 +11,7 @@ interface PropsType {
 }
 
 const PageHeader: FC<PropsType> = ({children}) => {
-    let navigate = useNavigate();
+    const navigate = useNavigate();
 
     return (
         <header className={styles.container}>
@@ -19,7 +20,7 @@ const PageHeader: FC<PropsType> = ({children}) => {
                 {children}
             </div>
         </header>
-    )
-}
+    );
+};
 
 export default PageHeader;

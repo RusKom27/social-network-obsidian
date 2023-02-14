@@ -1,4 +1,4 @@
-export default interface IPost {
+interface IPost {
     _id: string;
     author_id: string;
     text: string;
@@ -8,3 +8,5 @@ export default interface IPost {
     views: string[];
     creation_date: Date;
 }
+
+export default IPost;

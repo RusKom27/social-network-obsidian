@@ -1,13 +1,10 @@
-import React, {FC} from "react";
+
+import React from "react";
 
 import {PostCardList, Sidebar} from "../../../widgets";
 import {PageDefaultLayout} from "../../../shared/ui";
 
-interface PropsType {
-
-}
-
-const Feed: FC<PropsType> = () => {
+const Feed = () => {
     return (
         <>
             <PageDefaultLayout header={"Home"}>
@@ -15,7 +12,7 @@ const Feed: FC<PropsType> = () => {
             </PageDefaultLayout>
             <Sidebar/>
         </>
-    )
-}
+    );
+};
 
 export default Feed;

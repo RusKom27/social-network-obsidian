@@ -1,1 +1,1 @@
-export {DialogCard} from "./components/dialog-card"
+export {};
