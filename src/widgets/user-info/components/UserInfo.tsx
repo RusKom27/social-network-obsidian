@@ -1,11 +1,10 @@
-
 import React, {FC} from "react";
 
 import styles from "./UserInfo.module.scss";
 import {useAppSelector} from "../../../shared/hooks";
 import {UserAvatar, UserFollowInfo, UserLogin, UserName, UserProfileImage} from "../../../entities/user";
 import {ProfileNavbar} from "../../profile_navbar";
-import {OpenDialogButton} from "../../../features";
+import {FollowUserButton, OpenDialogButton} from "../../../features";
 
 
 interface PropsType {
@@ -26,8 +25,13 @@ export const UserInfo: FC<PropsType> = ({user_id}) => {
                 </div>
                 <div>
                     {auth_user_id === user_id ?
-                        "" :
-                        <OpenDialogButton user_id={user_id}/>
+                        <>
+                        </>
+                        :
+                        <>
+                            <OpenDialogButton user_id={user_id}/>
+                            <FollowUserButton user_id={user_id}/>
+                        </>
                     }
                 </div>
             </div>

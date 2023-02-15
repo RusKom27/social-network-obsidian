@@ -1,0 +1,12 @@
+@import "../../../themes/style-variables/variables";
+
+.container {
+  position: sticky;
+  display: flex;
+  top: -12px;
+  margin: 12px 12px 0 12px;
+  border-radius: 25px;
+  padding: 8px;
+  background-color: transparentize($tertiary-color, 0.9);
+  border: 1px solid transparentize($tertiary-color, 0.9);
+}

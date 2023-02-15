@@ -1,10 +1,11 @@
-import React, {memo, useEffect, useRef} from 'react';
+import React, {memo} from 'react';
 
 import styles from "./PostCard.module.scss";
 import {LikePostButton, OpenPostOptionsButton} from "../../../features";
 import {UserAvatar, UserLink, UserLogin, UserName} from "../../../entities/user";
-import {Icon, Loader} from "../../../shared/ui";
+import {Loader} from "../../../shared/ui";
 import {postApi} from "../../../shared/api";
+import {PostText} from "../../../entities/post";
 
 interface PropsType {
     post_id: string
@@ -12,12 +13,6 @@ interface PropsType {
 
 const PostCard = memo<PropsType>(({post_id}) => {
     const {data: post} = postApi.useFetchPostQuery(post_id);
-    const textRef = useRef<HTMLDivElement>(null);
-    useEffect(() => {
-        if (textRef.current && post) {
-            textRef.current.innerHTML = post.text.replace(/\n\r?/g, '<br />');
-        }
-    }, [post, textRef]);
 
     if (!post) return <Loader/>;
 
@@ -40,7 +35,8 @@ const PostCard = memo<PropsType>(({post_id}) => {
                         <OpenPostOptionsButton post_id={post_id}/>
                     </div>
                 </div>
-                <div ref={textRef} className={styles.content}>
+                <div className={styles.content}>
+                    <PostText post_id={post_id}/>
                 </div>
                 <div className={styles.footer}>
                     <LikePostButton post_id={post._id}/>

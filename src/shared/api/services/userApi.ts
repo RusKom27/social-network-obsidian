@@ -36,5 +36,12 @@ export const userApi = createApi({
             }),
             invalidatesTags: ['User'],
         }),
+        followUser: build.mutation<IUser, string>({
+            query: (user_id) => ({
+                url: `/user/subscribe/${user_id}`,
+                method: 'PUT',
+            }),
+            invalidatesTags: ['User'],
+        }),
     }),
 });

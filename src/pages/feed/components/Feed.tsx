@@ -10,7 +10,11 @@ const Feed = () => {
             <PageDefaultLayout header={"Home"}>
                 <PostCardList/>
             </PageDefaultLayout>
-            <Sidebar/>
+            <Sidebar>
+                <div>
+                    Side Element
+                </div>
+            </Sidebar>
         </>
     );
 };

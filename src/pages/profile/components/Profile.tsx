@@ -3,7 +3,7 @@ import React from "react";
 import {Route, Routes} from "react-router-dom";
 
 import {PostCardList, Sidebar, UserInfo} from "../../../widgets";
-import {Loader, PageDefaultLayout} from "../../../shared/ui";
+import {Loader, PageDefaultLayout, SideContainerElement} from "../../../shared/ui";
 import {useFetchUserFromParams} from "../hooks";
 
 
@@ -21,7 +21,11 @@ const Profile = () => {
                     <Route path={"likes"} element={<PostCardList/>}/>
                 </Routes>
             </PageDefaultLayout>
-            <Sidebar/>
+            <Sidebar>
+                <SideContainerElement>
+                    Side Element
+                </SideContainerElement>
+            </Sidebar>
         </>
     );
 };

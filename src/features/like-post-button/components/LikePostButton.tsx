@@ -1,4 +1,3 @@
-
 import React, {memo, useEffect, useState} from 'react';
 
 import {Button, FillableIcon} from "../../../shared/ui";

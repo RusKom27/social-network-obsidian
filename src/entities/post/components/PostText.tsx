@@ -1,6 +1,6 @@
 import {FC, useEffect, useRef} from "react";
 
-import {messageApi, postApi} from "../../../shared/api";
+import {postApi} from "../../../shared/api";
 import {Loader} from "../../../shared/ui";
 
 interface PropsType {

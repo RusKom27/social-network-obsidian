@@ -14,3 +14,4 @@ export * from "./page-default-layout";
 export * from "./modal-window";
 export * from "./hover-card";
 export * from "./component-list";
+export * from "./side-container-element";

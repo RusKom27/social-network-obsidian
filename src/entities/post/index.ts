@@ -1,1 +1,1 @@
-export {};
+export {PostText} from "./components/PostText";
