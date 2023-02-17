@@ -3,16 +3,15 @@ import React, {FC, useMemo} from 'react';
 import {postApi} from "../../../shared/api";
 import {ComponentList, Loader} from "../../../shared/ui";
 import {PostCard} from "../../post-card";
+import {PostRequestQuery} from "../../../shared/api/types";
 
 
 interface PropsType {
-    query?: string
+    post_request_query?: PostRequestQuery
 }
 
-const PostCardList: FC<PropsType> = ({query}) => {
-    const {data: postIdList, isLoading} = !query ?
-        postApi.useFetchAllPostIdListQuery("") :
-        postApi.useFetchPostIdListByUserLoginQuery(query);
+const PostCardList: FC<PropsType> = ({post_request_query}) => {
+    const {data: postIdList, isLoading} = postApi.useFetchAllPostIdListQuery(post_request_query);
 
     const postComponents = useMemo(() => {
         return postIdList?.map(post_id =>

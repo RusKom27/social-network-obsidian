@@ -2,7 +2,7 @@
 import React from "react";
 import {Route, Routes} from "react-router-dom";
 
-import {PostCardList, Sidebar, UserInfo} from "../../../widgets";
+import {ActualTopicList, PostCardList, Sidebar, UserInfo} from "../../../widgets";
 import {Loader, PageDefaultLayout, SideContainerElement} from "../../../shared/ui";
 import {useFetchUserFromParams} from "../hooks";
 
@@ -17,13 +17,25 @@ const Profile = () => {
             <PageDefaultLayout header={user.name}>
                 <UserInfo user_id={user._id}/>
                 <Routes>
-                    <Route path={""} element={<PostCardList query={user.login}/>}/>
-                    <Route path={"likes"} element={<PostCardList/>}/>
+                    <Route path={""} element={
+                        <PostCardList
+                            post_request_query={{
+                                author_id: user._id,
+                            }}
+                        />
+                    }/>
+                    <Route path={"likes"} element={
+                        <PostCardList
+                            post_request_query={{
+                                likes: user._id,
+                            }}
+                        />
+                    }/>
                 </Routes>
             </PageDefaultLayout>
             <Sidebar>
-                <SideContainerElement>
-                    Side Element
+                <SideContainerElement title={"Actual topics"}>
+                    <ActualTopicList/>
                 </SideContainerElement>
             </Sidebar>
         </>

@@ -5,13 +5,17 @@ import styles from "./SideContainerElement.module.scss";
 
 interface PropsType {
     children?: ReactNode | ReactNode[]
+    title?: string
 }
 
-const SideContainerElement: FC<PropsType> = ({children}) => {
+const SideContainerElement: FC<PropsType> = ({children, title}) => {
     return (
-        <header className={styles.container}>
+        <div className={styles.container}>
+            {title && <div className={styles.title}>
+                {title}
+            </div>}
             {children}
-        </header>
+        </div>
     );
 };
 

@@ -2,6 +2,8 @@ import {createApi} from "@reduxjs/toolkit/dist/query/react";
 
 import IPost from "../models/IPost";
 import {queryWithAuth} from "../interceptors";
+import {PostRequestQuery, Topic} from "../types";
+
 
 export const postApi = createApi({
     reducerPath: "postAPI",
@@ -14,10 +16,17 @@ export const postApi = createApi({
             }),
             providesTags: () => ['Post'],
         }),
-        fetchAllPostIdList: build.query<string[], string>({
-            query: () => ({
-                url: `/post/all`,
-            }),
+        fetchAllPostIdList: build.query<[], PostRequestQuery | undefined>({
+            query: (post_request_query) => {
+                if (!post_request_query) return {url: `/post/query`};
+                const query_string = Object
+                    .entries(post_request_query)
+                    .map(entry => `${entry[0]}=${entry[1]}`)
+                    .join("&");
+                return {
+                    url: `/post/query?${query_string}`,
+                };
+            },
             providesTags: () => ['PostId'],
         }),
         fetchPostIdListByUserLogin: build.query<string[], string>({
@@ -26,13 +35,13 @@ export const postApi = createApi({
             }),
             providesTags: () => ['PostId'],
         }),
-        fetchActualTopicList: build.query({
+        fetchActualTopicList: build.query<Topic[], string>({
             query: () => ({
                 url: `/post/actual_topics`,
             }),
             providesTags: () => ['ActualTopic'],
         }),
-        fetchPopularTagList: build.query({
+        fetchPopularTagList: build.query<string[], string>({
             query: () => ({
                 url: `/post/popular_tags`,
             }),
