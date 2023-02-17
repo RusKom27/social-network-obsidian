@@ -1,7 +1,7 @@
 
 import React from 'react';
 
-import styles from "./ProfileNavbar.module.scss";
+import styles from "./FeedNavbar.module.scss";
 import {NavTab} from "../../../shared/ui";
 
 const ProfileNavbar = () => {

@@ -3,8 +3,8 @@ import React, {FC} from "react";
 import styles from "./UserInfo.module.scss";
 import {useAppSelector} from "../../../shared/hooks";
 import {UserAvatar, UserFollowInfo, UserLogin, UserName, UserProfileImage} from "../../../entities/user";
-import {ProfileNavbar} from "../../profile_navbar";
 import {FollowUserButton, OpenDialogButton} from "../../../features";
+import {NavTab, TabBar} from "../../../shared/ui";
 
 
 interface PropsType {
@@ -44,7 +44,10 @@ export const UserInfo: FC<PropsType> = ({user_id}) => {
                     <UserFollowInfo user_id={user_id}/>
                 </div>
             </div>
-            <ProfileNavbar/>
+            <TabBar>
+                <NavTab to={" "}>Posts</NavTab>
+                <NavTab to={"likes"}>Likes</NavTab>
+            </TabBar>
         </div>
     );
 };

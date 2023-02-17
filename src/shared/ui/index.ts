@@ -2,6 +2,7 @@ export * from "./button";
 export * from "./nav-button";
 export * from "./link-button";
 export * from "./nav-tab";
+export * from "./tab-bar";
 export * from "./icon";
 export * from "./loader";
 export * from "./text-input-field";

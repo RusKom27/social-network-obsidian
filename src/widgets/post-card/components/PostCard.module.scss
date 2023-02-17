@@ -41,6 +41,10 @@
       display: flex;
     }
   }
+
+  &:hover {
+    background-color: transparentize($blue, 0.98);
+  }
 }
 
 

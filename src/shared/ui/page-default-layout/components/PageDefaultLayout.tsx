@@ -6,13 +6,11 @@ import {PageHeader} from "../../page-header";
 
 interface PropsType {
     children: ReactNode
-    header: string | ReactNode | ReactNode[]
 }
 
-const PageDefaultLayout: FC<PropsType> = ({children, header}) => {
+const PageDefaultLayout: FC<PropsType> = ({children}) => {
     return (
         <div className={ styles.container }>
-            <PageHeader>{header}</PageHeader>
             { children }
         </div>
     );

@@ -1,7 +1,6 @@
 export * from "./navbar";
 export * from "./auth-bar";
 export * from "./sidebar";
-export * from "./profile_navbar";
 export * from "./user-info";
 export * from "./message-input-bar";
 export * from "./message-card-list";

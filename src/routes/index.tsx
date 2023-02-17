@@ -11,7 +11,7 @@ const Profile = lazy(() => import("../pages").then(({Profile}) => ({default: Pro
 const RoutesComponents = () => {
     return (
         <Routes>
-            <Route path={"/"} element={<Feed/>}/>
+            <Route path={"/*"} element={<Feed/>}/>
             <Route path={"/messages/*"} element={<Messages/>}/>
             <Route path={"/notifications"} element={<Notifications/>}/>
             <Route path={"/profile/:login/*"} element={<Profile/>}/>

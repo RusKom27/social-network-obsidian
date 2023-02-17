@@ -16,7 +16,7 @@ const PostCardList: FC<PropsType> = ({post_request_query}) => {
     const postComponents = useMemo(() => {
         return postIdList?.map(post_id =>
             <PostCard post_id={post_id} key={post_id}/>,
-        );
+        ).reverse();
     }, [postIdList]);
 
     if (isLoading) return <Loader/>;

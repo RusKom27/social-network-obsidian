@@ -3,7 +3,7 @@ import React from "react";
 import {Route, Routes} from "react-router-dom";
 
 import {ActualTopicList, PostCardList, Sidebar, UserInfo} from "../../../widgets";
-import {Loader, PageDefaultLayout, SideContainerElement} from "../../../shared/ui";
+import {Loader, PageDefaultLayout, PageHeader, SideContainerElement} from "../../../shared/ui";
 import {useFetchUserFromParams} from "../hooks";
 
 
@@ -14,7 +14,8 @@ const Profile = () => {
 
     return (
         <>
-            <PageDefaultLayout header={user.name}>
+            <PageDefaultLayout>
+                <PageHeader>{user.name}</PageHeader>
                 <UserInfo user_id={user._id}/>
                 <Routes>
                     <Route path={""} element={

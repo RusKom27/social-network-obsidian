@@ -2,13 +2,14 @@
 import React from "react";
 
 import {Sidebar} from "../../../widgets";
-import {PageDefaultLayout} from "../../../shared/ui";
+import {PageDefaultLayout, PageHeader} from "../../../shared/ui";
 
 
 const SearchResults = () => {
     return (
         <>
-            <PageDefaultLayout header={"Results"}>
+            <PageDefaultLayout>
+                <PageHeader>Search results</PageHeader>
                 <div>Search Results</div>
             </PageDefaultLayout>
             <Sidebar/>

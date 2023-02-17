@@ -2,14 +2,15 @@
 import React from "react";
 
 import {Sidebar} from "../../../widgets";
-import {PageDefaultLayout} from "../../../shared/ui";
+import {PageDefaultLayout, PageHeader} from "../../../shared/ui";
 import {LoginForm} from "../../../features";
 
 
 const Login = () => {
     return (
         <>
-            <PageDefaultLayout header={"Login"}>
+            <PageDefaultLayout>
+                <PageHeader>Login</PageHeader>
                 <LoginForm/>
             </PageDefaultLayout>
             <Sidebar/>

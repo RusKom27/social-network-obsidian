@@ -4,17 +4,18 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding: 8px;
+  padding: 12px;
+  border-radius: 0;
 
   .main {
-
+    text-align: start;
     > div:first-child {
-      font-size: 18px;
+      font-size: 16px;
       font-weight: 700;
     }
 
     > div:last-child {
-      font-size: 16px;
+      font-size: 14px;
       color: transparentize($tertiary-color, 0.5);
     }
   }

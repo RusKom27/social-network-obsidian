@@ -2,13 +2,14 @@
 import React from "react";
 
 import {Sidebar} from "../../../widgets";
-import {PageDefaultLayout} from "../../../shared/ui";
+import {PageDefaultLayout, PageHeader} from "../../../shared/ui";
 
 
 const Notifications = () => {
     return (
         <>
-            <PageDefaultLayout header={"Notifications"}>
+            <PageDefaultLayout>
+                <PageHeader>Notifications</PageHeader>
                 <div>Notifications</div>
             </PageDefaultLayout>
             <Sidebar/>
