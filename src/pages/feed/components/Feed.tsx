@@ -1,19 +1,19 @@
 
 import React from "react";
 
-import {PostCardList, Sidebar} from "../../../widgets";
-import {PageDefaultLayout} from "../../../shared/ui";
+import {ActualTopicList, PostCardList, Sidebar} from "../../../widgets";
+import {PageDefaultLayout, SideContainerElement} from "../../../shared/ui";
 
 const Feed = () => {
     return (
         <>
             <PageDefaultLayout header={"Home"}>
-                <PostCardList/>
+                <PostCardList post_request_query={{}}/>
             </PageDefaultLayout>
             <Sidebar>
-                <div>
-                    Side Element
-                </div>
+                <SideContainerElement title={"Actual topics"}>
+                    <ActualTopicList/>
+                </SideContainerElement>
             </Sidebar>
         </>
     );

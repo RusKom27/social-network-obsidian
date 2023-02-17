@@ -11,3 +11,5 @@ export * from "./dialog-card";
 export * from "./header-user-button";
 export * from "./post-card-list";
 export * from "./post-card";
+export * from "./actual-topic-list";
+export * from "./actual-topic-card";

@@ -14,7 +14,6 @@ body {
   margin-inline: auto;
   min-height: 100vh;
   color: $tertiary-color;
-  max-width: 80%;
 
   .content {
     min-height: 100vh;
@@ -62,4 +61,8 @@ body {
   }
 }
 
-@media (min-width: 1200px) {}
+@media (min-width: 1200px) {
+  .container {
+    max-width: 80%;
+  }
+}

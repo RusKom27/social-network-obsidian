@@ -10,7 +10,9 @@ interface PropsType {
 const SideBar: FC<PropsType> = ({children}) => {
     return (
         <div className={styles.container}>
-            {children}
+            <div>
+                {children}
+            </div>
         </div>
     );
 };
