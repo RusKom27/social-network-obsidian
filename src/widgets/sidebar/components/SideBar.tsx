@@ -1,6 +1,7 @@
 import React, {FC, ReactNode} from 'react';
 
 import styles from "./Sidebar.module.scss";
+import {PageHeader} from "../../../shared/ui";
 
 
 interface PropsType {
@@ -11,7 +12,10 @@ const SideBar: FC<PropsType> = ({children}) => {
     return (
         <div className={styles.container}>
             <div>
-                {children}
+                <PageHeader withBackButton={false}>Search</PageHeader>
+                <div>
+                    {children}
+                </div>
             </div>
         </div>
     );

@@ -10,11 +10,20 @@
 
   > div {
     display: flex;
+    flex-direction: column;
     position: sticky;
     width: 100%;
+
     max-width: 300px;
     min-width: 250px;
-    top: 12px;
+
+
+    > div {
+      display: flex;
+      flex-direction: column;
+      padding: 12px;
+      gap: 12px;
+    }
   }
 }
 
