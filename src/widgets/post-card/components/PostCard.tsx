@@ -13,7 +13,6 @@ interface PropsType {
 
 const PostCard = memo<PropsType>(({post_id}) => {
     const {data: post} = postApi.useFetchPostQuery(post_id);
-
     if (!post) return <Loader/>;
 
     return (

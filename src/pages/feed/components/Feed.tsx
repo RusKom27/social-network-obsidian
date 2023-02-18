@@ -4,8 +4,12 @@ import {Route, Routes} from "react-router-dom";
 
 import {ActualTopicList, PostCardList, Sidebar} from "../../../widgets";
 import {NavTab, PageDefaultLayout, PageHeader, SideContainerElement, TabBar} from "../../../shared/ui";
+import {userApi} from "../../../shared/api";
+import {useAppSelector} from "../../../shared/hooks";
 
 const Feed = () => {
+    const user_id = useAppSelector(state => state.auth.user_id);
+
     return (
         <>
             <PageDefaultLayout>
@@ -20,11 +24,15 @@ const Feed = () => {
                 </PageHeader>
                 <Routes>
                     <Route path={""} element={
-                        <PostCardList post_request_query={{}}/>
+                        <PostCardList post_request_query={{
+
+                        }}/>
                     }/>
-                    <Route path={"follows"} element={
-                        <PostCardList post_request_query={{}}/>
-                    }/>
+                    {user_id && <Route path={"follows"} element={
+                        <PostCardList post_request_query={{
+                            follows: user_id,
+                        }}/>
+                    }/>}
                 </Routes>
 
             </PageDefaultLayout>
