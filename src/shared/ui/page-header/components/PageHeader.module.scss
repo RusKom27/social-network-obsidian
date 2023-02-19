@@ -10,12 +10,12 @@
   height: 60px;
   padding: 8px;
   background-color: transparentize($primary-color, 0.2);
-  border-bottom: 1px solid transparentize($tertiary-color, 0.9);
   backdrop-filter: blur(6px);
   z-index: 999;
 
   > div {
     display: flex;
+    width: 100%;
     gap: 12px;
     font-weight: 800;
     align-items: center;

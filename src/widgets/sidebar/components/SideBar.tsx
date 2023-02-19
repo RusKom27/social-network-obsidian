@@ -2,6 +2,7 @@ import React, {FC, ReactNode} from 'react';
 
 import styles from "./Sidebar.module.scss";
 import {PageHeader} from "../../../shared/ui";
+import {SearchForm} from "../../../features";
 
 
 interface PropsType {
@@ -12,7 +13,7 @@ const SideBar: FC<PropsType> = ({children}) => {
     return (
         <div className={styles.container}>
             <div>
-                <PageHeader withBackButton={false}>Search</PageHeader>
+                <PageHeader withBackButton={false}><SearchForm/></PageHeader>
                 <div>
                     {children}
                 </div>

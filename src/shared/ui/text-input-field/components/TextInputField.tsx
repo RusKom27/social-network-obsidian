@@ -16,7 +16,7 @@ export const TextInputField: FC<PropsType & FieldProps> = ({
     ...props
 }) => (
     <div className={styles.container}>
-        <label htmlFor={field.name}>{children}</label>
+        {children && <label htmlFor={field.name}>{children}</label>}
         <input type={type} {...field} {...props} />
         <div className={styles.error_message}>
             {touched[field.name] && errors[field.name] &&

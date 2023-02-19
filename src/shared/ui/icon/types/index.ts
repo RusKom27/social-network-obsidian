@@ -1,2 +1,19 @@
-export type FillableIconType = "Home" | "Profile" | "Search" | "Bookmark" | "Notifications" | "Messages" | "Like"
-export type IconType = "Logo" | "More" | "Settings" | "Loader" | "BackArrow" | "ThreeDots" | "CreatePost" | "Send"
+export type FillableIconType =
+    "Like" |
+    "Home" |
+    "Search" |
+    "Profile" |
+    "Bookmark" |
+    "Messages" |
+    "Notifications"
+
+export type IconType =
+    "Logo" |
+    "Send" |
+    "More" |
+    "Loader" |
+    "Search" |
+    "Settings" |
+    "BackArrow" |
+    "ThreeDots" |
+    "CreatePost"

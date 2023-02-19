@@ -1,0 +1,40 @@
+@import "../../../themes/style-variables/variables";
+
+.container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+
+  input {
+    font-size: 16px;
+    border-radius: 25px;
+    width: 100%;
+    border: 1px solid transparentize($tertiary-color, 0.9);
+    background-color: transparent;
+    color: $tertiary-color;
+    padding: 8px;
+  }
+
+  > div {
+    position: relative;
+    display: flex;
+    align-items: center;
+    > * {
+      position: absolute;
+      right: 12px;
+    }
+  }
+
+  input:focus + div {
+    svg {
+      fill: $secondary-color;
+
+    }
+  }
+
+  input:focus {
+    background-color: $primary-color;
+    outline: 1px solid $secondary-color;
+  }
+}

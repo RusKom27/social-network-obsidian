@@ -1,0 +1,11 @@
+@import "src/shared/themes/style-variables/variables";
+
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: stretch;
+  gap: 8px;
+  background-color: transparentize($tertiary-color, 0.9);
+  border-radius: 25px;
+  width: 100%;
+}

@@ -10,3 +10,4 @@ export * from "./open-creating-post-window-button";
 export * from "./open-message-options-button";
 export * from "./open-post-options-button";
 export * from "./follow-user-button";
+export * from "./search-form";

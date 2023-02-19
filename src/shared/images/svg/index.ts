@@ -47,4 +47,5 @@ export const Icons = {
     ThreeDotsSVG,
     CreatePostSVG,
     SendSVG,
+    SearchSVG,
 };

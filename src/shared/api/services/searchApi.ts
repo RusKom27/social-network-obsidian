@@ -11,7 +11,7 @@ export const searchApi = createApi({
     endpoints: (build) => ({
         searchByUserInput: build.mutation<ISearchResult, string>({
             query: (user_input) => ({
-                url: `/?user_input=${user_input.trim()}`,
+                url: `/search/?user_input=${user_input.trim()}`,
             }),
             // async onCacheEntryAdded(arg, {cacheDataLoaded, dispatch}) {
             //     // const cacheData = await cacheDataLoaded
