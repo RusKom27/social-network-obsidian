@@ -4,7 +4,8 @@ export interface HoverCardProps {
     children?: ReactNode | ReactNode[] | string
     targetElement?: HTMLElement | null,
     position?: "absolute" | "fixed",
-    align?: "top" | "same"
+    vertical_align?: "top" | "same" | "bottom"
+    horizontal_align?: "left" | "center" | "right"
 }
 
 export const HoverCardContext = createContext({

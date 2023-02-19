@@ -29,7 +29,8 @@ export const OpenPostOptionsButton: FC<PropsType> = ({post_id}) => {
             </>,
             targetElement: optionRef.current,
             position: "absolute",
-            align: "same",
+            vertical_align: "same",
+            horizontal_align: "left",
         });
     };
 

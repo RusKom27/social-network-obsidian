@@ -20,7 +20,7 @@ const HeaderUserButton = () => {
             </>,
             targetElement: ref.current,
             position: "fixed",
-            align: "top",
+            vertical_align: "top",
         });
     };
 

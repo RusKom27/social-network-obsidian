@@ -1,11 +1,21 @@
 @import "../../../shared/themes/style-variables/variables";
 
+
+a.container {
+  color: $tertiary-color;
+  text-decoration: none;
+}
+
 .container {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   padding: 12px;
   border-radius: 0;
+
+  &:hover {
+    background-color: transparentize($tertiary-color, 0.9);
+  }
 
   .main {
     text-align: start;

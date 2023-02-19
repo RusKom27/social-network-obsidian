@@ -6,26 +6,47 @@ import styles from "./HoverCard.module.scss";
 import {HoverCardContext} from "../../../lib/contexts";
 import {HoverCardProps} from "../../../lib/contexts/hover-card/HoverCardContext";
 
-const HoverCard: FC<HoverCardProps> = ({children, targetElement, position, align}) => {
+const HoverCard: FC<HoverCardProps> = ({
+    children,
+    targetElement,
+    position="absolute",
+    vertical_align="same",
+    horizontal_align="center",
+}) => {
     const {closeHoverCard} = useContext(HoverCardContext);
     const card_ref = useRef<HTMLDivElement>(null);
-    if (!targetElement || !position || !align || !children) return null;
+    if (!targetElement || !children) return null;
     const targetRect = targetElement.getClientRects().item(0);
     const itemsCount = React.isValidElement(children) && children.props.children.length;
     if (!targetRect) return null;
 
-    const alignStyles = {
-        "top": {
+    const verticalAlignStyles = {
+        top: {
             top:  targetRect.top - (itemsCount ? itemsCount : 1) * 50,
-            left: targetRect.left,
         },
-        "same": {
+        same: {
             top: targetRect.top,
-            left: targetRect.left,
+        },
+        bottom: {
+            top:  targetRect.top + targetRect.height,
         },
     };
+
+    const horizontalAlignStyles = {
+        left: {
+            left: targetRect.left - 150,
+        },
+        center: {
+            left: targetRect.left,
+        },
+        right: {
+            left: targetRect.left + targetRect.width,
+        },
+    };
+
     const card_align: CSS.Properties<string | number> = {
-        ...alignStyles[align],
+        ...verticalAlignStyles[vertical_align],
+        ...horizontalAlignStyles[horizontal_align],
         position,
     };
 

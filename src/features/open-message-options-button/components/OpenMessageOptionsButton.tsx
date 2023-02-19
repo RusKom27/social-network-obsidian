@@ -32,7 +32,7 @@ export const OpenMessageOptionsButton: FC<PropsType> = ({message_id}) => {
             </>,
             targetElement: optionRef.current,
             position: "absolute",
-            align: "same",
+            vertical_align: "same",
         });
     };
 

@@ -1,4 +1,5 @@
 import React, {FC} from 'react';
+import {Link} from "react-router-dom";
 
 import {Button, Icon, LinkButton} from "../../../shared/ui";
 import {Topic} from "../../../shared/api/types";
@@ -12,7 +13,7 @@ interface PropsType {
 const ActualTopicCard: FC<PropsType> = ({actualTopic}) => {
 
     return (
-        <Button classNames={[styles.container]}>
+        <Link className={styles.container} to={"/"}>
             <div className={styles.main}>
                 <div>{actualTopic.value}</div>
                 <div>Posts: {actualTopic.count}</div>
@@ -20,7 +21,7 @@ const ActualTopicCard: FC<PropsType> = ({actualTopic}) => {
             <div className={styles.side}>
                 <Button size={0}><Icon type={"ThreeDots"} size={0}/></Button>
             </div>
-        </Button>
+        </Link>
     );
 };
 
