@@ -16,7 +16,7 @@ export const postApi = createApi({
             }),
             providesTags: () => ['Post'],
         }),
-        fetchAllPostIdList: build.query<[], PostRequestQuery | undefined>({
+        fetchAllPostIdList: build.query<string[], PostRequestQuery | undefined>({
             query: (post_request_query) => {
                 if (!post_request_query) return {url: `/post`};
                 const query_string = Object

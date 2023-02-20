@@ -17,7 +17,7 @@ const ActualTopicCard: FC<PropsType> = ({topic_id}) => {
     if (!topic) return <Loader/>;
 
     return (
-        <Link className={styles.container} to={`posts&text=${topic.name}`}>
+        <Link className={styles.container} to={`/?text=${topic.name}`}>
             <div className={styles.main}>
                 <div>{topic.name}</div>
                 <div>Posts: {topic.count}</div>
