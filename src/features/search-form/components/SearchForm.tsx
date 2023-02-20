@@ -35,6 +35,7 @@ export const SearchForm = () => {
                 targetElement: formRef.current,
                 position: "fixed",
                 vertical_align: "bottom",
+                width: 300,
             });
         }
     }, [searchResult]);

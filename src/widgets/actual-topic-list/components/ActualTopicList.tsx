@@ -1,17 +1,19 @@
 import React, {useMemo} from 'react';
 
-import {postApi} from "../../../shared/api";
+import {postApi, topicApi} from "../../../shared/api";
 import {ComponentList, Loader} from "../../../shared/ui";
 import {ActualTopicCard} from "../../actual-topic-card";
 
 
 const ActualTopicList = () => {
-    const {data: actualTopicList, isLoading} = postApi.useFetchActualTopicListQuery("");
+    const {data: topicList, isLoading} = topicApi.useGetTopicListQuery("");
+
+    console.log(topicList);
     const actualTopicsComponents = useMemo(() => {
-        return actualTopicList?.map(actualTopic =>
-            <ActualTopicCard key={actualTopic.value} actualTopic={actualTopic}/>,
+        return topicList?.map(topic_id =>
+            <ActualTopicCard key={topic_id} topic_id={topic_id}/>,
         );
-    }, [actualTopicList]);
+    }, [topicList]);
 
     if (isLoading) return <Loader/>;
 

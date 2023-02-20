@@ -1,6 +1,5 @@
 
 export type AuthResponseData = {access_token: string, refresh_token: string, user_id: string}
-export type Topic = {value: string, count: number};
 export type PostRequestQuery = {
     author_id?: string
     text?: string
@@ -8,4 +7,16 @@ export type PostRequestQuery = {
     follows?: string
     sort_by_popularity?: "ascending" | "descending"
     sort_by_relevance?: "ascending" | "descending"
-}
+};
+
+export type UserRequestQuery = {
+    login?: string
+    name?: string
+    subscribers?: string
+    sort_by_popularity?: "ascending" | "descending"
+};
+
+export type TopicRequestQuery = {
+    name?: string
+    sort_by_popularity?: "ascending" | "descending"
+};

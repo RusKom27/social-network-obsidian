@@ -2,6 +2,7 @@ import {createApi} from "@reduxjs/toolkit/dist/query/react";
 
 import {queryWithAuth} from "../interceptors";
 import {IUser} from "../models";
+import {UserRequestQuery} from "../types";
 
 export const userApi = createApi({
     reducerPath: "userAPI",
@@ -20,11 +21,18 @@ export const userApi = createApi({
             }),
             providesTags: () => ['UserList'],
         }),
-        fetchUserByLogin: build.query<IUser, string>({
-            query: (user_login) => ({
-                url: `/user/login/${user_login}`,
-            }),
-            providesTags: () => ['User'],
+        fetchUserListByQuery: build.query<IUser, UserRequestQuery | undefined>({
+            query: (post_request_query) => {
+                if (!post_request_query) return {url: `/user`};
+                const query_string = Object
+                    .entries(post_request_query)
+                    .map(entry => `${entry[0]}=${entry[1]}`)
+                    .join("&");
+                return {
+                    url: `/user?${query_string}`,
+                };
+            },
+            providesTags: () => ['UserList'],
         }),
         updateUser: build.mutation<IUser, any>({
             query: (props) => ({

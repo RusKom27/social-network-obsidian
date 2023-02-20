@@ -12,6 +12,7 @@ const HoverCard: FC<HoverCardProps> = ({
     position="absolute",
     vertical_align="same",
     horizontal_align="center",
+    width= 150,
 }) => {
     const {closeHoverCard} = useContext(HoverCardContext);
     const card_ref = useRef<HTMLDivElement>(null);
@@ -34,7 +35,7 @@ const HoverCard: FC<HoverCardProps> = ({
 
     const horizontalAlignStyles = {
         left: {
-            left: targetRect.left - 150,
+            left: targetRect.left - width,
         },
         center: {
             left: targetRect.left,
@@ -48,10 +49,11 @@ const HoverCard: FC<HoverCardProps> = ({
         ...verticalAlignStyles[vertical_align],
         ...horizontalAlignStyles[horizontal_align],
         position,
+        width,
     };
 
     const background_align: CSS.Properties<string | number> = {
-        position: position,
+        position,
         top: + window.scrollY,
     };
 

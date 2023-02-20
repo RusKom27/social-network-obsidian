@@ -6,6 +6,7 @@ export interface HoverCardProps {
     position?: "absolute" | "fixed",
     vertical_align?: "top" | "same" | "bottom"
     horizontal_align?: "left" | "center" | "right"
+    width?: number
 }
 
 export const HoverCardContext = createContext({

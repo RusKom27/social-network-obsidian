@@ -4,5 +4,5 @@ import {userApi} from "../../../shared/api";
 
 export const useFetchUserFromParams = () => {
     const location = useParams();
-    return userApi.useFetchUserByLoginQuery(location.login || "");
+    return userApi.useFetchUserListByQueryQuery({login: location.login || ""});
 };

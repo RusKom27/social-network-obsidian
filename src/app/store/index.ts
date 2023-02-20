@@ -1,6 +1,6 @@
 import {combineReducers, configureStore} from "@reduxjs/toolkit";
 
-import {authApi, dialogApi, imageApi, messageApi, postApi, searchApi, userApi} from "../../shared/api";
+import {authApi, dialogApi, imageApi, messageApi, postApi, searchApi, topicApi, userApi} from "../../shared/api";
 import slices from "../../shared/slices";
 
 const rootReducer = combineReducers({
@@ -11,6 +11,7 @@ const rootReducer = combineReducers({
     [userApi.reducerPath]: userApi.reducer,
     [imageApi.reducerPath]: imageApi.reducer,
     [searchApi.reducerPath]: searchApi.reducer,
+    [topicApi.reducerPath]: topicApi.reducer,
     ...slices,
 });
 
@@ -26,6 +27,7 @@ export const setupStore = () => {
                 imageApi.middleware,
                 searchApi.middleware,
                 postApi.middleware,
+                topicApi.middleware,
             ),
     });
 };
