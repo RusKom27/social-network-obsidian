@@ -1,44 +1,37 @@
-import React, {ChangeEvent, useContext, useEffect, useRef} from 'react';
+import React, {ChangeEvent, useContext, useRef} from 'react';
 import { Formik, Field} from 'formik';
 import {useNavigate} from "react-router-dom";
 import * as Yup from 'yup';
 
-import {Button, Icon, SearchField, TextInputField} from "../../../shared/ui";
-import {searchApi} from "../../../shared/api";
+import {SearchField} from "../../../shared/ui";
 import styles from "./SearchForm.module.scss";
 import {useDebounce} from "../../../shared/hooks";
-import {DeleteMessageButton} from "../../delete-message-button";
 import {HoverCardContext} from "../../../shared/lib/contexts";
-import {UserName} from "../../../entities/user";
+import {UserList} from "../../../entities/user";
+import {TopicList} from "../../../entities/topic";
 
 
 export const SearchForm = () => {
     const navigate = useNavigate();
-    const [search, {data: searchResult, isSuccess, isLoading}] = searchApi.useSearchByUserInputMutation();
     const {openHoverCard, closeHoverCard} = useContext(HoverCardContext);
     const formRef = useRef(null);
 
     const debouncedSearch = useDebounce(
-        (search_text: string) => search(search_text),
-        500,
-    );
-
-    useEffect(() => {
-        if (searchResult) {
+        (search_text: string) => {
+            if (!search_text) return closeHoverCard();
             openHoverCard({
                 children: <>
-                    {searchResult.topics.length > 0 &&
-                        searchResult.topics.map(topic => <div>{topic}</div>)}
-                    {searchResult.users.length > 0 &&
-                        searchResult.users.map(user => <div><UserName user_id={user._id}/></div>)}
+                    <UserList name={search_text}/>
+                    <TopicList name={search_text}/>
                 </>,
                 targetElement: formRef.current,
                 position: "fixed",
                 vertical_align: "bottom",
                 width: 300,
             });
-        }
-    }, [searchResult]);
+        },
+        500,
+    );
 
     return (
         <Formik

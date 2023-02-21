@@ -4,7 +4,6 @@ import IImage from "./IImage";
 import IUser from "./IUser";
 import ITopic from "./ITopic";
 import IMessage from "./IMessage";
-import ISearchResult from "./ISearchResult";
 
 export type {
     IPost,
@@ -13,5 +12,4 @@ export type {
     IUser,
     ITopic,
     IMessage,
-    ISearchResult,
 };

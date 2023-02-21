@@ -21,11 +21,11 @@ export const userApi = createApi({
             }),
             providesTags: () => ['UserList'],
         }),
-        fetchUserListByQuery: build.query<IUser, UserRequestQuery | undefined>({
-            query: (post_request_query) => {
-                if (!post_request_query) return {url: `/user`};
+        fetchUserList: build.query<string[], UserRequestQuery | undefined>({
+            query: (user_request_query) => {
+                if (!user_request_query) return {url: `/user`};
                 const query_string = Object
-                    .entries(post_request_query)
+                    .entries(user_request_query)
                     .map(entry => `${entry[0]}=${entry[1]}`)
                     .join("&");
                 return {

@@ -3,6 +3,8 @@ interface ITopic {
     name: string;
     count: number;
     posts: string[];
+    updatedAt: string;
+    createdAt: string;
 }
 
 export default ITopic;

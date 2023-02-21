@@ -4,31 +4,32 @@ import {Route, Routes} from "react-router-dom";
 
 import {ActualTopicList, PostCardList, Sidebar, UserInfo} from "../../../widgets";
 import {Loader, PageDefaultLayout, PageHeader, SideContainerElement} from "../../../shared/ui";
-import {useFetchUserFromParams} from "../hooks";
+import {useFetchUserIdFromParams} from "../hooks";
+import {UserLogin} from "../../../entities/user";
 
 
 const Profile = () => {
-    const {data: user} = useFetchUserFromParams();
+    const user_id = useFetchUserIdFromParams();
 
-    if (!user) return <Loader/>;
+    if (!user_id) return <Loader/>;
 
     return (
         <>
             <PageDefaultLayout>
-                <PageHeader>{user.name}</PageHeader>
-                <UserInfo user_id={user._id}/>
+                <PageHeader><UserLogin user_id={user_id}/></PageHeader>
+                <UserInfo user_id={user_id}/>
                 <Routes>
                     <Route path={""} element={
                         <PostCardList
                             post_request_query={{
-                                author_id: user._id,
+                                author_id: user_id,
                             }}
                         />
                     }/>
                     <Route path={"likes"} element={
                         <PostCardList
                             post_request_query={{
-                                likes: user._id,
+                                likes: user_id,
                             }}
                         />
                     }/>

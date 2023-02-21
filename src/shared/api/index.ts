@@ -4,5 +4,4 @@ export {messageApi} from "./services/messageApi";
 export {dialogApi} from "./services/dialogApi";
 export {userApi} from "./services/userApi";
 export {imageApi} from "./services/imageApi";
-export {searchApi} from "./services/searchApi";
 export {topicApi} from "./services/topicApi";

@@ -2,6 +2,7 @@ import {createApi} from "@reduxjs/toolkit/dist/query/react";
 
 import {baseQuery} from "../interceptors";
 import {ITopic} from "../models";
+import {TopicRequestQuery} from "../types";
 
 
 export const topicApi = createApi({
@@ -15,10 +16,16 @@ export const topicApi = createApi({
             }),
             providesTags: () => ['Topic'],
         }),
-        getTopicList: build.query<string[], string>({
-            query: (user_input) => {
-                if (!user_input) return { url: `/topic`};
-                else return { url: `/topic?text=${user_input.trim()}`};
+        getTopicList: build.query<string[], TopicRequestQuery | string>({
+            query: (topic_request_query) => {
+                if (!topic_request_query) return {url: `/topic`};
+                const query_string = Object
+                    .entries(topic_request_query)
+                    .map(entry => `${entry[0]}=${entry[1]}`)
+                    .join("&");
+                return {
+                    url: `/topic?${query_string}`,
+                };
             },
             providesTags: () => ['TopicList'],
         }),

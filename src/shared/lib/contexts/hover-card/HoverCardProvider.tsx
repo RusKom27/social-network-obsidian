@@ -13,7 +13,7 @@ export const HoverCardProvider: FC<PropsType> = ({children}) => {
 
     const openHoverCard = (hoverCardProps: HoverCardProps) => {
         setHoverCardContent(hoverCardProps);
-        setHoverCardOpened(!isHoverCardOpened);
+        setHoverCardOpened(true);
     };
 
     const closeHoverCard = () => {

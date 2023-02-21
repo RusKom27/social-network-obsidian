@@ -2,7 +2,9 @@ import {useParams} from "react-router-dom";
 
 import {userApi} from "../../../shared/api";
 
-export const useFetchUserFromParams = () => {
+export const useFetchUserIdFromParams = () => {
     const location = useParams();
-    return userApi.useFetchUserListByQueryQuery({login: location.login || ""});
+    const {data: user} = userApi.useFetchUserListQuery({login: location.login || ""});
+
+    return user && user[0];
 };
