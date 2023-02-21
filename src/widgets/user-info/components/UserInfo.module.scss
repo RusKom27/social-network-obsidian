@@ -3,7 +3,6 @@
 .container {
   display: flex;
   flex-direction: column;
-  border-bottom: 1px solid transparentize($tertiary-color, 0.9);
 
 
   .user_profile_image {
@@ -48,6 +47,17 @@
       display: flex;
       flex-direction: column;
       gap: 8px;
+    }
+  }
+
+  &[data-size="3"] {
+    .user_profile_image {
+      height: 50px;
+    }
+    .header {
+      height: 40px;
+
+      margin-bottom: 20px;
     }
   }
 }

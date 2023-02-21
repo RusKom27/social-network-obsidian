@@ -1,10 +1,11 @@
 
-import React, {FC, useContext, useRef} from 'react';
+import React, {FC, MouseEventHandler, useContext, useRef} from 'react';
 import type * as CSS from 'csstype';
 
 import styles from "./HoverCard.module.scss";
 import {HoverCardContext} from "../../../lib/contexts";
 import {HoverCardProps} from "../../../lib/contexts/hover-card/HoverCardContext";
+import {useDebounce} from "../../../hooks";
 
 const HoverCard: FC<HoverCardProps> = ({
     children,
@@ -12,14 +13,21 @@ const HoverCard: FC<HoverCardProps> = ({
     position="absolute",
     vertical_align="same",
     horizontal_align="center",
+    closeOn="clickOut",
     width= 150,
 }) => {
     const {closeHoverCard} = useContext(HoverCardContext);
+    const debouncedClose = useDebounce(((event) => {
+        if (event.type === "mouseLeave") closeHoverCard();
+    }) as MouseEventHandler<HTMLDivElement>, 500);
+
     const card_ref = useRef<HTMLDivElement>(null);
     if (!targetElement || !children) return null;
     const targetRect = targetElement.getClientRects().item(0);
     const itemsCount = React.isValidElement(children) && children.props.children.length;
     if (!targetRect) return null;
+
+
 
     const verticalAlignStyles = {
         top: {
@@ -60,6 +68,7 @@ const HoverCard: FC<HoverCardProps> = ({
     return (
         <div style={background_align} className={styles.background} onClick={() => closeHoverCard() }>
             <div
+                onMouseLeave={closeOn === "mouseOut" ? (debouncedClose) : () => ""}
                 ref={card_ref}
                 style={card_align}
                 className={styles.container}

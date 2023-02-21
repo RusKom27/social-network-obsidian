@@ -5,23 +5,25 @@ import {useAppSelector} from "../../../shared/hooks";
 import {UserAvatar, UserFollowInfo, UserLogin, UserName, UserProfileImage} from "../../../entities/user";
 import {FollowUserButton, OpenDialogButton} from "../../../features";
 import {NavTab, TabBar} from "../../../shared/ui";
+import {Size} from "../../../shared/lib/types";
 
 
 interface PropsType {
     user_id: string
+    size?: Size
 }
 
-export const UserInfo: FC<PropsType> = ({user_id}) => {
+export const UserInfo: FC<PropsType> = ({user_id, size=5}) => {
     const auth_user_id = useAppSelector(state => state.auth.user_id);
 
     return (
-        <div className={styles.container}>
+        <div data-size={size} className={styles.container}>
             <div className={styles.user_profile_image}>
                 <UserProfileImage user_id={user_id}/>
             </div>
             <div className={styles.header}>
                 <div>
-                    <UserAvatar size={5} user_id={user_id}/>
+                    <UserAvatar size={size} user_id={user_id}/>
                 </div>
                 <div>
                     {auth_user_id === user_id ?
@@ -44,10 +46,6 @@ export const UserInfo: FC<PropsType> = ({user_id}) => {
                     <UserFollowInfo user_id={user_id}/>
                 </div>
             </div>
-            <TabBar>
-                <NavTab to={" "}>Posts</NavTab>
-                <NavTab to={"likes"}>Likes</NavTab>
-            </TabBar>
         </div>
     );
 };
