@@ -20,10 +20,6 @@ export const CreateMessageForm: FC<PropsType> = ({onSuccess}) => {
         if (event.key === "Enter" && ref.current && !event.shiftKey) {
             event.preventDefault();
             ref.current.requestSubmit();
-            window.scrollTo({
-                top: 9999,
-                behavior: "smooth",
-            });
         }
     };
 
@@ -31,6 +27,10 @@ export const CreateMessageForm: FC<PropsType> = ({onSuccess}) => {
         if (isSuccess && onSuccess) {
             onSuccess();
         }
+        window.scrollTo({
+            top: document.body.scrollHeight,
+            behavior: "smooth",
+        });
     }, [isSuccess, onSuccess]);
 
     if (!dialog_id) return <Loader/>;

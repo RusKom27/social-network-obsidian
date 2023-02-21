@@ -8,7 +8,6 @@ import {Size} from "../../../shared/lib/types";
 interface PropsType {
     user_id: string | undefined
     size?: Size
-
 }
 
 export const UserName = memo<PropsType>(({user_id, size= 3}) => {

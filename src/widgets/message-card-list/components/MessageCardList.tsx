@@ -14,7 +14,7 @@ const MessageCardList = () => {
 
     useEffect(() => {
         window.scrollTo({
-            top: 9999,
+            top: document.body.scrollHeight,
             behavior: "smooth",
         });
     }, [dialog_id]);
@@ -28,7 +28,7 @@ const MessageCardList = () => {
     if (isLoading) return <Loader/>;
 
     return (
-        <ComponentList borders={"none"}>
+        <ComponentList custom_styles={ {marginBottom: 100}} borders={"none"}>
             {messageComponents}
         </ComponentList>
     );

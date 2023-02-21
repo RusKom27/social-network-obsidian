@@ -2,6 +2,7 @@ export * from "./navbar";
 export * from "./auth-bar";
 export * from "./sidebar";
 export * from "./user-info";
+export * from "./user-card";
 export * from "./message-input-bar";
 export * from "./message-card-list";
 export * from "./message-card";

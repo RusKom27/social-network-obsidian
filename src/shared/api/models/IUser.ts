@@ -7,6 +7,7 @@ interface IUser {
     description: string;
     creation_date: Date;
     subscribers: string[];
+    subscribersCount: number;
     images: {
         avatar_image: {
             big: string,

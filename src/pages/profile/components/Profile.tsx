@@ -5,7 +5,7 @@ import {Route, Routes} from "react-router-dom";
 import {ActualTopicList, PostCardList, Sidebar, UserInfo} from "../../../widgets";
 import {Loader, PageDefaultLayout, PageHeader, SideContainerElement} from "../../../shared/ui";
 import {useFetchUserIdFromParams} from "../hooks";
-import {UserLogin} from "../../../entities/user";
+import {UserName} from "../../../entities/user";
 
 
 const Profile = () => {
@@ -16,7 +16,7 @@ const Profile = () => {
     return (
         <>
             <PageDefaultLayout>
-                <PageHeader><UserLogin user_id={user_id}/></PageHeader>
+                <PageHeader><UserName size={5} user_id={user_id}/></PageHeader>
                 <UserInfo user_id={user_id}/>
                 <Routes>
                     <Route path={""} element={

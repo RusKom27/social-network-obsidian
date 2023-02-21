@@ -1,11 +1,11 @@
-import {FC, ReactNode} from "react";
-import {Link} from "react-router-dom";
+import {FC} from "react";
 
 import {userApi} from "../../../shared/api";
 import {ComponentList, Loader} from "../../../shared/ui";
 import {UserRequestQuery} from "../../../shared/api/types";
 import {UserLink} from "./UserLink";
 import {UserLogin} from "./UserLogin";
+import {UserCard} from "../../../widgets";
 
 export const UserList: FC<UserRequestQuery> = ({
     name="",
@@ -23,7 +23,7 @@ export const UserList: FC<UserRequestQuery> = ({
         <ComponentList>
             {users.map(user_id =>
                 <UserLink user_id={user_id}>
-                    <UserLogin user_id={user_id}/>
+                    <UserCard user_id={user_id}/>
                 </UserLink>,
             )}
 
