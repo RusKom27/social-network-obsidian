@@ -29,12 +29,12 @@ export const postApi = createApi({
             },
             providesTags: () => ['PostId'],
         }),
-        createPost: build.mutation<IPost, string>({
-            query: (post_text) => ({
+        createPost: build.mutation<IPost, {text: string, image: string}>({
+            query: (post_data) => ({
                 url: `/post/create`,
                 method: 'POST',
                 body: {
-                    text: post_text,
+                    ...post_data,
                 },
             }),
             invalidatesTags: ['Post'],

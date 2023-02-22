@@ -1,10 +1,12 @@
-import React, {FC, useEffect} from "react";
+import React, {FC, useEffect, useState} from "react";
 import {Field, Formik} from "formik";
 import * as Yup from "yup";
 
 import styles from "./CreatePostForm.module.scss";
-import {postApi} from "../../../shared/api";
+import {imageApi, postApi} from "../../../shared/api";
 import {Button, TextAreaField} from "../../../shared/ui";
+import {LoadImageButton} from "../../load-image-button";
+// import {loadImage} from "../../../shared/api/services/imageApi";
 
 
 interface PropsType {
@@ -13,12 +15,18 @@ interface PropsType {
 
 export const CreatePostForm: FC<PropsType> = ({onSuccess}) => {
     const [createPost, {isSuccess}] = postApi.useCreatePostMutation();
+    const [loadImage] = imageApi.useLoadImageMutation();
+    const [file, setFile] = useState<File | null | undefined>(null);
 
     useEffect(() => {
         if (isSuccess) {
             onSuccess();
         }
     }, [isSuccess, onSuccess]);
+
+    const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setFile(event.target.files?.item(0));
+    };
 
     return (
         <Formik
@@ -28,8 +36,12 @@ export const CreatePostForm: FC<PropsType> = ({onSuccess}) => {
                     .max(300, 'Must be 300 characters or less')
                     .required('Required'),
             })}
-            onSubmit={(values, { setSubmitting }) => {
-                createPost(values.post_text);
+            onSubmit={async (values, { setSubmitting }) => {
+                createPost({
+                    text: values.post_text,
+                    image: file ? file.name : "",
+                });
+                if (file) loadImage(file);
                 setSubmitting(false);
             }}
         >
@@ -40,6 +52,7 @@ export const CreatePostForm: FC<PropsType> = ({onSuccess}) => {
                             <Field type={"PostInput"} name={"post_text"} component={TextAreaField}></Field>
                         </div>
                         <div>
+                            <LoadImageButton onImageInput={handleImageChange}/>
                             <Button type="submit">Create</Button>
                         </div>
                     </form>

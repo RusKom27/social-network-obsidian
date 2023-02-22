@@ -1,6 +1,6 @@
 import {fetchBaseQuery} from "@reduxjs/toolkit/dist/query/react";
 
-import {config} from "../../config/config";
+import {config} from "../../config";
 import Storage from "../../lib/storage";
 
 export const baseQuery = fetchBaseQuery({

@@ -4,7 +4,6 @@ import {userApi} from "../../../shared/api";
 import {ComponentList, Loader} from "../../../shared/ui";
 import {UserRequestQuery} from "../../../shared/api/types";
 import {UserLink} from "./UserLink";
-import {UserLogin} from "./UserLogin";
 import {UserCard} from "../../../widgets";
 
 export const UserList: FC<UserRequestQuery> = ({

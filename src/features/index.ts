@@ -11,3 +11,4 @@ export * from "./open-message-options-button";
 export * from "./open-post-options-button";
 export * from "./follow-user-button";
 export * from "./search-form";
+export * from "./load-image-button";

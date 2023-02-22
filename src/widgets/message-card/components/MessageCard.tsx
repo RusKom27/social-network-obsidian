@@ -1,14 +1,12 @@
 
-import React, {memo, useContext, useEffect, useRef, useState} from 'react';
+import React, {memo, useEffect, useRef, useState} from 'react';
 
 import styles from "./MessageCard.module.scss";
 import {UserAvatar, UserName} from "../../../entities/user";
 import {useAppSelector} from "../../../shared/hooks";
-import {Button, Icon} from "../../../shared/ui";
 import {messageApi} from "../../../shared/api";
 import {MessageText} from "../../../entities/message";
-import {HoverCardContext} from "../../../shared/lib/contexts";
-import {DeleteMessageButton, OpenMessageOptionsButton} from "../../../features";
+import {OpenMessageOptionsButton} from "../../../features";
 
 
 interface PropsType {
@@ -22,13 +20,15 @@ const MessageCard = memo<PropsType>(({message_id}) => {
     const from_other_user = user_id !== message?.sender_id;
     const ref = useRef<HTMLDivElement>(null);
 
+    const previousSiblingIsFromOtherUser = ref.current?.previousElementSibling?.attributes.item(1)?.value;
+
     useEffect(() => {
-        if (ref.current && ref.current.previousElementSibling) {
+        if (previousSiblingIsFromOtherUser) {
             setIsFirstInGroup(
-                ref.current.previousElementSibling.attributes.item(1)?.value !== from_other_user.toString(),
+                previousSiblingIsFromOtherUser !== from_other_user.toString(),
             );
         }
-    }, [ref, message, from_other_user]);
+    }, [previousSiblingIsFromOtherUser, message, from_other_user]);
 
     return (
         <div
@@ -47,6 +47,7 @@ const MessageCard = memo<PropsType>(({message_id}) => {
                 </div>}
                 <div className={styles.content}>
                     <MessageText message_id={message_id}/>
+
                 </div>
             </div>
             <div className={styles.options}>
