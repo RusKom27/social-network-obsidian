@@ -10,7 +10,6 @@
   .options {
     display: flex;
     align-items: flex-end;
-    aspect-ratio: 1;
     svg {
       opacity: 0;
       transition: 0.3s;
@@ -45,9 +44,16 @@
 
     .content {
       display: flex;
+      flex-direction: column;
+      height: 100%;
+      gap: 12px;
       background-color: $blue;
       border-radius: 8px;
       padding: 8px;
+
+      > div:has(img) {
+        max-height: 300px;
+      }
     }
 
     .footer {

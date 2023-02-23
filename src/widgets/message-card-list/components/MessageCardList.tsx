@@ -28,7 +28,7 @@ const MessageCardList = () => {
     if (isLoading) return <Loader/>;
 
     return (
-        <ComponentList custom_styles={ {marginBottom: 100}} borders={"none"}>
+        <ComponentList reverse={true} borders={"none"}>
             {messageComponents}
         </ComponentList>
     );

@@ -45,3 +45,7 @@ table {
 * {
   box-sizing: border-box;
 }
+
+*::-webkit-scrollbar-track {
+  background-color: transparent;
+}

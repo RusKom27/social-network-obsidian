@@ -3,9 +3,10 @@ import React, {memo} from 'react';
 import styles from "./PostCard.module.scss";
 import {LikePostButton, OpenPostOptionsButton} from "../../../features";
 import {UserAvatar, UserLink, UserLogin, UserName} from "../../../entities/user";
-import {Loader} from "../../../shared/ui";
+import {Image, Loader} from "../../../shared/ui";
 import {postApi} from "../../../shared/api";
 import {PostText} from "../../../entities/post";
+import {FetchImage} from "../../../entities/image";
 
 interface PropsType {
     post_id: string
@@ -36,6 +37,9 @@ const PostCard = memo<PropsType>(({post_id}) => {
                 </div>
                 <div className={styles.content}>
                     <PostText post_id={post_id}/>
+                    {post.image && <Image>
+                        <FetchImage src={post.image}/>
+                    </Image>}
                 </div>
                 <div className={styles.footer}>
                     <LikePostButton post_id={post._id}/>

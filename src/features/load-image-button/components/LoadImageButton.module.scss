@@ -1,0 +1,64 @@
+@import "src/shared/themes/style-variables/variables";
+
+.container {
+  display: flex;
+  border: none;
+  flex-direction: row;
+  background: none;
+  justify-content: center;
+
+  justify-items: center;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: $tertiary-color;
+  font-size: 18px;
+  font-weight: 500;
+  padding: 14px;
+  border-radius: 50px;
+  transition: 0.1s;
+
+  svg {
+    transition: 0.2s;
+  }
+
+  &[data-hover-highlight="icon"] {
+    div:has(svg) {
+      padding: 8px;
+      border-radius: 25px;
+    }
+  }
+
+  &[data-border="true"] {
+    border: 1px solid transparentize($tertiary-color, 0.5);
+  }
+
+  &[disabled] {
+    background-color: $blue!important;
+    color: transparentize($tertiary-color, 0.7)!important;
+  }
+
+  &:hover, label {
+    cursor: pointer;
+
+    &[data-hover-highlight="all"] {background-color: transparentize($tertiary-color, 0.9);}
+    &[data-hover-highlight="icon"] {div:has(svg) {background-color: transparentize($tertiary-color, 0.9);}}
+
+    &[data-hover-color="default"] {color: $tertiary-color; svg {fill: $tertiary-color}}
+    &[data-hover-color="blue"] {color: $blue; svg {fill: $blue}}
+    &[data-hover-color="red"] {color: $red; svg {fill: $red}}
+    &[data-hover-color="orange"] {color: $orange; svg {fill: $orange} }
+  }
+
+  &[data-background-color="default"] {background-color: transparent;}
+  &[data-background-color="blue"] {background-color: $blue;}
+  &[data-background-color="red"] {background-color: $red;}
+  &[data-background-color="orange"] {background-color: $orange;}
+
+  &[data-size="0"] {padding: 8px;gap: 2px;font-size: 10px;}
+  &[data-size="1"] {padding: 8px;gap: 4px;font-size: 12px;}
+  &[data-size="2"] {padding: 10px;gap: 6px;font-size: 14px;}
+  &[data-size="3"] {padding: 12px;gap: 8px;font-size: 16px;}
+  &[data-size="4"] {padding: 14px;gap: 8px;font-size: 18px;}
+  &[data-size="5"] {padding: 16px;gap: 10px;font-size: 20px;}
+}

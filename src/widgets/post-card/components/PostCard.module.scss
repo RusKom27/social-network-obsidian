@@ -33,6 +33,12 @@
 
     .content {
       display: flex;
+      flex-direction: column;
+      gap: 12px;
+
+      > div:has(img) {
+        max-height: 500px;
+      }
     }
 
     .footer {
