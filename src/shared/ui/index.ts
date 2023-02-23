@@ -5,6 +5,7 @@ export * from "./nav-tab";
 export * from "./tab-bar";
 export * from "./icon";
 export * from "./loader";
+export * from "./date-text";
 export * from "./text-input-field";
 export * from "./text-area-field";
 export * from "./search-field";

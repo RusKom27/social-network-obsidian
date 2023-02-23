@@ -5,7 +5,7 @@ import styles from "./MessageCard.module.scss";
 import {UserAvatar, UserName} from "../../../entities/user";
 import {useAppSelector} from "../../../shared/hooks";
 import {messageApi} from "../../../shared/api";
-import {MessageText} from "../../../entities/message";
+import {MessageText, MessageCreationDate} from "../../../entities/message";
 import {OpenMessageOptionsButton} from "../../../features";
 import {Image, Loader} from "../../../shared/ui";
 import {FetchImage} from "../../../entities/image";
@@ -54,6 +54,7 @@ const MessageCard = memo<PropsType>(({message_id}) => {
                         <FetchImage src={message.image}/>
                     </Image>}
                     <MessageText message_id={message_id}/>
+                    <MessageCreationDate message_id={message_id}/>
                 </div>
             </div>
             <div className={styles.options}>

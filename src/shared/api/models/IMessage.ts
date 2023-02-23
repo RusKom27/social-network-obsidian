@@ -5,7 +5,8 @@ interface IMessage {
     text: string
     image: string
     checked: boolean
-    creation_date: Date
+    createdAt: Date,
+    updateAt: Date,
 }
 
 export default IMessage;

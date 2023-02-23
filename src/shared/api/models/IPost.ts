@@ -6,7 +6,8 @@ interface IPost {
     tags: string[]
     likes: string[];
     views: string[];
-    creation_date: Date;
+    createdAt: Date;
+    updatedAt: Date;
 }
 
 export default IPost;

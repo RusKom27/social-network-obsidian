@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 
 import styles from "./AuthBar.module.scss";
 import {HeaderUserButton} from "../../header-user-button";
@@ -7,7 +7,7 @@ import {useAuth} from "../../../shared/hooks";
 
 
 export const AuthBar = () => {
-    const {isAuth} = useAuth();
+    const isAuth = useAuth();
 
     return (
         <div className={styles.container}>

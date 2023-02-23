@@ -1,0 +1,11 @@
+@import "../../../shared/themes/style-variables/variables";
+
+.post_creation_date {
+  font-size: 15px;
+  font-weight: 300;
+  color: transparentize($tertiary-color, 0.3);
+
+  &:before {
+    content: " | ";
+  }
+}

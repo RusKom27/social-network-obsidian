@@ -17,7 +17,7 @@ export const TextInputField: FC<PropsType & FieldProps> = ({
 }) => (
     <div className={styles.container}>
         {children && <label htmlFor={field.name}>{children}</label>}
-        <input type={type} {...field} {...props} />
+        <input type={type} {...field} {...props} autoComplete={"off"}/>
         <div className={styles.error_message}>
             {touched[field.name] && errors[field.name] &&
             errors[field.name]?.toString()

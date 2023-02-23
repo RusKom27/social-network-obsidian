@@ -37,7 +37,7 @@ export const postApi = createApi({
                     ...post_data,
                 },
             }),
-            invalidatesTags: ['Post'],
+            invalidatesTags: ['Post', 'PostId'],
         }),
         likePost: build.mutation<IPost, string>({
             query: (post_id) => ({

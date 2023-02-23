@@ -26,7 +26,6 @@ export const authApi = createApi({
                     Storage.setLocalVariable('token', access_token);
                     Storage.setLocalVariable('user_id', user_id);
                     dispatch(setAuthData({access_token, user_id}));
-
                 },
             }),
         registration: build.mutation<

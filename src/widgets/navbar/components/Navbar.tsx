@@ -10,7 +10,7 @@ import {OpenCreationPostWindowButton} from "../../../features";
 
 
 const Navbar = () => {
-    const {isAuth} = useAuth();
+    const isAuth = useAuth();
     const user_id = useAppSelector(state => state.auth.user_id);
     const {data: user} = userApi.useFetchUserByIdQuery(user_id);
 
