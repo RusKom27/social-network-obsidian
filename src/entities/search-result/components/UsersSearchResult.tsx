@@ -18,7 +18,7 @@ export const UsersSearchResult: FC<PropsType> = ({search_query}) => {
     //     }
     // }, [post, textRef]);
     //
-    // if (!post) return <Loader />;
+    // if (!post) return <MessagePageLayout />;
 
     return (
         <span ref={textRef}></span>

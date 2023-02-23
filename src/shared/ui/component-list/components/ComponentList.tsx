@@ -7,15 +7,19 @@ import styles from "./ComponentList.module.scss";
 interface PropsType {
     children: ReactNode | ReactNode[]
     borders?: "default" | "none"
-    custom_styles?: CSS.Properties<string | number>
+    reverse?: boolean
 }
 
-const ComponentList: FC<PropsType> = ({children, borders = "default", custom_styles}) => {
+const ComponentList: FC<PropsType> = ({
+    children,
+    borders = "default",
+    reverse=false,
+}) => {
     return (
         <div
             className={styles.container}
             data-borders={borders}
-            style={custom_styles}
+            data-reverse={reverse}
         >
             {children}
         </div>

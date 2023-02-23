@@ -17,3 +17,4 @@ export * from "./modal-window";
 export * from "./hover-card";
 export * from "./component-list";
 export * from "./side-container-element";
+export * from "./message-page-layout";

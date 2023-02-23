@@ -14,6 +14,7 @@ const ModalWindow: FC<ModalWindowProps> = ({title= "", children}) => {
 
     useEffect(() => {
         preventScroll(true);
+        return preventScroll(false);
     });
 
     return (

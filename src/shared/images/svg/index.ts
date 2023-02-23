@@ -20,6 +20,7 @@ import {ReactComponent as BackArrowSVG} from "./back-arrow.svg";
 import {ReactComponent as ThreeDotsSVG} from "./three-dots.svg";
 import {ReactComponent as CreatePostSVG} from "./create-post.svg";
 import {ReactComponent as SendSVG} from "./send.svg";
+import {ReactComponent as PhotoSVG} from "./photo.svg";
 
 export const FillableIcons = {
     HomeFilledSVG,
@@ -48,4 +49,5 @@ export const Icons = {
     CreatePostSVG,
     SendSVG,
     SearchSVG,
+    PhotoSVG,
 };

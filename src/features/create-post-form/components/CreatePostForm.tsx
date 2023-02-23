@@ -4,8 +4,9 @@ import * as Yup from "yup";
 
 import styles from "./CreatePostForm.module.scss";
 import {imageApi, postApi} from "../../../shared/api";
-import {Button, TextAreaField} from "../../../shared/ui";
+import {Button, Image, TextAreaField} from "../../../shared/ui";
 import {LoadImageButton} from "../../load-image-button";
+import { FetchImage } from "../../../entities/image";
 // import {loadImage} from "../../../shared/api/services/imageApi";
 
 
@@ -50,6 +51,15 @@ export const CreatePostForm: FC<PropsType> = ({onSuccess}) => {
                     <form className={styles.container} onSubmit={handleSubmit}>
                         <div>
                             <Field type={"PostInput"} name={"post_text"} component={TextAreaField}></Field>
+                            <div>
+                                <div onClick={() => setFile(null)} className={styles.image_preview}>
+                                    {file &&
+                                        <Image>
+                                            <FetchImage src={file.name}/>
+                                        </Image>
+                                    }
+                                </div>
+                            </div>
                         </div>
                         <div>
                             <LoadImageButton onImageInput={handleImageChange}/>

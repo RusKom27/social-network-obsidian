@@ -18,7 +18,7 @@ export const UserProfileImage: FC<PropsType> = ({size, user_id}) => {
 
     return (
         <Image size={size} type={"default"}>
-            <FetchImage src={user.images.profile_image.small} type={"default"}/>
+            <FetchImage src={user.images.profile_image.small}/>
         </Image>
     );
 };

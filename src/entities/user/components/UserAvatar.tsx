@@ -18,7 +18,7 @@ export const UserAvatar = memo<PropsType>(({size, user_id}) => {
 
     return (
         <Image size={size} type={"avatar"}>
-            <FetchImage src={user.images.avatar_image.small} type={"avatar"}/>
+            <FetchImage src={user.images.avatar_image.small}/>
         </Image>
     );
 });

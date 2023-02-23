@@ -7,7 +7,7 @@
   display: flex;
   gap: 8px;
   box-sizing: border-box;
-  height: 60px;
+  height: $page-header-height;
   padding: 8px;
   background-color: transparentize($primary-color, 0.2);
   backdrop-filter: blur(6px);

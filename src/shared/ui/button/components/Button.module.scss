@@ -38,10 +38,12 @@
     color: transparentize($tertiary-color, 0.7)!important;
   }
 
+  *:hover {
+    cursor: pointer;
+  }
 
   &:hover {
     cursor: pointer;
-
     &[data-hover-highlight="all"] {background-color: transparentize($tertiary-color, 0.9);}
     &[data-hover-highlight="icon"] {div:has(svg) {background-color: transparentize($tertiary-color, 0.9);}}
 

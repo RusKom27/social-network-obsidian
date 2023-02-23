@@ -16,28 +16,26 @@ const UserCard = memo<PropsType>(({user_id}) => {
 
     return (
         <div className={styles.container}>
-            <UserLink user_id={user_id}>
-                <div className={styles.side}>
-                    <UserAvatar size={1} user_id={user_id}/>
+            <div className={styles.side}>
+                <UserAvatar size={1} user_id={user_id}/>
+            </div>
+            <div className={styles.main}>
+                <div className={styles.header}>
+                    <div>
+                        <UserName user_id={user_id}/>
+                        <UserLogin user_id={user_id}/>
+                    </div>
+                    <div>
+                        {/*<OpenPostOptionsButton post_id={user_id}/>*/}
+                    </div>
                 </div>
-                <div className={styles.main}>
-                    <div className={styles.header}>
-                        <div>
-                            <UserName user_id={user_id}/>
-                            <UserLogin user_id={user_id}/>
-                        </div>
-                        <div>
-                            {/*<OpenPostOptionsButton post_id={user_id}/>*/}
-                        </div>
-                    </div>
-                    <div className={styles.content}>
-                        followers: {user.subscribers.length}
-                    </div>
-                    <div className={styles.footer}>
+                <div className={styles.content}>
+                    followers: {user.subscribers.length}
+                </div>
+                <div className={styles.footer}>
 
-                    </div>
                 </div>
-            </UserLink>
+            </div>
         </div>
     );
 });

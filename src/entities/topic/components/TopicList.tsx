@@ -19,7 +19,7 @@ export const TopicList: FC<TopicRequestQuery> = ({
     return (
         <ComponentList>
             {topics.map(topic_id =>
-                <ActualTopicCard topic_id={topic_id}/>,
+                <ActualTopicCard key={topic_id} topic_id={topic_id}/>,
             )}
 
         </ComponentList>

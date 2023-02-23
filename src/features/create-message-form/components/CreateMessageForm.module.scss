@@ -4,7 +4,7 @@
   display: flex;
   height: 100%;
   width: 100%;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-between;
   gap: 8px;
 
@@ -12,5 +12,14 @@
     display: flex;
     align-content: center;
     width: 100%;
+    padding: 8px;
+  }
+
+  > div:first-child {
+    border-bottom: 1px solid transparentize($tertiary-color, 0.9);
+  }
+
+  .image_preview {
+
   }
 }

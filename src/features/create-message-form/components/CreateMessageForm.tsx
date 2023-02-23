@@ -1,11 +1,13 @@
-import React, {FC, useEffect, useRef} from "react";
+import React, {FC, useEffect, useRef, useState} from "react";
 import {Field, Formik} from "formik";
 import * as Yup from "yup";
 import {useParams} from "react-router-dom";
 
-import {Loader, TextAreaField} from "../../../shared/ui";
-import {messageApi} from "../../../shared/api";
+import {Icon, Image, Loader, TextAreaField} from "../../../shared/ui";
+import {imageApi, messageApi} from "../../../shared/api";
 import styles from "./CreateMessageForm.module.scss";
+import {LoadImageButton} from "../../load-image-button";
+import {FetchImage} from "../../../entities/image";
 
 interface PropsType {
     onSuccess?: () => void
@@ -13,14 +15,20 @@ interface PropsType {
 
 export const CreateMessageForm: FC<PropsType> = ({onSuccess}) => {
     const [createMessage, {isSuccess}] = messageApi.useCreateMessageMutation();
+    const [loadImage] = imageApi.useLoadImageMutation();
     const dialog_id = useParams().dialog_id;
     const ref = useRef<HTMLFormElement>(null);
+    const [file, setFile] = useState<File | null | undefined>(null);
 
     const submitOnEnter = (event: KeyboardEvent) => {
         if (event.key === "Enter" && ref.current && !event.shiftKey) {
             event.preventDefault();
             ref.current.requestSubmit();
         }
+    };
+
+    const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setFile(event.target.files?.item(0));
     };
 
     useEffect(() => {
@@ -47,7 +55,9 @@ export const CreateMessageForm: FC<PropsType> = ({onSuccess}) => {
                 createMessage({
                     dialog_id,
                     text: values.message_text,
+                    image: file ? file.name : "",
                 });
+                if (file) loadImage(file);
                 resetForm();
                 setSubmitting(false);
             }}
@@ -56,6 +66,16 @@ export const CreateMessageForm: FC<PropsType> = ({onSuccess}) => {
                 return (
                     <form ref={ref} className={styles.container} onSubmit={handleSubmit}>
                         <div>
+                            <div onClick={() => setFile(null)} className={styles.image_preview}>
+                                {file &&
+                                    <Image size={5}>
+                                        <FetchImage src={file.name}/>
+                                    </Image>
+                                }
+                            </div>
+                        </div>
+                        <div>
+                            <LoadImageButton onImageInput={handleImageChange}/>
                             <Field
                                 onKeyDown={submitOnEnter}
                                 max_height={100}
@@ -64,6 +84,7 @@ export const CreateMessageForm: FC<PropsType> = ({onSuccess}) => {
                                 component={TextAreaField}
                             />
                             <input hidden type="submit" tabIndex={-1}/>
+                            <Icon type={"Send"} size={2}/>
                         </div>
                     </form>
                 );

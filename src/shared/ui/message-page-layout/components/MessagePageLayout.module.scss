@@ -1,0 +1,15 @@
+@import "../../../themes/style-variables/variables";
+
+.container {
+  display: flex;
+  flex-direction: column;
+
+  > div:first-child {
+    height: calc(100vh - $message-bar-height);
+    overflow-y: scroll;
+  }
+
+  > div:last-child {
+
+  }
+}

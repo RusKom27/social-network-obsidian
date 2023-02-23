@@ -16,4 +16,5 @@ export type IconType =
     "Settings" |
     "BackArrow" |
     "ThreeDots" |
-    "CreatePost"
+    "CreatePost" |
+    "Photo"

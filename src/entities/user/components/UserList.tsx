@@ -21,7 +21,7 @@ export const UserList: FC<UserRequestQuery> = ({
     return (
         <ComponentList>
             {users.map(user_id =>
-                <UserLink user_id={user_id}>
+                <UserLink key={user_id} user_id={user_id}>
                     <UserCard user_id={user_id}/>
                 </UserLink>,
             )}

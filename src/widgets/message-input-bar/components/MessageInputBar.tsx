@@ -11,7 +11,6 @@ export const MessageInputBar = () => {
         <div className={styles.container}>
             <div>
                 <CreateMessageForm/>
-                <Icon type={"Send"} size={2}/>
             </div>
         </div>
     );
