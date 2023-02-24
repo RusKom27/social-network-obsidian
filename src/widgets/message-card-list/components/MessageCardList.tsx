@@ -8,9 +8,10 @@ import {MessageCard} from "../../message-card";
 
 const MessageCardList = () => {
     const {dialog_id} = useParams();
-    const {data: messageIdArray, isLoading} = messageApi.useFetchMessagesQuery(dialog_id || "", {
-        pollingInterval: 1000,
-    });
+    const {data: messageIdArray, isLoading} = messageApi.useFetchMessagesQuery(
+        {dialog_id: dialog_id || "", query: {sort_by_relevance: "descending", limit: 50}},
+        {pollingInterval: 1000},
+    );
 
     useEffect(() => {
         window.scrollTo({

@@ -20,3 +20,8 @@ export type TopicRequestQuery = {
     name?: string
     sort_by_popularity?: "ascending" | "descending"
 };
+
+export type MessageRequestQuery = {
+    limit?: number
+    sort_by_relevance?: "ascending" | "descending"
+};

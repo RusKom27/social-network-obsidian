@@ -17,7 +17,9 @@ interface PropsType {
 const DialogCard = memo<PropsType>(({dialog}) => {
     const user_id = useAppSelector(state => state.auth.user_id);
     const other_members_id = dialog.members_id.filter(member_id => member_id !== user_id);
-    const {data: message_id_list} = messageApi.useFetchMessagesQuery(dialog._id);
+    const {data: message_id_list} = messageApi.useFetchMessagesQuery(
+        {dialog_id: dialog._id, query: {sort_by_relevance: "descending", limit: 1}},
+    );
     if (!message_id_list) return <Loader/>;
     const last_message_id = message_id_list.at(-1);
 
