@@ -57,36 +57,44 @@ export const CreateMessageForm: FC<PropsType> = ({onSuccess}) => {
                     text: values.message_text,
                     image: file ? file.name : "",
                 });
-                if (file) loadImage(file);
+                if (file) {
+                    loadImage(file);
+                    setFile(null);
+                }
                 resetForm();
                 setSubmitting(false);
             }}
         >
             {({handleSubmit}) => {
                 return (
-                    <form ref={ref} className={styles.container} onSubmit={handleSubmit}>
-                        <div>
-                            <div onClick={() => setFile(null)} className={styles.image_preview}>
-                                {file &&
-                                    <Image size={5}>
+                    <>
+
+                        <form ref={ref} className={styles.container} onSubmit={handleSubmit}>
+                            {file && <div className={styles.image_preview}>
+                                <div onClick={() => setFile(null)}>
+                                    <Image size={3}>
                                         <FetchImage src={file.name}/>
                                     </Image>
-                                }
+                                    <div>
+                                        <Icon type={"ThreeDots"} size={3}/>
+                                    </div>
+                                </div>
+                            </div>}
+                            <div>
+                                <LoadImageButton onImageInput={handleImageChange}/>
+                                <Field
+                                    onKeyDown={submitOnEnter}
+                                    max_height={100}
+                                    type={"MessageInput"}
+                                    name={"message_text"}
+                                    component={TextAreaField}
+                                />
+                                <input hidden type="submit" tabIndex={-1}/>
+                                <Icon type={"Send"} size={2}/>
                             </div>
-                        </div>
-                        <div>
-                            <LoadImageButton onImageInput={handleImageChange}/>
-                            <Field
-                                onKeyDown={submitOnEnter}
-                                max_height={100}
-                                type={"MessageInput"}
-                                name={"message_text"}
-                                component={TextAreaField}
-                            />
-                            <input hidden type="submit" tabIndex={-1}/>
-                            <Icon type={"Send"} size={2}/>
-                        </div>
-                    </form>
+                        </form>
+                    </>
+
                 );
             }}
         </Formik>

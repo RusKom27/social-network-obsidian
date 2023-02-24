@@ -3,13 +3,30 @@
 .container {
   display: flex;
   flex-direction: column;
+  max-height: 100%;
 
   > div:first-child {
-    height: calc(100vh - $message-bar-height);
+    flex: 1;
+    max-height: calc(100vh - $message-bar-height - $page-header-height);
     overflow-y: scroll;
   }
 
   > div:last-child {
-
+    max-height: $message-bar-height;
   }
 }
+
+
+@media (max-width: 768px) {
+  .container {
+    height: calc(100vh - $page-header-height);
+  }
+}
+
+@media (min-width: 768px) {
+}
+
+@media (max-width: 992px) {
+}
+
+@media (min-width: 1200px) {}

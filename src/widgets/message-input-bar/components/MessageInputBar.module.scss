@@ -5,13 +5,16 @@
   background-color: $primary-color;
   max-height: $message-bar-height;
   border-top: 1px solid transparentize($tertiary-color, 0.9);
+  height: 100%;
 
   > div {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-between;
     background-color: transparentize($tertiary-color, 0.9);
+    height: 100%;
     border-radius: 8px;
+    gap: 8px;
 
     svg {
       fill: $blue;
