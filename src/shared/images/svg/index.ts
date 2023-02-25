@@ -15,12 +15,14 @@ import {ReactComponent as LikeSVG} from "./like.svg";
 import {ReactComponent as LogoSVG} from "./logo.svg";
 import {ReactComponent as MoreSVG} from "./more.svg";
 import {ReactComponent as SettingsSVG} from "./settings.svg";
+import {ReactComponent as SettingsFilledSVG} from "./settings.svg";
 import {ReactComponent as LoaderSVG} from "./loader.svg";
 import {ReactComponent as BackArrowSVG} from "./back-arrow.svg";
 import {ReactComponent as ThreeDotsSVG} from "./three-dots.svg";
 import {ReactComponent as CreatePostSVG} from "./create-post.svg";
 import {ReactComponent as SendSVG} from "./send.svg";
 import {ReactComponent as PhotoSVG} from "./photo.svg";
+import {ReactComponent as CrossSVG} from "./cross.svg";
 
 export const FillableIcons = {
     HomeFilledSVG,
@@ -37,12 +39,13 @@ export const FillableIcons = {
     SearchSVG,
     LikeFilledSVG,
     LikeSVG,
+    SettingsSVG,
+    SettingsFilledSVG,
 };
 
 export const Icons = {
     LogoSVG,
     MoreSVG,
-    SettingsSVG,
     LoaderSVG,
     BackArrowSVG,
     ThreeDotsSVG,
@@ -50,4 +53,5 @@ export const Icons = {
     SendSVG,
     SearchSVG,
     PhotoSVG,
+    CrossSVG,
 };

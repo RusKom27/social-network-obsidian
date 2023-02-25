@@ -73,15 +73,15 @@ export const CreateMessageForm: FC<PropsType> = ({onSuccess}) => {
                             {file && <div className={styles.image_preview}>
                                 <div onClick={() => setFile(null)}>
                                     <Image size={3}>
-                                        <FetchImage src={file.name}/>
+                                        <img src={URL.createObjectURL(file)} alt=""/>
                                     </Image>
                                     <div>
-                                        <Icon type={"ThreeDots"} size={3}/>
+                                        <Icon type={"Cross"} size={3}/>
                                     </div>
                                 </div>
                             </div>}
                             <div>
-                                <LoadImageButton onImageInput={handleImageChange}/>
+                                <LoadImageButton name={"message"} onImageInput={handleImageChange}/>
                                 <Field
                                     onKeyDown={submitOnEnter}
                                     max_height={100}

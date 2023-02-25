@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, {useEffect} from 'react';
 
 import styles from "./Navbar.module.scss";
 import {NavButton} from "../../../shared/ui";
@@ -18,10 +18,11 @@ const Navbar = () => {
         <nav className={styles.container}>
             <NavButton to={"/"}><Icon type={"Logo"} size={2}/></NavButton>
             <NavButton to={"/"} icon_type={"Home"}>Main</NavButton>
-            {isAuth && <NavButton to={`/profile/${user?.login}/`} icon_type={"Profile"}>Profile</NavButton>}
-            {isAuth && <NavButton to={"/messages/"} icon_type={"Messages"}>Messages</NavButton>}
-            {isAuth && <NavButton to={"/notifications/"} icon_type={"Notifications"}>Notifications</NavButton>}
-            {isAuth && <OpenCreationPostWindowButton/>}
+            {user_id && <NavButton to={`/profile/${user?.login}/`} icon_type={"Profile"}>Profile</NavButton>}
+            {user_id && <NavButton to={"/messages/"} icon_type={"Messages"}>Messages</NavButton>}
+            {user_id && <NavButton to={"/notifications/"} icon_type={"Notifications"}>Notifications</NavButton>}
+            {user_id && <NavButton to={"/settings/"} icon_type={"Settings"}>Settings</NavButton>}
+            {user_id && <OpenCreationPostWindowButton/>}
         </nav>
     );
 };

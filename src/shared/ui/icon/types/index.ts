@@ -5,7 +5,8 @@ export type FillableIconType =
     "Profile" |
     "Bookmark" |
     "Messages" |
-    "Notifications"
+    "Notifications" |
+    "Settings"
 
 export type IconType =
     "Logo" |
@@ -13,8 +14,8 @@ export type IconType =
     "More" |
     "Loader" |
     "Search" |
-    "Settings" |
     "BackArrow" |
     "ThreeDots" |
     "CreatePost" |
-    "Photo"
+    "Photo" |
+    "Cross"

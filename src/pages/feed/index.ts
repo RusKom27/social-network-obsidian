@@ -1,5 +1,7 @@
-import Feed from "./components/Feed";
+import FollowsFeed from "./components/FollowsFeed";
+import ActualFeed from "./components/ActualFeed";
 
 export {
-    Feed,
+    FollowsFeed,
+    ActualFeed,
 };

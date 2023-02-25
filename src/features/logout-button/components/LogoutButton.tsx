@@ -3,10 +3,13 @@ import {useNavigate} from "react-router-dom";
 
 import {Button, ButtonPropsType} from "../../../shared/ui";
 import {authApi} from "../../../shared/api";
+import {removeAuthData} from "../../../shared/slices/auth";
+import {useAppDispatch} from "../../../shared/hooks";
 
 
 export const LogoutButton: FC<ButtonPropsType> = ({onClick, ...props}) => {
     const [logout, {isLoading, isSuccess}] = authApi.useLogoutMutation();
+    const dispatch = useAppDispatch();
     const navigate = useNavigate();
 
     const clickEventHandler = () => {
@@ -15,6 +18,7 @@ export const LogoutButton: FC<ButtonPropsType> = ({onClick, ...props}) => {
 
     useEffect(() => {
         if (isSuccess) {
+            dispatch(removeAuthData());
             navigate(`/login`);
             if (onClick) onClick("");
         }

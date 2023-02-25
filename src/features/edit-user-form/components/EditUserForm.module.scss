@@ -1,0 +1,21 @@
+@import "src/shared/themes/style-variables/variables";
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  .images {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 36px;
+    gap: 16px;
+    > div {
+      display: flex;
+      flex-direction: row;
+    }
+  }
+
+
+}

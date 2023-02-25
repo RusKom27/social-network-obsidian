@@ -1,7 +1,7 @@
 import React from "react";
 import {useLocation} from "react-router-dom";
 
-import {PageDefaultLayout, PageHeader} from "../../../shared/ui";
+import {NavButton, PageDefaultLayout, PageHeader} from "../../../shared/ui";
 import {Sidebar} from "../../../widgets";
 
 

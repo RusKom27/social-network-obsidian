@@ -4,7 +4,7 @@ import * as Yup from "yup";
 
 import styles from "./CreatePostForm.module.scss";
 import {imageApi, postApi} from "../../../shared/api";
-import {Button, Image, TextAreaField} from "../../../shared/ui";
+import {Button, Icon, Image, TextAreaField} from "../../../shared/ui";
 import {LoadImageButton} from "../../load-image-button";
 import { FetchImage } from "../../../entities/image";
 // import {loadImage} from "../../../shared/api/services/imageApi";
@@ -52,17 +52,20 @@ export const CreatePostForm: FC<PropsType> = ({onSuccess}) => {
                         <div>
                             <Field type={"PostInput"} name={"post_text"} component={TextAreaField}></Field>
                             <div>
-                                <div onClick={() => setFile(null)} className={styles.image_preview}>
-                                    {file &&
-                                        <Image>
-                                            <FetchImage src={file.name}/>
+                                {file && <div className={styles.image_preview}>
+                                    <div onClick={() => setFile(null)}>
+                                        <Image size={5}>
+                                            <img src={URL.createObjectURL(file)} alt=""/>
                                         </Image>
-                                    }
-                                </div>
+                                        <div>
+                                            <Icon type={"Cross"} size={3}/>
+                                        </div>
+                                    </div>
+                                </div>}
                             </div>
                         </div>
                         <div>
-                            <LoadImageButton onImageInput={handleImageChange}/>
+                            <LoadImageButton name={"post"} onImageInput={handleImageChange}/>
                             <Button type="submit">Create</Button>
                         </div>
                     </form>

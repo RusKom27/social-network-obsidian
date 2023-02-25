@@ -11,15 +11,9 @@ export const userApi = createApi({
     endpoints: (build) => ({
         fetchUserById: build.query<IUser, string | null>({
             query: (user_id) => ({
-                url: `/user/id/${user_id}`,
+                url: `/user/${user_id}`,
             }),
             providesTags: () => ['User'],
-        }),
-        fetchUserListById: build.query<IUser[], string[]>({
-            query: (users_id) => ({
-                url: `/user/id_array?users_id=${users_id.join('&users_id=')}`,
-            }),
-            providesTags: () => ['UserList'],
         }),
         fetchUserList: build.query<string[], UserRequestQuery | undefined>({
             query: (user_request_query) => {
