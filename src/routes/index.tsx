@@ -1,7 +1,7 @@
 import React, {lazy} from "react";
 import {Route, Routes} from "react-router-dom";
 
-import {ActualFeed, FollowsFeed, Login, NotFoundPage, Registration} from "../pages";
+import {ActualFeed, DialogList, FollowsFeed, Login, NotFoundPage, Registration} from "../pages";
 import {PostCardList} from "../widgets";
 import {useAppSelector} from "../shared/hooks";
 import {Settings} from "../pages/settings";
@@ -18,7 +18,8 @@ const RoutesComponents = () => {
         <Routes>
             <Route path={"/"} element={<ActualFeed/>}/>
             {user_id && <Route path={"follows"} element={<FollowsFeed/>}/>}
-            {user_id && <Route path={"/messages/*"} element={<Messages/>}/>}
+            {user_id && <Route path={"/messages"} element={<DialogList/>}/>}
+            {user_id && <Route path={"/messages/:dialog_id"} element={<Messages/>}/>}
             {user_id && <Route path={"/notifications"} element={<Notifications/>}/>}
             {user_id && <Route path={"/settings"} element={<Settings/>}/>}
             <Route path={"/profile/:login/*"} element={<Profile/>}/>

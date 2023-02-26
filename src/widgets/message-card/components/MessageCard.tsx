@@ -1,5 +1,4 @@
-
-import React, {memo, useEffect, useRef, useState} from 'react';
+import React, {memo, useRef, useState} from 'react';
 
 import styles from "./MessageCard.module.scss";
 import {UserAvatar, UserName} from "../../../entities/user";
@@ -10,35 +9,25 @@ import {OpenMessageOptionsButton} from "../../../features";
 import {Image, Loader} from "../../../shared/ui";
 import {FetchImage} from "../../../entities/image";
 
-
 interface PropsType {
     message_id: string
+    isFirstInGroup?: boolean
+    isFromOtherUser?: boolean
 }
 
-const MessageCard = memo<PropsType>(({message_id}) => {
+const MessageCard = memo<PropsType>(({
+    message_id,
+    isFirstInGroup=false,
+    isFromOtherUser=false,
+}) => {
     const {data: message} = messageApi.useFetchMessageQuery(message_id);
-    const [isFirstInGroup, setIsFirstInGroup] = useState(false);
-    const user_id = useAppSelector(state => state.auth.user_id);
-    const from_other_user = user_id !== message?.sender_id;
-    const ref = useRef<HTMLDivElement>(null);
-
-    const previousSiblingIsFromOtherUser = ref.current?.previousElementSibling?.attributes.item(1)?.value;
-
-    useEffect(() => {
-        if (previousSiblingIsFromOtherUser) {
-            setIsFirstInGroup(
-                previousSiblingIsFromOtherUser !== from_other_user.toString(),
-            );
-        }
-    }, [previousSiblingIsFromOtherUser, message, from_other_user]);
 
     if (!message) return <Loader/>;
 
     return (
         <div
-            ref={ref}
             className={styles.container}
-            data-from-other-user={from_other_user}
+            data-from-other-user={isFromOtherUser}
         >
             <div className={styles.side}>
                 {isFirstInGroup && <UserAvatar size={1} user_id={message.sender_id}/>}

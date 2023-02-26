@@ -7,6 +7,7 @@ interface PropsType {
     styles?: any,
     withoutSuffix?: boolean,
     fromNow?: boolean,
+    showOnlyTime?: boolean,
 }
 
 const DateText: FC<PropsType> = ({
@@ -14,10 +15,14 @@ const DateText: FC<PropsType> = ({
     styles = {},
     withoutSuffix=false,
     fromNow=true,
+    showOnlyTime=false,
 }) => {
     const date_obj = moment(date);
 
     const date_now = moment(new Date());
+
+    if (showOnlyTime && date_now.diff(date_obj, "hours") > 3)
+        return <span className={styles}>{date_obj.format("HH:MM")}</span>;
 
     return (
         <span className={styles} >

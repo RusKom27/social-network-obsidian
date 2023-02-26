@@ -21,7 +21,7 @@ export const messageApi = createApi({
             }),
             providesTags: (result) => ['Message'],
         }),
-        fetchMessages: build.query<string[], {dialog_id: string, query?: MessageRequestQuery}>({
+        fetchMessages: build.query<IMessage[], {dialog_id: string, query?: MessageRequestQuery}>({
             query: ({dialog_id, query}) => {
                 if (!query) return {url: `/message/dialog`};
                 const query_string = Object
@@ -32,7 +32,7 @@ export const messageApi = createApi({
                     url: `/message/dialog/${dialog_id}?${query_string}`,
                 };
             },
-            providesTags: (result) => ['MessageIdArray'],
+            providesTags: (result) => ['Message'],
         }),
         createMessage: build.mutation<IMessage, MessageCreationProps>({
             query: (message) => ({

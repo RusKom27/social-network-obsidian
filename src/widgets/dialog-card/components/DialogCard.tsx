@@ -21,7 +21,7 @@ const DialogCard = memo<PropsType>(({dialog}) => {
         {dialog_id: dialog._id, query: {sort_by_relevance: "descending", limit: 1}},
     );
     if (!message_id_list) return <Loader/>;
-    const last_message_id = message_id_list.at(-1);
+    const last_message_id = message_id_list.at(-1)?._id;
 
     return (
         <Link to={`/messages/${dialog._id}`} className={styles.container}>

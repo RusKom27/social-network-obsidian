@@ -19,3 +19,4 @@ export * from "./hover-card";
 export * from "./component-list";
 export * from "./side-container-element";
 export * from "./message-page-layout";
+export * from "./message-group-date";

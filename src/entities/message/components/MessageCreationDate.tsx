@@ -18,6 +18,7 @@ export const MessageCreationDate: FC<PropsType> = ({message_id}) => {
             withoutSuffix={false}
             fromNow={false}
             styles={styles.message_creation_date}
+            showOnlyTime={true}
             date={message.createdAt}
         />
     );

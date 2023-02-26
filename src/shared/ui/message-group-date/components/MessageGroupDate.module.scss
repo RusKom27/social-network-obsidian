@@ -1,0 +1,10 @@
+@import "../../../themes/style-variables/variables";
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4px;
+  margin-block: 24px;
+  background-color: transparentize($tertiary-color, 0.95);
+}

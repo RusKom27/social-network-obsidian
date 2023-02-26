@@ -7,6 +7,7 @@ import {NavTab, PageDefaultLayout, PageHeader, SideContainerElement, TabBar} fro
 import {useAppSelector} from "../../../shared/hooks";
 
 const ActualFeed = () => {
+    const user_id = useAppSelector(state => state.auth.user_id);
 
     return (
         <>
@@ -17,7 +18,7 @@ const ActualFeed = () => {
                     </div>
                     <TabBar>
                         <NavTab to={"/"}>Actual</NavTab>
-                        <NavTab to={"/follows"}>Follows</NavTab>
+                        {user_id && <NavTab to={"/follows"}>Follows</NavTab>}
                     </TabBar>
                 </PageHeader>
                 <PostCardList post_request_query={{}}/>
