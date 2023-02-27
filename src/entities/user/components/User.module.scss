@@ -8,10 +8,9 @@
 .user_login {
   font-size: 15px;
   font-weight: 300;
-  color: transparentize($tertiary-color, 0.3)
 }
 
-.user_name {
+.user_name, .user_login {
   &[data-size="0"] {
     font-size: 12px;
   }

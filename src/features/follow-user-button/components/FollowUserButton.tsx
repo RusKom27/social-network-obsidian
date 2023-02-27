@@ -1,15 +1,21 @@
-import React, {memo, useEffect, useState} from 'react';
+import React, {memo, ReactNode, useEffect, useState} from 'react';
 
 import {Button, ButtonPropsType} from "../../../shared/ui";
-import {postApi, userApi} from "../../../shared/api";
+import {userApi} from "../../../shared/api";
 import {useAppSelector} from "../../../shared/hooks";
 
 interface PropsType {
     user_id: string,
     onSubmit?: () => void
+    children?: ReactNode
 }
 
-export const FollowUserButton = memo<PropsType & ButtonPropsType>(({user_id, onSubmit, ...props}) => {
+export const FollowUserButton = memo<PropsType & ButtonPropsType>(({
+    user_id,
+    onSubmit,
+    children,
+    ...props
+}) => {
     const current_user_id = useAppSelector(state => state.auth.user_id);
     const {data: target_user} = userApi.useFetchUserByIdQuery(user_id);
     const [followUser, {isLoading, isSuccess}] = userApi.useFollowUserMutation();
@@ -36,7 +42,7 @@ export const FollowUserButton = memo<PropsType & ButtonPropsType>(({user_id, onS
             onClick={clickEventHandler}
             size={4} {...props}
         >
-            {isFollowed ? "Unfollow" : "Follow"}
+            {isFollowed ? "Unfollow" : "Follow"} {children}
         </Button>
     );
 });

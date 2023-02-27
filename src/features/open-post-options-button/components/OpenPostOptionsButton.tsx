@@ -6,6 +6,8 @@ import {DeleteMessageButton} from "../../delete-message-button";
 import {DeletePostButton} from "../../delete-post-button";
 import {postApi} from "../../../shared/api";
 import {useAppSelector} from "../../../shared/hooks";
+import {FollowUserButton} from "../../follow-user-button";
+import {UserLogin} from "../../../entities/user";
 
 
 interface PropsType {
@@ -23,9 +25,14 @@ export const OpenPostOptionsButton: FC<PropsType> = ({post_id}) => {
     const onClickHandler = () => {
         openHoverCard({
             children: <>
-                {post.author_id === user_id &&
+                {post.author_id === user_id && <>
                     <DeletePostButton size={1} border={false} onSubmit={() => closeHoverCard()} post_id={post_id}/>
-                }
+                </>}
+                {post.author_id !== user_id && <>
+                    <FollowUserButton size={1} user_id={post.author_id}>
+                        <UserLogin size={1} user_id={post.author_id}/>
+                    </FollowUserButton>
+                </>}
             </>,
             targetElement: optionRef.current,
             position: "absolute",
