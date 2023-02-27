@@ -1,6 +1,9 @@
 @import "src/shared/themes/style-variables/variables";
 
 .message_creation_date {
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
   font-size: 15px;
   font-weight: 300;
   color: transparentize($tertiary-color, 0.3);

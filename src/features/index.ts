@@ -13,4 +13,6 @@ export * from "./follow-user-button";
 export * from "./search-form";
 export * from "./load-image-button";
 export * from "./edit-user-form";
+export * from "./edit-message-button";
+export * from "./edit-message-form";
 

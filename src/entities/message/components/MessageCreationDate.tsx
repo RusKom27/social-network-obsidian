@@ -14,12 +14,15 @@ export const MessageCreationDate: FC<PropsType> = ({message_id}) => {
     if (!message) return <Loader />;
 
     return (
-        <DateText
-            withoutSuffix={false}
-            fromNow={false}
-            styles={styles.message_creation_date}
-            showOnlyTime={true}
-            date={message.createdAt}
-        />
+        <span className={styles.message_creation_date}>
+            <DateText
+                withoutSuffix={false}
+                fromNow={false}
+                showOnlyTime={true}
+                date={message.updatedAt}
+            />
+            <span>{message.createdAt?.toString() !== message.updatedAt?.toString() && "edited"}</span>
+        </span>
+
     );
 };

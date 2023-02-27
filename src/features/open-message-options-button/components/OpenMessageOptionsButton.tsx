@@ -5,6 +5,7 @@ import {HoverCardContext} from "../../../shared/lib/contexts";
 import {DeleteMessageButton} from "../../delete-message-button";
 import {messageApi, postApi} from "../../../shared/api";
 import {useAppSelector} from "../../../shared/hooks";
+import {EditMessageButton} from "../../edit-message-button";
 
 
 interface PropsType {
@@ -22,13 +23,18 @@ export const OpenMessageOptionsButton: FC<PropsType> = ({message_id}) => {
     const onClickHandler = () => {
         openHoverCard({
             children: <>
-                { message.sender_id === user_id &&
+                { message.sender_id === user_id && <>
                     <DeleteMessageButton
                         size={ 1 }
                         border={ false }
                         onSubmit={ () => closeHoverCard() }
-                        message_id={ message_id }/>
-                }
+                        message_id={ message_id }
+                    />
+                    <EditMessageButton
+                        size={ 1 }
+                        message_id={message_id}
+                    />
+                </>}
             </>,
             targetElement: optionRef.current,
             position: "absolute",

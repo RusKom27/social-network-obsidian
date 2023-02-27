@@ -24,6 +24,9 @@ const MessageCard = memo<PropsType>(({
 
     if (!message) return <Loader/>;
 
+    console.log("CREATED", message.createdAt?.toString());
+    console.log("UPDATE", message.updatedAt?.toString());
+
     return (
         <div
             className={styles.container}

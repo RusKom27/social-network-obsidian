@@ -5,18 +5,20 @@ import {useParams} from "react-router-dom";
 
 import {Icon, Image, Loader, TextAreaField} from "../../../shared/ui";
 import {imageApi, messageApi} from "../../../shared/api";
-import styles from "./CreateMessageForm.module.scss";
+import styles from "./EditMessageForm.module.scss";
 import {LoadImageButton} from "../../load-image-button";
 import {FetchImage} from "../../../entities/image";
+import {IMessage} from "../../../shared/api/models";
 
 interface PropsType {
+    message_id: string
     onSuccess?: () => void
 }
 
-export const CreateMessageForm: FC<PropsType> = ({onSuccess}) => {
-    const [createMessage, {isSuccess}] = messageApi.useCreateMessageMutation();
+export const EditMessageForm: FC<PropsType> = ({onSuccess, message_id}) => {
+    const [updateMessage, {isSuccess}] = messageApi.useUpdateMessageMutation();
     const [loadImage] = imageApi.useLoadImageMutation();
-    const dialog_id = useParams().dialog_id;
+    const {data: message} = messageApi.useFetchMessageQuery(message_id);
     const ref = useRef<HTMLFormElement>(null);
     const [file, setFile] = useState<File | null | undefined>(null);
 
@@ -41,21 +43,21 @@ export const CreateMessageForm: FC<PropsType> = ({onSuccess}) => {
         });
     }, [isSuccess, onSuccess]);
 
-    if (!dialog_id) return <Loader/>;
+    if (!message) return <Loader/>;
 
     return (
         <Formik
-            initialValues={{message_text: ''}}
+            initialValues={{message_text: message.text, message_image: message.image}}
             validationSchema={Yup.object({
                 message_text: Yup.string()
                     .max(300, 'Must be 300 characters or less')
                     .required('Required'),
             })}
             onSubmit={(values, { setSubmitting, resetForm }) => {
-                createMessage({
-                    dialog_id,
-                    text: values.message_text,
-                    image: file ? file.name : "",
+                updateMessage({
+                    _id: message._id,
+                    text: values.message_text || message.text,
+                    image: file ? file.name : message.image,
                 });
                 if (file) {
                     loadImage(file);
@@ -81,7 +83,7 @@ export const CreateMessageForm: FC<PropsType> = ({onSuccess}) => {
                                 </div>
                             </div>}
                             <div>
-                                <LoadImageButton name={"message"} onImageInput={handleImageChange}/>
+                                <LoadImageButton name={"message_edit"} onImageInput={handleImageChange}/>
                                 <Field
                                     onKeyDown={submitOnEnter}
                                     max_height={100}

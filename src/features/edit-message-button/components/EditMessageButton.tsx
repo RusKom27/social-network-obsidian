@@ -1,7 +1,10 @@
-import React, {memo, useEffect} from 'react';
+import React, {memo, useContext, useEffect} from 'react';
 
 import {Button, ButtonPropsType} from "../../../shared/ui";
 import {messageApi} from "../../../shared/api";
+import {ModalWindowContext} from "../../../shared/lib/contexts";
+import {CreatePostForm} from "../../create-post-form";
+import {EditMessageForm} from "../../edit-message-form";
 
 interface PropsType {
     message_id: string,
@@ -9,19 +12,18 @@ interface PropsType {
 }
 
 export const EditMessageButton = memo<PropsType & ButtonPropsType>(({message_id, onSubmit, ...props}) => {
-    const [deleteMessage, {isLoading, isSuccess}] = messageApi.useDeleteMessageMutation();
+    const {openModalWindow, closeModalWindow} = useContext(ModalWindowContext);
 
-    const clickEventHandler = () => {
-        deleteMessage(message_id);
+    const onClickHandler = () => {
+        openModalWindow({
+            title: "Message editing",
+            children: <EditMessageForm onSuccess={() => closeModalWindow()} message_id={message_id}/>,
+        });
     };
 
-    useEffect(() => {
-        if (onSubmit && isSuccess) onSubmit();
-    }, [onSubmit, isSuccess]);
-
     return (
-        <Button disabled={isLoading} hover_color={"red"} onClick={clickEventHandler} size={4} {...props}>
-            Delete
+        <Button hover_color={"red"} onClick={onClickHandler} size={4} {...props}>
+            Edit
         </Button>
     );
 

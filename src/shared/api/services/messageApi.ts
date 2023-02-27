@@ -44,6 +44,14 @@ export const messageApi = createApi({
             }),
             invalidatesTags: ['Message'],
         }),
+        updateMessage: build.mutation<IMessage, any>({
+            query: (message) => ({
+                url: `/message/update/${message._id}`,
+                method: 'PUT',
+                body: message,
+            }),
+            invalidatesTags: ['Message'],
+        }),
         deleteMessage: build.mutation<IMessage, string>({
             query: (message_id) => ({
                 url: `/message/delete/${message_id}`,
