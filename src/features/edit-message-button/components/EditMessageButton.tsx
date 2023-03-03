@@ -1,9 +1,7 @@
 import React, {memo, useContext, useEffect} from 'react';
 
 import {Button, ButtonPropsType} from "../../../shared/ui";
-import {messageApi} from "../../../shared/api";
 import {ModalWindowContext} from "../../../shared/lib/contexts";
-import {CreatePostForm} from "../../create-post-form";
 import {EditMessageForm} from "../../edit-message-form";
 
 interface PropsType {
@@ -22,7 +20,7 @@ export const EditMessageButton = memo<PropsType & ButtonPropsType>(({message_id,
     };
 
     return (
-        <Button hover_color={"red"} onClick={onClickHandler} size={4} {...props}>
+        <Button onClick={onClickHandler} size={4} {...props}>
             Edit
         </Button>
     );

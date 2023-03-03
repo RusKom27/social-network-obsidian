@@ -7,7 +7,6 @@ import {Icon, Image, Loader, TextAreaField} from "../../../shared/ui";
 import {imageApi, messageApi} from "../../../shared/api";
 import styles from "./CreateMessageForm.module.scss";
 import {LoadImageButton} from "../../load-image-button";
-import {FetchImage} from "../../../entities/image";
 
 interface PropsType {
     onSuccess?: () => void

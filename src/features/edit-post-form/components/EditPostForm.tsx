@@ -2,43 +2,45 @@ import React, {FC, useEffect, useState} from "react";
 import {Field, Formik} from "formik";
 import * as Yup from "yup";
 
-import styles from "./CreatePostForm.module.scss";
-import {imageApi, postApi} from "../../../shared/api";
-import {Button, Icon, Image, TextAreaField} from "../../../shared/ui";
+import {Button, Icon, Image, Loader, TextAreaField} from "../../../shared/ui";
+import {imageApi, messageApi, postApi} from "../../../shared/api";
+import styles from "./EditPostForm.module.scss";
 import {LoadImageButton} from "../../load-image-button";
 
-
 interface PropsType {
-    onSuccess: () => void
+    post_id: string
+    onSuccess?: () => void
 }
 
-export const CreatePostForm: FC<PropsType> = ({onSuccess}) => {
-    const [createPost, {isSuccess}] = postApi.useCreatePostMutation();
+export const EditPostForm: FC<PropsType> = ({onSuccess, post_id}) => {
+    const [updatePost, {isLoading, isSuccess}] = postApi.useUpdatePostMutation();
     const [loadImage] = imageApi.useLoadImageMutation();
+    const {data: post} = postApi.useFetchPostQuery(post_id);
     const [file, setFile] = useState<File | null | undefined>(null);
-
-    useEffect(() => {
-        if (isSuccess) {
-            onSuccess();
-        }
-    }, [isSuccess, onSuccess]);
 
     const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setFile(event.target.files?.item(0));
     };
 
+    useEffect(() => {
+        if (isSuccess && onSuccess) onSuccess();
+    }, [isSuccess, onSuccess]);
+
+    if (!post) return <Loader/>;
+
     return (
         <Formik
-            initialValues={{post_text: ''}}
+            initialValues={{post_text: post.text}}
             validationSchema={Yup.object({
                 post_text: Yup.string()
                     .max(300, 'Must be 300 characters or less')
                     .required('Required'),
             })}
             onSubmit={async (values, { setSubmitting }) => {
-                createPost({
-                    text: values.post_text,
-                    image: file ? file.name : "",
+                updatePost({
+                    _id: post._id,
+                    text: values.post_text || post.text,
+                    image: file ? file.name : post.image,
                 });
                 if (file) loadImage(file);
                 setSubmitting(false);
@@ -64,7 +66,7 @@ export const CreatePostForm: FC<PropsType> = ({onSuccess}) => {
                         </div>
                         <div>
                             <LoadImageButton name={"post"} onImageInput={handleImageChange}/>
-                            <Button type="submit">Create</Button>
+                            <Button disabled={isLoading} type="submit">Save</Button>
                         </div>
                     </form>
                 );

@@ -3,7 +3,7 @@ import React, {FC, useContext, useRef} from 'react';
 import {Button, Icon, Loader} from "../../../shared/ui";
 import {HoverCardContext} from "../../../shared/lib/contexts";
 import {DeleteMessageButton} from "../../delete-message-button";
-import {messageApi, postApi} from "../../../shared/api";
+import {messageApi} from "../../../shared/api";
 import {useAppSelector} from "../../../shared/hooks";
 import {EditMessageButton} from "../../edit-message-button";
 
@@ -24,15 +24,15 @@ export const OpenMessageOptionsButton: FC<PropsType> = ({message_id}) => {
         openHoverCard({
             children: <>
                 { message.sender_id === user_id && <>
+                    <EditMessageButton
+                        size={ 1 }
+                        message_id={message_id}
+                    />
                     <DeleteMessageButton
                         size={ 1 }
                         border={ false }
                         onSubmit={ () => closeHoverCard() }
                         message_id={ message_id }
-                    />
-                    <EditMessageButton
-                        size={ 1 }
-                        message_id={message_id}
                     />
                 </>}
             </>,

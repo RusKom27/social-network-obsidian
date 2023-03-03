@@ -8,6 +8,7 @@ import {postApi} from "../../../shared/api";
 import {useAppSelector} from "../../../shared/hooks";
 import {FollowUserButton} from "../../follow-user-button";
 import {UserLogin} from "../../../entities/user";
+import {EditPostButton} from "../../edit-post-button";
 
 
 interface PropsType {
@@ -27,6 +28,7 @@ export const OpenPostOptionsButton: FC<PropsType> = ({post_id}) => {
             children: <>
                 {post.author_id === user_id && <>
                     <DeletePostButton size={1} border={false} onSubmit={() => closeHoverCard()} post_id={post_id}/>
+                    <EditPostButton size={1} post_id={post_id}/>
                 </>}
                 {post.author_id !== user_id && <>
                     <FollowUserButton size={1} user_id={post.author_id}>

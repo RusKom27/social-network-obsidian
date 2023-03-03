@@ -1,10 +1,7 @@
 import {fetchBaseQuery} from "@reduxjs/toolkit/dist/query/react";
-import {Simulate} from "react-dom/test-utils";
 
 import {config} from "../../config";
 import Storage from "../../lib/storage";
-
-import error = Simulate.error;
 
 export const baseQuery = fetchBaseQuery({
     baseUrl: `${config.server_url}/api`,

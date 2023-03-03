@@ -3,7 +3,6 @@ import {Link} from "react-router-dom";
 
 import {Button, Icon, Loader} from "../../../shared/ui";
 import styles from "./ActualTopicCard.module.scss";
-import {ITopic} from "../../../shared/api/models";
 import {topicApi} from "../../../shared/api";
 
 

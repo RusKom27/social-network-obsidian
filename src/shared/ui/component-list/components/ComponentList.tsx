@@ -1,5 +1,4 @@
 import React, {FC, ReactNode} from 'react';
-import * as CSS from "csstype";
 
 import styles from "./ComponentList.module.scss";
 

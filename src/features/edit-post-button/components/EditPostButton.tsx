@@ -1,7 +1,8 @@
-import React, {memo, useEffect} from 'react';
+import React, {memo, useContext, useEffect} from 'react';
 
 import {Button, ButtonPropsType} from "../../../shared/ui";
-import {postApi} from "../../../shared/api";
+import {ModalWindowContext} from "../../../shared/lib/contexts";
+import {EditPostForm} from "../../edit-post-form";
 
 interface PropsType {
     post_id: string,
@@ -9,19 +10,19 @@ interface PropsType {
 }
 
 export const EditPostButton = memo<PropsType & ButtonPropsType>(({post_id, onSubmit, ...props}) => {
-    const [deletePost, {isLoading, isSuccess}] = postApi.useDeletePostMutation();
+    const {openModalWindow, closeModalWindow} = useContext(ModalWindowContext);
 
-    const clickEventHandler = () => {
-        deletePost(post_id);
+    const onClickHandler = () => {
+        openModalWindow({
+            title: "Post editing",
+            children: <EditPostForm onSuccess={() => closeModalWindow()} post_id={post_id}/>,
+        });
     };
 
-    useEffect(() => {
-        if (onSubmit && isSuccess) onSubmit();
-    }, [onSubmit, isSuccess]);
-
     return (
-        <Button disabled={isLoading} hover_color={"red"} onClick={clickEventHandler} size={4} {...props}>
-            Delete
+        <Button onClick={onClickHandler} size={4} {...props}>
+            Edit
         </Button>
     );
+
 });

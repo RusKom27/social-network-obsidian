@@ -3,6 +3,7 @@ import {createApi} from "@reduxjs/toolkit/dist/query/react";
 import IPost from "../models/IPost";
 import {queryWithAuth} from "../interceptors";
 import {PostRequestQuery} from "../types";
+import {IMessage} from "../models";
 
 
 export const postApi = createApi({
@@ -38,6 +39,14 @@ export const postApi = createApi({
                 },
             }),
             invalidatesTags: ['Post', 'PostId'],
+        }),
+        updatePost: build.mutation<IPost, any>({
+            query: (post) => ({
+                url: `/post/update/${post._id}`,
+                method: 'PUT',
+                body: post,
+            }),
+            invalidatesTags: ['Post'],
         }),
         likePost: build.mutation<IPost, string>({
             query: (post_id) => ({

@@ -1,14 +1,11 @@
 import React, {FC, useEffect, useRef, useState} from "react";
 import {Field, Formik} from "formik";
 import * as Yup from "yup";
-import {useParams} from "react-router-dom";
 
-import {Icon, Image, Loader, TextAreaField} from "../../../shared/ui";
+import {Button, Icon, Image, Loader, TextAreaField} from "../../../shared/ui";
 import {imageApi, messageApi} from "../../../shared/api";
 import styles from "./EditMessageForm.module.scss";
 import {LoadImageButton} from "../../load-image-button";
-import {FetchImage} from "../../../entities/image";
-import {IMessage} from "../../../shared/api/models";
 
 interface PropsType {
     message_id: string
@@ -16,7 +13,7 @@ interface PropsType {
 }
 
 export const EditMessageForm: FC<PropsType> = ({onSuccess, message_id}) => {
-    const [updateMessage, {isSuccess}] = messageApi.useUpdateMessageMutation();
+    const [updateMessage, {isSuccess, isLoading}] = messageApi.useUpdateMessageMutation();
     const [loadImage] = imageApi.useLoadImageMutation();
     const {data: message} = messageApi.useFetchMessageQuery(message_id);
     const ref = useRef<HTMLFormElement>(null);
@@ -34,14 +31,8 @@ export const EditMessageForm: FC<PropsType> = ({onSuccess, message_id}) => {
     };
 
     useEffect(() => {
-        if (isSuccess && onSuccess) {
-            onSuccess();
-        }
-        window.scrollTo({
-            top: document.body.scrollHeight,
-            behavior: "smooth",
-        });
-    }, [isSuccess, onSuccess]);
+        if (isSuccess && onSuccess) onSuccess();
+    }, [onSuccess, isSuccess]);
 
     if (!message) return <Loader/>;
 
@@ -70,7 +61,6 @@ export const EditMessageForm: FC<PropsType> = ({onSuccess, message_id}) => {
             {({handleSubmit}) => {
                 return (
                     <>
-
                         <form ref={ref} className={styles.container} onSubmit={handleSubmit}>
                             {file && <div className={styles.image_preview}>
                                 <div onClick={() => setFile(null)}>
@@ -91,13 +81,12 @@ export const EditMessageForm: FC<PropsType> = ({onSuccess, message_id}) => {
                                     name={"message_text"}
                                     component={TextAreaField}
                                 />
-                                <button type="submit">
+                                <Button disabled={isLoading} type="submit">
                                     <Icon type={"Send"} size={2}/>
-                                </button>
+                                </Button>
                             </div>
                         </form>
                     </>
-
                 );
             }}
         </Formik>

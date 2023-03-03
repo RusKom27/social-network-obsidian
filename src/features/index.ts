@@ -15,4 +15,6 @@ export * from "./load-image-button";
 export * from "./edit-user-form";
 export * from "./edit-message-button";
 export * from "./edit-message-form";
+export * from "./edit-post-button";
+export * from "./edit-post-form";
 
